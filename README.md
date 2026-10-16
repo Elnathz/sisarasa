@@ -135,8 +135,20 @@ Buka dan jalankan seluruh sel notebook secara sekuensial:
 jupyter lab notebooks/sisarasa_pipeline.ipynb
 ```
 
+### E. Menjalankan Frontend Web (Next.js)
+1. Masuk ke direktori frontend:
+   ```bash
+   cd frontend
+   ```
+2. Jalankan development server:
+   ```bash
+   npm run dev
+   ```
+3. Buka antarmuka aplikasi di peramban:  
+   **[http://localhost:3000](http://localhost:3000)**
 
 ---
+
 
 ## 6. Lisensi & Hak Cipta
 
