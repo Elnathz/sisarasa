@@ -1,6 +1,5 @@
 """
-SisaRasa Retrieval Models
-Extracted from SisaRasa IR Pipeline (Cell 7)
+SisaRasa Information Retrieval Models
 Contains:
 - BaseRetriever
 - SetOverlapRetriever
@@ -8,25 +7,16 @@ Contains:
 - BM25Retriever
 - SisaRasaHybridRetriever
 """
+from abc import ABC, abstractmethod
+from typing import List, Dict, Set, Tuple, Any, Optional
+
 import numpy as np
 import pandas as pd
-from typing import List, Dict, Set, Tuple, Any, Optional
 from scipy.sparse import csr_matrix
-from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
-from backend.app.parser import IndonesianIngredientParser, PARSER
-
-def _identity_token_func(doc):
-    return doc
-
-# ==============================================================================
-# CELL 7: Pemodelan Information Retrieval (Set-Overlap, TF-IDF, BM25, SisaRasa Hybrid)
-# ==============================================================================
-
-from abc import ABC, abstractmethod
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-from scipy.sparse import csr_matrix
-import numpy as np
+
+from backend.app.parser import IndonesianIngredientParser, PARSER
 
 
 def _identity_token_func(x):
@@ -35,6 +25,7 @@ def _identity_token_func(x):
 
 
 class BaseRetriever(ABC):
+
     name: str = "Base"
 
     @abstractmethod
