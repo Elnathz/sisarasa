@@ -2,7 +2,7 @@
 
 [![Python Version](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.110%2B-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
-[![Tests](https://img.shields.io/badge/Pytest-12%20Passed-success?logo=pytest&logoColor=white)](backend/tests/)
+[![Tests](https://img.shields.io/badge/Pytest-13%20Passed-success?logo=pytest&logoColor=white)](backend/tests/)
 [![Repository](https://img.shields.io/badge/GitHub-Repository-181717?logo=github&logoColor=white)](https://github.com/Elnathz/sisarasa)
 [![Course](https://img.shields.io/badge/Mata%20Kuliah-Sistem%20Temu%20Kembali%20Informasi-orange)](https://github.com/Elnathz/sisarasa)
 
@@ -57,12 +57,12 @@ Sebanyak **3.607 pasangan dokumen-kueri** dinilai relevansinya menggunakan *Qrel
 
 | Model | P@5 | R@5 | nDCG@5 | P@10 | R@10 | nDCG@10 | MAP@10 | MRR | Latensi Rata-rata |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Set-Overlap (Jaccard)** | 0.8708 | 0.1283 | 0.8668 | 0.8583 | 0.2542 | 0.8576 | 0.8214 | 0.9354 | **9.3 ms** |
-| **TF-IDF Cosine** | 0.6875 | 0.0875 | 0.6196 | 0.6396 | 0.1577 | 0.6000 | 0.5469 | 0.8082 | 77.2 ms |
-| **BM25 Okapi** | 0.5958 | 0.0786 | 0.4769 | 0.5521 | 0.1436 | 0.4693 | 0.4728 | 0.8408 | 18.8 ms |
-| **SisaRasa Hybrid (Proposed)** | **0.9458** | **0.1522** | **0.8857** | **0.9292** | **0.2829** | **0.8795** | **0.9359** | **0.9665** | 104.2 ms |
+| **Set-Overlap (Jaccard)** | 0.8875 | 0.1310 | 0.8755 | 0.8583 | 0.2569 | 0.8666 | 0.8318 | 0.9410 | 11.1 ms |
+| **TF-IDF Cosine** | 0.7042 | 0.0907 | 0.6291 | 0.6458 | 0.1613 | 0.6047 | 0.5530 | 0.8082 | 61.9 ms |
+| **BM25 Okapi** | 0.6083 | 0.0813 | 0.4873 | 0.5646 | 0.1493 | 0.4764 | 0.4841 | 0.8513 | **9.2 ms** |
+| **SisaRasa Hybrid (Proposed)** | **0.9500** | **0.1539** | **0.8848** | **0.9375** | **0.2882** | **0.8825** | **0.9440** | **0.9665** | 56.2 ms |
 
-> **Kesimpulan STKI**: Model **SisaRasa Hybrid** mengungguli seluruh model baseline di seluruh metrik utama, menghasilkan **MAP@10 = 0.9359** dan **MRR = 0.9665** dengan latensi responsif ~104 ms di atas 68.747 dokumen.
+> **Kesimpulan STKI**: Model **SisaRasa Hybrid** mengungguli seluruh model baseline di seluruh metrik utama, menghasilkan **P@5 = 0.9500**, **MAP@10 = 0.9440**, dan **MRR = 0.9665** dengan latensi responsif 56.2 ms di atas 68.747 dokumen.
 
 ---
 
@@ -94,7 +94,8 @@ sisarasa/
 │
 ├── notebooks/                            # Pipeline Riset & Eksperimen STKI
 │   ├── sisarasa_pipeline.ipynb           # Notebook master pipeline baseline v1
-│   └── sisarasa_v2.ipynb                 # Notebook pipeline v2 dengan enhanced NLP parser
+│   ├── sisarasa_v2.ipynb                 # Notebook pipeline v2 (Clean NLP)
+│   └── sisarasa_v3.ipynb                 # Notebook pipeline v3 (Canonical & Liquid Resolution)
 ├── .env.example                          # Template konfigurasi environment
 ├── .gitignore                            # Aturan git bersih
 └── README.md                             # Dokumentasi proyek
@@ -128,7 +129,7 @@ Jalankan test suite menggunakan `pytest`:
 ```bash
 pytest backend/tests/ -v
 ```
-*(Seluruh 12 unit test mencakup parser NLP kuliner v2 dengan penanganan 12 derau teks, pemisahan bumbu dasar, metrik stats, kalkulasi bahan cocok/kurang, dan endpoint API).*
+*(Seluruh 13 unit test mencakup parser NLP kuliner v3 dengan penanganan derau instruksi cairan, modifier komersial, pemisahan bumbu dasar, metrik stats, kalkulasi token matching, dan endpoint API).*
 
 ### D. Menjalankan Notebook Pipeline STKI
 Buka dan jalankan seluruh sel notebook secara sekuensial:
