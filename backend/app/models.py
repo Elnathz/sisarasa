@@ -35,8 +35,9 @@ class RecipeDetail(BaseModel):
 
 
 class SearchRequest(BaseModel):
-    query: str = Field(..., example="ayam, wortel, kecap manis")
+    query: str = Field(..., json_schema_extra={"example": "ayam, wortel, kecap manis"})
     top_k: int = Field(default=12, ge=1, le=50)
+
 
 class SearchResponse(BaseModel):
     query: str
