@@ -32,6 +32,39 @@ class SisaRasaUnpickler(pickle.Unpickler):
         return super().find_class(module, name)
 
 
+def compute_ingredient_matching(q_core: Set[str], doc_core: Set[str]) -> Tuple[List[str], List[str]]:
+    """
+    Kalkulasi pencocokan bahan kueri dengan bahan resep:
+    1. Pencocokan eksak (exact match)
+    2. Pencocokan token subset kanonik untuk bahan multi-kata (contoh: 'tepung terigu' cocok dengan 'tepung terigu serbaguna' / 'tepung terigu dengan air')
+    """
+    matched = set()
+    missing = set()
+
+    for d in doc_core:
+        if d in q_core:
+            matched.add(d)
+            continue
+
+        is_matched = False
+        dw = set(d.split())
+        for q in q_core:
+            qw = set(q.split())
+            if len(qw) >= 2 and qw.issubset(dw):
+                matched.add(d)
+                is_matched = True
+                break
+            if len(dw) >= 2 and dw.issubset(qw):
+                matched.add(d)
+                is_matched = True
+                break
+
+        if not is_matched:
+            missing.add(d)
+
+    return sorted(list(matched)), sorted(list(missing))
+
+
 class SisaRasaEngine:
     """
     Core search & recipe recommendation engine.
@@ -142,8 +175,7 @@ class SisaRasaEngine:
                 continue
 
             doc_core = recipe["core_set"]
-            matched = sorted(list(q_core & doc_core))
-            missing = sorted(list(doc_core - q_core))
+            matched, missing = compute_ingredient_matching(q_core, doc_core)
 
             # Match percentage based on recipe core ingredients
             denom = max(len(doc_core), 1)
@@ -199,8 +231,7 @@ class SisaRasaEngine:
         if query:
             q_parsed = self.parser.parse_query(query)
             q_core = q_parsed["ingredients_core_set"]
-            matched = sorted(list(q_core & recipe["core_set"]))
-            missing = sorted(list(recipe["core_set"] - q_core))
+            matched, missing = compute_ingredient_matching(q_core, recipe["core_set"])
             denom = max(len(recipe["core_set"]), 1)
             match_percentage = min(100, int(round((len(matched) / denom) * 100)))
 
