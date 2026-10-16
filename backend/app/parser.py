@@ -1,21 +1,18 @@
 """
 Indonesian Culinary NLP Parsing Engine
-Extracted from SisaRasa IR Pipeline (Cell 5)
-Handles:
-- Indonesian fraction & unit normalization
-- Preparation term stripping
-- Synonym mapping & colloquial alias normalization
-- Pantry staple separation
-- Core ingredient identification
+Specialized Information Retrieval parser for Indonesian recipe ingredients:
+- Normalizes Indonesian fractions and culinary measurement units
+- Strips preparation verbs and cutting styles
+- Maps colloquial synonyms and regional aliases to canonical terms
+- Filters standard pantry staples
+- Extracts core ingredients and composite IR tokens
 """
 import re
 from typing import List, Dict, Set, Tuple, Any, Optional
 
-# ==============================================================================
-# CELL 5: IndonesianIngredientParser: Culinary NLP, Units, Prep Noise & Synonyms
-# ==============================================================================
 
 class IndonesianIngredientParser:
+
     """
     Parser bahan makanan Indonesia khusus IR:
     - Menghapus angka, satuan takaran, kata kerja persiapan
