@@ -1,32 +1,75 @@
 """
-Indonesian Culinary NLP Parsing Engine
+Indonesian Culinary NLP Parsing Engine (v2 Enhanced)
 Specialized Information Retrieval parser for Indonesian recipe ingredients:
-- Normalizes Indonesian fractions and culinary measurement units
-- Strips preparation verbs and cutting styles
+- Normalizes Indonesian fractions, culinary measurement units, and attached units
+- Resolves word reduplications and strips preparation verbs and cutting styles
+- Filters Cookpad conversational chatter, section headers, and non-food utensils
+- Strips decorative emojis and stray unbalanced punctuation
 - Maps colloquial synonyms and regional aliases to canonical terms
-- Filters standard pantry staples
-- Extracts core ingredients and composite IR tokens
+- Classifies functional pantry staples adaptively
+- Extracts core ingredients and composite IR tokens for retrieval
 """
+
 import re
 from typing import List, Dict, Set, Tuple, Any, Optional
 
 
 class IndonesianIngredientParser:
-
     """
-    Parser bahan makanan Indonesia khusus IR:
-    - Menghapus angka, satuan takaran, kata kerja persiapan
-    - Menormalisasi sinonim ke bentuk kanonik
-    - Memisahkan core vs pantry ingredients
-    - Menghasilkan token komposit untuk indexing
+    Parser bahan makanan Indonesia v2 khusus Sistem Temu Kembali Informasi:
+    - Menghapus angka, pecahan takaran, dan pengubah ukuran fisik
+    - Menghilangkan catatan subjektif/percakapan Cookpad (chatter)
+    - Menyaring peralatan dan kemasan non-pangan
+    - Mengabaikan baris penanda struktur resep (section headers)
+    - Menghapus kata kerja/kondisi persiapan tanpa memotong bumbu majemuk
+    - Menormalisasi sinonim ke bentuk kanonik dengan kamus terproteksi
+    - Mengklasifikasikan bahan pokok dapur (pantry staples) adaptif
+    - Membangun token indeks komposit untuk mesin temu kembali
     """
 
-    # -- Pantry Staples --------------------------------------------------------
+    # -- 1. Bahan Pokok Dapur (Pantry Staples) ---------------------------------
     PANTRY_STAPLES = frozenset({
-        "air", "garam", "gula pasir", "minyak goreng", "kaldu bubuk", "merica",
+        "air", "garam", "gula pasir", "gula", "minyak goreng", "minyak",
+        "kaldu bubuk", "merica", "lada", "penyedap rasa", "msg", "micin"
     })
 
-    # -- Regex: angka, pecahan, rentang ----------------------------------------
+    # -- 2. Peralatan & Kemasan Non-Pangan -------------------------------------
+    NON_FOOD_TERMS = frozenset({
+        "tusuk sate", "tusukan sate", "tusuk gigi", "tusukan gigi", "lidi",
+        "plastik", "kertas roti", "kertas minyak", "karet gelang", "tali",
+        "daun pisang pembungkus", "alumunium foil"
+    })
+
+    # -- 3. Baris Header Seksi Resep -------------------------------------------
+    RE_SECTION_HEADER = re.compile(
+        r'^(?:bahan|bumbu|seasoning|pelengkap|topping|isian|olesan|marinasi|kuah|sambal|untuk|saos|saus)\b.*:|^[•\-\*#]+\s*(?:bahan|bumbu|seasoning|pelengkap|topping|isian|olesan|marinasi|kuah|sambal)',
+        re.IGNORECASE
+    )
+
+    # -- 4. Catatan Percakapan Penulis Cookpad (Chatter & Notes) ---------------
+    RE_CHATTER = re.compile(
+        r'\b(?:resep asli|resep aslinya|kalo resep|di resep|resepnya|resep)\b.*'
+        r'|\b(?:boleh skip|bisa diskip|bisa skip|skip|opsional|optional|tidak wajib|sesuai selera|selera)\b.*'
+        r'|\b(?:saya pakai|aku pakai|aku pake|saya pake|tambahan sy|tambahan saya|stok lama)\b.*'
+        r'|\b(?:tidak pakai|nggak pakai|gak pake|tidak ada|ga ada)\b.*',
+        re.IGNORECASE
+    )
+
+    # -- 5. Klausa Tujuan Penggunaan (Purpose Clauses) --------------------------
+    RE_PURPOSE = re.compile(
+        r'\b(?:untuk|utk|buat)\s+(?:menumis|menggoreng|merebus|mengukus|membakar|memanggang|taburan|olesan|marinasi|kuah|sambal|sate|cocolan|pelengkap|hiasan|garnis|isian)\b'
+        r'|\b(?:untuk|utk|buat)\b.*$',
+        re.IGNORECASE
+    )
+
+    # -- 6. Pengubah Ukuran Fisik ----------------------------------------------
+    RE_SIZES = re.compile(
+        r'\b(?:uk(?:uran)?\.?\s*(?:besar|sedang|kecil|jumbo|mini)?)\b'
+        r'|\b(?:besar|sedang|kecil|jumbo|mini)\b',
+        re.IGNORECASE
+    )
+
+    # -- 7. Angka, Pecahan, Rentang Takaran ------------------------------------
     RE_FRACTIONS = re.compile(r'[½¼¾⅓⅔⅕⅖⅗⅘⅙⅚⅛⅜⅝⅞]')
     RE_NUMBERS = re.compile(
         r'\b\d+[\.,/]?\d*\s*[-\u2013\u2014]\s*\d+[\.,/]?\d*\b'
@@ -35,14 +78,14 @@ class IndonesianIngredientParser:
         r'|\b\d+\b'
     )
 
-    # -- Satuan takaran kuliner (40+ entries) ----------------------------------
+    # -- 8. Satuan Takaran Kuliner ---------------------------------------------
     CULINARY_UNITS = [
         "sendok makan", "sendok teh", "sendok", "sdm", "sdt", "sdk",
         "kilogram", "gram", "ons", "kg", "gr", "g",
         "mililiter", "liter", "ml", "cc", "l",
         "siung", "butir", "btr", "buah", "bh", "biji",
         "batang", "btg", "lembar", "lbr", "helai", "tangkai",
-        "ruas", "jari", "cm",
+        "ruas", "jari", "cm", "telunjuk",
         "bungkus", "bks", "sachet", "sct", "pak", "papan",
         "potong", "ptg", "iris",
         "ekor", "ikat", "genggam", "segenggam", "jumput", "sejumput",
@@ -53,29 +96,33 @@ class IndonesianIngredientParser:
         "setengah", "seperempat", "sepertiga",
     ]
 
-    # -- Kata kerja / kondisi persiapan ----------------------------------------
+    # -- 9. Kata Kerja & Kondisi Persiapan (Bumbu Kacang & Bumbu Bebas Dihapus) --
     PREPARATION_WORDS = [
-        "potong dadu", "potong korek api", "potong kecil", "potong-potong", "potong",
-        "iris tipis", "iris serong", "iris halus", "iris kotak", "iris",
-        "cincang halus", "cincang kasar", "cincang",
-        "geprek", "memarkan", "dihaluskan", "haluskan", "ulek", "blender", "giling",
-        "bumbu halus", "bumbu ulek", "bumbu iris", "bumbu kacang", "bumbu",
+        "potong dadu", "potong korek api", "potong kecil", "potong-potong", "potong", "dipotong", "potongan",
+        "iris tipis", "iris serong", "iris halus", "iris kotak", "iris-iris", "iris", "diiris", "irisan",
+        "cincang halus", "cincang kasar", "cincang", "dicincang",
+        "geprek", "memarkan", "dimemarkan", "dihaluskan", "haluskan", "halus", "kasar", "ulek", "blender", "giling",
+        "belah dua", "belah 2", "belah 4", "belah 8", "belah", "dibelah",
+        "sobek-sobek", "sobek", "disobek",
+        "ambil bagian putihnya saja", "ambil bagian putihnya", "ambil putihnya saja", "ambil putihnya",
+        "dilarutkan dengan air", "larutkan dengan air", "larutkan air",
+        "bumbu halus", "bumbu ulek", "bumbu iris",
         "bahan marinasi", "bahan pelengkap", "bahan saus", "bahan pencelup",
-        "bahan kering", "bahan basah", "bahan kuah", "bahan isi", "bahan olesan", "bahan",
-        "rebus", "goreng", "sangrai", "bakar", "kukus", "panggang", "tumis", "oseng",
-        "cuci bersih", "cuci", "tiriskan", "kupas", "buang biji", "buang tulang",
-        "buang kulit", "buang kepala", "suwir-suwir", "suwir",
-        "kocok lepas", "kocok", "larutkan", "seduh", "peras", "parut", "serut",
-        "rendam", "marinasi", "lumuri",
-        "dadu", "fillet", "filet",
+        "bahan kering", "bahan basah", "bahan kuah", "bahan isi", "bahan olesan",
+        "rebus", "direbus", "goreng", "digoreng", "sangrai", "bakar", "dibakar", "kukus", "dikukus", "panggang", "tumis", "oseng",
+        "cuci bersih", "cuci", "tiriskan", "kupas", "dikupas",
+        "buang biji", "buang tulang", "buang kulit", "buang kepala",
+        "suwir-suwir", "suwir", "disuwir",
+        "kocok lepas", "kocok", "larutkan", "seduh", "peras", "diperas", "parut", "diparut", "serut",
+        "rendam", "direndam", "marinasi", "lumuri",
+        "dadu", "fillet", "filet", "kotak", "serong", "tebal", "tipis", "panjang", "memanjang",
         "dingin", "hangat", "panas", "suhu ruang", "matang", "mentah", "segar",
-        "ukuran sedang", "ukuran besar", "ukuran kecil",
-        "yang sudah", "yang telah", "untuk", "atau",
+        "yang sudah", "yang telah", "siap pakai", "siap saji"
     ]
 
-    # -- Kamus sinonim kuliner (Protective Keys + Canonical Mapping) -----------
+    # -- 10. Kamus Sinonim Kanonik Kuliner -------------------------------------
     SYNONYM_MAP = {
-        # Protective identity mappings (mencegah double replacement kata majemuk)
+        # Protective identity mappings
         "kecap manis": "kecap manis",
         "kecap asin": "kecap asin",
         "kecap ikan": "kecap ikan",
@@ -92,7 +139,10 @@ class IndonesianIngredientParser:
         "santan kara": "santan",
         "santen kara": "santan",
         "kara": "santan",
+        "santen": "santan",
         "santan": "santan",
+
+        # Protein
         "dada ayam fillet": "ayam",
         "ayam fillet": "ayam",
         "fillet ayam": "ayam",
@@ -104,10 +154,39 @@ class IndonesianIngredientParser:
         "ayam kampung": "ayam",
         "ayam negeri": "ayam",
         "ayam": "ayam",
-        "saori saus tiram": "saus tiram",
-        "saori saos tiram": "saus tiram",
-        "saos tiram": "saus tiram",
-        "saus tiram": "saus tiram",
+        "daging sapi": "daging sapi",
+        "sapi has dalam": "daging sapi",
+        "tetelan sapi": "daging sapi",
+        "iga sapi": "daging sapi",
+        "has dalam": "daging sapi",
+        "sapi": "daging sapi",
+        "daging kambing": "daging kambing",
+        "iga kambing": "daging kambing",
+        "kambing": "daging kambing",
+        "telor": "telur",
+        "telur ayam": "telur",
+        "telur bebek": "telur",
+        "telur puyuh": "telur",
+        "kuning telur": "telur",
+        "putih telur": "telur",
+        "telor ayam": "telur",
+        "tahu putih": "tahu",
+        "tahu kuning": "tahu",
+        "tahu cina": "tahu",
+        "tahu pong": "tahu",
+        "tahu sutra": "tahu",
+        "tahu bulat": "tahu",
+        "tahu": "tahu",
+        "tempe papan": "tempe",
+        "tempe gembus": "tempe",
+        "tempe": "tempe",
+        "udang kupas": "udang",
+        "udang jerbung": "udang",
+        "udang windu": "udang",
+        "udang": "udang",
+        "cumi cumi": "cumi",
+        "cumi-cumi": "cumi",
+        "cumi": "cumi",
         "ikan nila": "ikan",
         "ikan tongkol": "ikan",
         "ikan lele": "ikan",
@@ -131,14 +210,19 @@ class IndonesianIngredientParser:
         "bawang mrh": "bawang merah",
         "b merah": "bawang merah",
         "bwg merah": "bawang merah",
+        "bawang merah kupas": "bawang merah",
+        "bawang merah": "bawang merah",
         "baput": "bawang putih",
         "bw putih": "bawang putih",
         "bawang pth": "bawang putih",
         "b putih": "bawang putih",
         "bwg putih": "bawang putih",
+        "bawang putih kupas": "bawang putih",
+        "bawang putih": "bawang putih",
         "bawang bombai": "bawang bombay",
         "bombai": "bawang bombay",
         "bombay": "bawang bombay",
+        "bawang bombay": "bawang bombay",
         "cabe": "cabai",
         "lombok": "cabai",
         "cabai merah": "cabai merah",
@@ -161,69 +245,54 @@ class IndonesianIngredientParser:
         "cabai hijau keriting": "cabai hijau",
         "sereh": "serai",
         "sere": "serai",
+        "serai": "serai",
         "laos": "lengkuas",
         "galangal": "lengkuas",
+        "lengkuas": "lengkuas",
         "kunir": "kunyit",
         "turmerik": "kunyit",
+        "kunyit": "kunyit",
         "miri": "kemiri",
+        "kemiri": "kemiri",
         "tumbar": "ketumbar",
+        "ketumbar": "ketumbar",
         "merica bubuk": "merica",
         "lada": "merica",
         "lada putih": "merica",
         "lada bubuk": "merica",
         "lada hitam": "merica",
+        "merica": "merica",
         "jinten": "jintan",
+        "jintan": "jintan",
         "pekak": "bunga lawang",
         "star anise": "bunga lawang",
+        "bunga lawang": "bunga lawang",
         "daun jeruk purut": "daun jeruk",
         "daun limau": "daun jeruk",
+        "daun jeruk": "daun jeruk",
         "sledri": "seledri",
         "daun seledri": "seledri",
         "daun sop": "seledri",
+        "seledri": "seledri",
         "daun prei": "daun bawang",
         "loncang": "daun bawang",
         "oncang": "daun bawang",
         "bawang daun": "daun bawang",
         "daun pre": "daun bawang",
+        "daun bawang": "daun bawang",
         "asem": "asam jawa",
         "asam": "asam jawa",
         "asem jawa": "asam jawa",
-
-        # Protein
-        "daging sapi": "daging sapi",
-        "sapi has dalam": "daging sapi",
-        "tetelan sapi": "daging sapi",
-        "iga sapi": "daging sapi",
-        "has dalam": "daging sapi",
-        "sapi": "daging sapi",
-        "daging kambing": "daging kambing",
-        "iga kambing": "daging kambing",
-        "kambing": "daging kambing",
-        "telor": "telur",
-        "telur ayam": "telur",
-        "telur bebek": "telur",
-        "telur puyuh": "telur",
-        "kuning telur": "telur",
-        "putih telur": "telur",
-        "telor ayam": "telur",
-        "tahu putih": "tahu",
-        "tahu kuning": "tahu",
-        "tahu cina": "tahu",
-        "tahu pong": "tahu",
-        "tahu sutra": "tahu",
-        "tahu bulat": "tahu",
-        "tempe papan": "tempe",
-        "tempe gembus": "tempe",
-        "udang kupas": "udang",
-        "udang jerbung": "udang",
-        "udang windu": "udang",
-        "cumi cumi": "cumi",
-        "cumi-cumi": "cumi",
+        "asam jawa": "asam jawa",
+        "bumbu kacang": "bumbu kacang",
+        "bumbu pecel": "bumbu kacang",
+        "saus kacang": "bumbu kacang",
 
         # Sayuran
         "toge": "tauge",
         "taoge": "tauge",
         "kecambah": "tauge",
+        "tauge": "tauge",
         "kol": "kubis",
         "kubis": "kubis",
         "kembang kol": "kembang kol",
@@ -236,21 +305,36 @@ class IndonesianIngredientParser:
         "pak choy": "pakcoy",
         "tomat merah": "tomat",
         "tomat hijau": "tomat",
+        "tomat": "tomat",
         "timun": "mentimun",
         "ketimun": "mentimun",
+        "mentimun": "mentimun",
         "terung": "terong",
+        "terong": "terong",
         "jagung manis": "jagung",
+        "jagung": "jagung",
         "labu siam": "labu siam",
         "manisa": "labu siam",
         "jipang": "labu siam",
+        "wortel": "wortel",
+        "kentang": "kentang",
+        "buncis": "buncis",
+        "bayam": "bayam",
+        "kangkung": "kangkung",
 
         # Saus & Bahan Dapur
-        "santen": "santan",
         "kecap": "kecap manis",
         "kecap bango": "kecap manis",
         "kecap manis sedaap": "kecap manis",
         "saus cabai": "saus sambal",
+        "saus sambal": "saus sambal",
+        "saos sambal": "saus sambal",
+        "saori saus tiram": "saus tiram",
+        "saori saos tiram": "saus tiram",
+        "saos tiram": "saus tiram",
+        "saus tiram": "saus tiram",
         "belacan": "terasi",
+        "terasi": "terasi",
         "gula": "gula pasir",
         "royco": "kaldu bubuk",
         "masako": "kaldu bubuk",
@@ -290,58 +374,98 @@ class IndonesianIngredientParser:
     }
 
     def __init__(self):
-        self._units_pattern = self._build_multiword_pattern(self.CULINARY_UNITS)
-        self._prep_pattern = self._build_multiword_pattern(self.PREPARATION_WORDS)
-        self._synonym_keys_sorted = sorted(self.SYNONYM_MAP.keys(), key=len, reverse=True)
-        self._synonym_pattern = re.compile(
-            r'\b(' + '|'.join(re.escape(k) for k in self._synonym_keys_sorted) + r')\b',
-            re.IGNORECASE
-        )
+        prep_sorted = sorted(self.PREPARATION_WORDS, key=len, reverse=True)
+        self._prep_pattern = re.compile(r'\b(?:' + '|'.join(re.escape(w) for w in prep_sorted) + r')\b', re.IGNORECASE)
 
-    @staticmethod
-    def _build_multiword_pattern(word_list: list) -> re.Pattern:
-        sorted_words = sorted(word_list, key=len, reverse=True)
-        escaped = [re.escape(w) for w in sorted_words]
-        return re.compile(r'\b(?:' + '|'.join(escaped) + r')\b', re.IGNORECASE)
+        units_sorted = sorted(self.CULINARY_UNITS, key=len, reverse=True)
+        self._units_pattern = re.compile(r'\b(?:' + '|'.join(re.escape(w) for w in units_sorted) + r')\b', re.IGNORECASE)
+
+        syn_sorted = sorted(self.SYNONYM_MAP.keys(), key=len, reverse=True)
+        self._synonym_pattern = re.compile(r'\b(?:' + '|'.join(re.escape(w) for w in syn_sorted) + r')\b', re.IGNORECASE)
+
+    def is_pantry_staple(self, term: str) -> bool:
+        """Deteksi apakah bahan tergolong bahan pokok/bumbu dasar dapur."""
+        if term in self.PANTRY_STAPLES:
+            return True
+        for staple in ["minyak goreng", "minyak", "air", "garam", "gula", "kaldu bubuk", "merica", "lada"]:
+            if term == staple or term.startswith(staple + " "):
+                return True
+        return False
 
     def parse_ingredient_line(self, line: str) -> str:
         """
-        Dari satu baris bahan mentah, ekstrak nama bahan kanonik.
-        Contoh: '250 gr dada ayam fillet, potong dadu' -> 'ayam'
+        Ekstraksi dan normalisasi satu baris bahan menjadi nama bahan kanonik.
+        Contoh: '5 bh tahu kuning, belah 4' -> 'tahu'
         """
         if not isinstance(line, str):
             return ""
 
         text = line.lower().strip()
 
-        # 1. Hapus tanda kurung dan isinya
+        # 1. Abaikan baris judul seksi resep (misal: 'Bahan Sambal :')
+        if self.RE_SECTION_HEADER.search(text) or text.endswith(":"):
+            return ""
+
+        # 2. Buang alat non-pangan (misal: 'tusuk sate secukupnya')
+        for tool in self.NON_FOOD_TERMS:
+            if tool in text:
+                return ""
+
+        # 3. Hapus emoji & karakter visual unicode khusus
+        text = re.sub(r'[\U00010000-\U0010ffff]', ' ', text)
+        text = re.sub(r'[^\x00-\x7F\u00A0-\u024F\u1E00-\u1EFF½¼¾⅓⅔⅕⅖⅗⅘⅙⅚⅛⅜⅝⅞]', ' ', text)
+
+        # 4. Hapus keterangan dalam tanda kurung berpasangan
         text = re.sub(r'\([^)]*\)', ' ', text)
 
-        # 2. Hapus angka, pecahan unicode, dan rentang takaran
+        # 5. Hapus catatan percakapan Cookpad (misal: 'resep asli...', 'sesuai selera...')
+        text = self.RE_CHATTER.sub(' ', text)
+
+        # 6. Hapus klausa tujuan penggunaan (misal: 'untuk sate', 'untuk menumis')
+        text = self.RE_PURPOSE.sub(' ', text)
+
+        # 7. Pisahkan angka yang menempel langsung dengan huruf (misal: '65ml' -> '65 ml')
+        text = re.sub(r'(\d+)\s*([a-zA-Z]+)', r'\1 \2', text)
+
+        # 8. Normalisasi penanda reduplikasi 2 / ² (misal: 'sobek2' -> 'sobek sobek', 'potong²' -> 'potong potong')
+        text = re.sub(r'(\b\w+)[2²]', r'\1 \1', text)
+
+        # 9. Hapus angka, pecahan unicode, dan rentang takaran
         text = self.RE_FRACTIONS.sub(' ', text)
         text = self.RE_NUMBERS.sub(' ', text)
 
-        # 3. CRITICAL: Hapus kata kerja/kondisi persiapan SEBELUM satuan takaran
+        # 10. Hapus pengubah ukuran fisik (misal: 'uk besar', 'ukuran sedang')
+        text = self.RE_SIZES.sub(' ', text)
+
+        # 11. Hapus kata kerja dan kondisi persiapan
         text = self._prep_pattern.sub(' ', text)
 
-        # 4. Hapus satuan takaran kuliner
+        # 12. Hapus satuan takaran kuliner
         text = self._units_pattern.sub(' ', text)
 
-        # 5. Hapus tanda baca
-        text = re.sub(r"[,;:\.!?\-\u2013\u2014/'\"]+", " ", text)
+        # 13. Hapus seluruh tanda kurung gantung dan simbol sisa
+        text = re.sub(r'[()\[\]{}+±*#~`^<>|=_/\\]', ' ', text)
 
-        # 6. Normalisasi whitespace
+        # 14. Hapus tanda baca umum
+        text = re.sub(r"[,;:\.!?\-\u2013\u2014/'\"]+", " ", text)
         text = re.sub(r'\s+', ' ', text).strip()
 
-        # 7. Terapkan sinonim: Pass 1 (pemetaan langsung)
+        # 15. Terapkan pemetaan sinonim kanonik (dua tahap)
+        text = self._apply_synonyms(text)
         text = self._apply_synonyms(text)
 
-        # 8. Terapkan sinonim: Pass 2 (merapikan kata hasil reduksi)
-        text = self._apply_synonyms(text)
-
-        # 9. Deduplikasi kata berulang berurutan (mencegah 'manis manis', 'pasir pasir')
+        # 16. Deduplikasi kata berulang berurutan
         text = re.sub(r'\b(\w+)(?:\s+\1\b)+', r'\1', text)
         text = re.sub(r'\s+', ' ', text).strip()
+
+        # 17. Validasi panjang minimum dan penolakan kata generik sisa
+        if (len(text) <= 2 and text != "es") or text in (
+            "bumbu", "bahan", "pelengkap", "topping", "isian",
+            "olesan", "kuah", "sambal", "tambahan", "campuran",
+            "halus", "campur", "aduk", "secukupnya", "resep", "di", "sp", "bp"
+        ):
+            return ""
+
         return text
 
     def _apply_synonyms(self, text: str) -> str:
@@ -352,24 +476,24 @@ class IndonesianIngredientParser:
 
     def extract_ingredients_from_recipe(self, ingredient_lines: List[str]) -> Dict[str, Any]:
         """
-        Proses seluruh daftar baris bahan satu resep dengan pemecahan alternatif 'atau'/'dan'.
+        Proses seluruh daftar baris bahan satu resep.
+        Hanya memecah alternatif bahan ('atau' / 'dan' / '+'), tidak memecah tanda koma.
         """
         all_ingredients = set()
         for raw_line in ingredient_lines:
             if not isinstance(raw_line, str):
                 continue
-            # Pecah baris jika mengandung alternatif bahan ('atau', 'dan', koma, slash)
-            sublines = re.split(r'\b(?:atau|dan)\b|[,/]', raw_line, flags=re.IGNORECASE)
+            sublines = re.split(r'\b(?:atau|dan)\b|\+', raw_line, flags=re.IGNORECASE)
             for sub in sublines:
                 parsed = self.parse_ingredient_line(sub)
-                if parsed and len(parsed) > 1 and parsed not in ("bumbu", "bahan"):
+                if parsed:
                     all_ingredients.add(parsed)
 
-        core = all_ingredients - self.PANTRY_STAPLES
+        core = {ing for ing in all_ingredients if not self.is_pantry_staple(ing)}
         if not core:
             core = all_ingredients.copy()
 
-        # Bangun IR tokens: token komposit underscore + token kata dasar
+        # Bangun token IR komposit untuk indexing
         ir_tokens = set()
         for ingr in all_ingredients:
             words = ingr.split()
@@ -389,7 +513,7 @@ class IndonesianIngredientParser:
         }
 
     def parse_query(self, query_string: str) -> Dict[str, Any]:
-        """Parse query pengguna (dipisahkan koma atau baris baru)."""
+        """Parse query masukan pengguna (dipisahkan koma atau baris baru)."""
         parts = re.split(r'[,\n]+', query_string)
         lines = [p.strip() for p in parts if p.strip()]
         return self.extract_ingredients_from_recipe(lines)
@@ -398,12 +522,10 @@ class IndonesianIngredientParser:
 PARSER = IndonesianIngredientParser()
 
 if __name__ == "__main__":
-    # Pengujian Unit NLP Parser
     _test = PARSER.parse_ingredient_line("250 gr dada ayam fillet, potong dadu")
     print(f"  Test parse: '250 gr dada ayam fillet, potong dadu' -> '{_test}'")
     _test2 = PARSER.parse_query("2 potong ayam kampung, 5 siung bamer, 3 baput, cabe rawit, santen kara, daun jeruk")
-    print(f"  Test query: 'ayam kampung, bamer, baput, cabe rawit, santen kara'")
+    print("  Test query: 'ayam kampung, bamer, baput, cabe rawit, santen kara'")
     print(f"    - core: {_test2['ingredients_core_set']}")
     print(f"    - IR tokens: {_test2['ingredients_ir_tokens']}")
-    print("[OK] IndonesianIngredientParser siap digunakan.")
-
+    print("[OK] IndonesianIngredientParser v2 siap digunakan.")
