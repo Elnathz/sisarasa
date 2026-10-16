@@ -22,3 +22,8 @@
 - Tidak boleh ada komentar sel notebook (seperti `# CELL X:...`) atau duplikasi impor di modul backend produksi.
 - Seluruh kelas dan fungsi utama harus memiliki docstring dan type hints yang jelas.
 - Pastikan seluruh pengujian unit otomatis selalu lolos (`pytest backend/tests/ -v`).
+
+## 4. Larangan Gaya Penulisan AI Slop dan Emoji
+- Dilarang menggunakan em dash (simbol tanda pisah panjang), emoji, atau kalimat berbunga-bunga/klise khas AI (AI slop).
+- Tulisan (markdown, komentar kode, dokumen, pesan commit) harus ringkas, langsung pada inti persoalan, teknis, dan natural seperti tulisan manusia.
+
