@@ -1,0 +1,70 @@
+# ==============================================================================
+# SisaRasa - .gitignore
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. Environment Variables & Credentials (JANGAN PERNAH DI-COMMIT)
+# ------------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+kaggle.json
+
+# ------------------------------------------------------------------------------
+# 2. Python & Jupyter Caches
+# ------------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.ipynb_checkpoints/
+
+# ------------------------------------------------------------------------------
+# 3. Virtual Environments
+# ------------------------------------------------------------------------------
+venv/
+env/
+.venv/
+ENV/
+conda-env/
+
+# ------------------------------------------------------------------------------
+# 4. Raw Data (File CSV / Parquet Mentah Berukuran Besar)
+# ------------------------------------------------------------------------------
+data/raw/*
+!data/raw/.gitkeep
+
+# ------------------------------------------------------------------------------
+# 5. Large Artifacts & Serialized Models (> 5 MB)
+# ------------------------------------------------------------------------------
+# Abaikan model ter-serialize PKL & file data besar
+artifacts/*.pkl
+artifacts/*.parquet
+artifacts/sisarasa_corpus_clean.csv
+
+# Pertahankan visualisasi grafik, hasil benchmark evaluasi, & query Qrels di Git
+!artifacts/*.png
+!artifacts/benchmark_results.csv
+!artifacts/benchmark_queries.json
+!artifacts/qrels.json
+!artifacts/.gitkeep
+
+# ------------------------------------------------------------------------------
+# 6. Temporary & Scratch Files
+# ------------------------------------------------------------------------------
+*.tmp
+*.log
+_temp*
+_build*
+
+# ------------------------------------------------------------------------------
+# 7. OS & IDE Specific Files
+# ------------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
