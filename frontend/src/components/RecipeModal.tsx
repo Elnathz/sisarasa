@@ -97,7 +97,7 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({
         }}>
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "6px" }}>
-              {detail?.category && (
+              {detail?.category && (!detail.primary_protein || detail.category.toLowerCase() !== detail.primary_protein.toLowerCase()) && (
                 <span style={{
                   fontSize: "12px",
                   fontWeight: "600",

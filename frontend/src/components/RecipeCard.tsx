@@ -67,7 +67,7 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ recipe, onSelect }) => {
           marginBottom: "10px"
         }}>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
-            {recipe.category && (
+            {recipe.category && (!recipe.primary_protein || recipe.category.toLowerCase() !== recipe.primary_protein.toLowerCase()) && (
               <span style={{
                 fontSize: "11px",
                 fontWeight: "600",
