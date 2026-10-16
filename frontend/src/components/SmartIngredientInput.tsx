@@ -167,6 +167,11 @@ export const SmartIngredientInput: React.FC<SmartIngredientInputProps> = ({
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             onKeyDown={handleKeyDown}
+            onBlur={() => {
+              if (inputValue.trim()) {
+                handleAddIngredient(inputValue);
+              }
+            }}
             style={{
               flex: "1 1 220px",
               background: "transparent",

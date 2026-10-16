@@ -22,15 +22,22 @@ export default function Home() {
   const [selectedRecipeDocId, setSelectedRecipeDocId] = useState<string | null>(null);
   const [activeCategoryFilter, setActiveCategoryFilter] = useState<string>("Semua");
   const [sortBy, setSortBy] = useState<"match" | "score">("match");
+  const [currentPage, setCurrentPage] = useState<number>(1);
+
+  const ITEMS_PER_PAGE = 10;
 
   const runSearch = async (queryIngredients: string[]) => {
-    if (queryIngredients.length === 0) return;
+    if (queryIngredients.length === 0) {
+      setResults([]);
+      setLatencyMs(undefined);
+      return;
+    }
     setIsLoading(true);
     setErrorMessage(null);
 
     const queryStr = queryIngredients.join(", ");
     try {
-      const data = await searchRecipes(queryStr, 18);
+      const data = await searchRecipes(queryStr, 30);
       setResults(data.results || []);
       setLatencyMs(data.latency_ms);
     } catch (err: unknown) {
@@ -43,11 +50,21 @@ export default function Home() {
     }
   };
 
-  // Initial search on first mount
+  // Reaktif: Otomatis menjalankan pencarian saat kombinasi bahan kulkas berubah
   useEffect(() => {
-    runSearch(ingredients);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    setCurrentPage(1);
+    if (ingredients.length > 0) {
+      runSearch(ingredients);
+    } else {
+      setResults([]);
+      setLatencyMs(undefined);
+    }
+  }, [ingredients]);
+
+  // Reset pagination saat filter kategori atau opsi pengurutan diubah
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [activeCategoryFilter, sortBy]);
 
   // Filter & Sort results
   const filteredAndSortedResults = useMemo(() => {
@@ -80,6 +97,13 @@ export default function Home() {
 
     return list;
   }, [results, activeCategoryFilter, sortBy]);
+
+  // Pagination slicing (10 resep per halaman)
+  const totalPages = Math.max(1, Math.ceil(filteredAndSortedResults.length / ITEMS_PER_PAGE));
+  const paginatedResults = useMemo(() => {
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    return filteredAndSortedResults.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+  }, [filteredAndSortedResults, currentPage]);
 
   const categoryFilters = [
     "Semua",
@@ -225,28 +249,125 @@ export default function Home() {
           }}>
             <span style={{ fontSize: "14px", color: "var(--text-secondary)" }}>
               Ditemukan <strong>{filteredAndSortedResults.length}</strong> resep rekomendasi
+              {filteredAndSortedResults.length > ITEMS_PER_PAGE && ` (Halaman ${currentPage} dari ${totalPages})`}
               {ingredients.length > 0 && ` untuk kombinasi: ${ingredients.join(", ")}`}
             </span>
           </div>
 
           {/* Recipe Grid */}
           {filteredAndSortedResults.length > 0 ? (
-            <div
-              id="recipe-cards-grid"
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
-                gap: "24px"
-              }}
-            >
-              {filteredAndSortedResults.map((recipe) => (
-                <RecipeCard
-                  key={recipe.doc_id}
-                  recipe={recipe}
-                  onSelect={(r) => setSelectedRecipeDocId(r.doc_id)}
-                />
-              ))}
-            </div>
+            <>
+              <div
+                id="recipe-cards-grid"
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
+                  gap: "24px"
+                }}
+              >
+                {paginatedResults.map((recipe) => (
+                  <RecipeCard
+                    key={recipe.doc_id}
+                    recipe={recipe}
+                    onSelect={(r) => setSelectedRecipeDocId(r.doc_id)}
+                  />
+                ))}
+              </div>
+
+              {/* Pagination Controls */}
+              {totalPages > 1 && (
+                <nav
+                  id="pagination-controls"
+                  aria-label="Navigasi Halaman Resep"
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "8px",
+                    marginTop: "40px",
+                    flexWrap: "wrap"
+                  }}
+                >
+                  <button
+                    type="button"
+                    id="pagination-prev-btn"
+                    disabled={currentPage === 1}
+                    onClick={() => {
+                      setCurrentPage((prev) => Math.max(1, prev - 1));
+                      document.getElementById("results-section")?.scrollIntoView({ behavior: "smooth" });
+                    }}
+                    style={{
+                      padding: "8px 16px",
+                      borderRadius: "var(--radius-sm)",
+                      backgroundColor: "var(--bg-surface)",
+                      color: currentPage === 1 ? "var(--text-muted)" : "var(--text-main)",
+                      border: "1px solid var(--border-subtle)",
+                      fontSize: "13px",
+                      fontWeight: "600",
+                      cursor: currentPage === 1 ? "not-allowed" : "pointer",
+                      opacity: currentPage === 1 ? 0.45 : 1,
+                      transition: "all 0.15s ease"
+                    }}
+                  >
+                    &larr; Sebelumnya
+                  </button>
+
+                  {Array.from({ length: totalPages }, (_, idx) => idx + 1).map((pageNum) => (
+                    <button
+                      key={pageNum}
+                      id={`pagination-page-${pageNum}`}
+                      type="button"
+                      onClick={() => {
+                        setCurrentPage(pageNum);
+                        document.getElementById("results-section")?.scrollIntoView({ behavior: "smooth" });
+                      }}
+                      style={{
+                        minWidth: "38px",
+                        height: "38px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        borderRadius: "var(--radius-sm)",
+                        backgroundColor: currentPage === pageNum ? "var(--primary)" : "var(--bg-surface)",
+                        color: currentPage === pageNum ? "#0c0e12" : "var(--text-secondary)",
+                        border: currentPage === pageNum ? "1px solid var(--primary)" : "1px solid var(--border-subtle)",
+                        fontSize: "14px",
+                        fontWeight: "700",
+                        cursor: "pointer",
+                        transition: "all 0.15s ease",
+                        boxShadow: currentPage === pageNum ? "0 0 12px rgba(245, 158, 11, 0.35)" : "none"
+                      }}
+                    >
+                      {pageNum}
+                    </button>
+                  ))}
+
+                  <button
+                    type="button"
+                    id="pagination-next-btn"
+                    disabled={currentPage === totalPages}
+                    onClick={() => {
+                      setCurrentPage((prev) => Math.min(totalPages, prev + 1));
+                      document.getElementById("results-section")?.scrollIntoView({ behavior: "smooth" });
+                    }}
+                    style={{
+                      padding: "8px 16px",
+                      borderRadius: "var(--radius-sm)",
+                      backgroundColor: "var(--bg-surface)",
+                      color: currentPage === totalPages ? "var(--text-muted)" : "var(--text-main)",
+                      border: "1px solid var(--border-subtle)",
+                      fontSize: "13px",
+                      fontWeight: "600",
+                      cursor: currentPage === totalPages ? "not-allowed" : "pointer",
+                      opacity: currentPage === totalPages ? 0.45 : 1,
+                      transition: "all 0.15s ease"
+                    }}
+                  >
+                    Selanjutnya &rarr;
+                  </button>
+                </nav>
+              )}
+            </>
           ) : (
             !isLoading && (
               <div style={{
