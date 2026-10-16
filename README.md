@@ -92,7 +92,8 @@ sisarasa/
 │   ├── qrels.json                        # 3.605 ground-truth relevance judgements
 │   └── *.png                             # Grafik visualisasi EDA & benchmark
 │
-├── sisarasa_pipeline.ipynb               # Notebook master pipeline (Cell 1 s.d. 12)
+├── notebooks/                            # Pipeline Riset & Eksperimen STKI
+│   └── sisarasa_pipeline.ipynb           # Notebook master pipeline (Cell 1 s.d. 12)
 ├── .env.example                          # Template konfigurasi environment
 ├── .gitignore                            # Aturan git bersih
 └── README.md                             # Dokumentasi proyek
@@ -131,8 +132,9 @@ pytest backend/tests/ -v
 ### D. Menjalankan Notebook Pipeline STKI
 Buka dan jalankan seluruh sel notebook secara sekuensial:
 ```bash
-jupyter lab sisarasa_pipeline.ipynb
+jupyter lab notebooks/sisarasa_pipeline.ipynb
 ```
+
 
 ---
 
