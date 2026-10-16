@@ -46,3 +46,14 @@ class TestIndonesianIngredientParser:
         assert parser.parse_ingredient_line("tomat \U0001f345") == "tomat"
         assert parser.parse_ingredient_line("cabai rawit (") == "cabai rawit"
         assert parser.parse_ingredient_line("ayam (") == "ayam"
+
+    def test_liquid_dilution_and_commercial_modifiers(self, parser):
+        assert parser.parse_ingredient_line("500 gr tepung terigu serbaguna") == "tepung terigu"
+        assert parser.parse_ingredient_line("1 sdm tepung terigu dilarutkan dengan air") == "tepung terigu"
+        assert parser.parse_ingredient_line("2 buah tomat diblender dengan air") == "tomat"
+        assert parser.parse_ingredient_line("100 gr tepung tapioka mix dengan air") == "tepung tapioka"
+        assert parser.parse_ingredient_line("1 bungkus tepung sasa serbaguna") == "tepung bumbu"
+        assert parser.parse_ingredient_line("1 sdt susu bubuk putih di cairkan dg air") == "susu bubuk putih"
+        assert parser.parse_ingredient_line("tepung terigu segitiga biru") == "tepung terigu"
+        assert parser.parse_ingredient_line("tepung terigu pro sedang") == "tepung terigu"
+        assert parser.parse_ingredient_line("1 keping terasi larutan dengan air") == "terasi"

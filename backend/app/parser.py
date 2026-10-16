@@ -1,18 +1,9 @@
-"""
-Indonesian Culinary NLP Parsing Engine (v2 Enhanced)
-Specialized Information Retrieval parser for Indonesian recipe ingredients:
-- Normalizes Indonesian fractions, culinary measurement units, and attached units
-- Resolves word reduplications and strips preparation verbs and cutting styles
-- Filters Cookpad conversational chatter, section headers, and non-food utensils
-- Strips decorative emojis and stray unbalanced punctuation
-- Maps colloquial synonyms and regional aliases to canonical terms
-- Classifies functional pantry staples adaptively
-- Extracts core ingredients and composite IR tokens for retrieval
-"""
+# ==============================================================================
+# CELL 5: IndonesianIngredientParser v2: Clean NLP, Chatter Removal & Entity Resolution
+# ==============================================================================
 
 import re
-from typing import List, Dict, Set, Tuple, Any, Optional
-
+from typing import List, Dict, Any, Set
 
 class IndonesianIngredientParser:
     """
@@ -86,7 +77,7 @@ class IndonesianIngredientParser:
         "siung", "butir", "btr", "buah", "bh", "biji",
         "batang", "btg", "lembar", "lbr", "helai", "tangkai",
         "ruas", "jari", "cm", "telunjuk",
-        "bungkus", "bks", "sachet", "sct", "pak", "papan",
+        "bungkus", "bks", "sachet", "sct", "pak", "papan", "keping",
         "potong", "ptg", "iris",
         "ekor", "ikat", "genggam", "segenggam", "jumput", "sejumput",
         "gelas", "cangkir", "mangkok", "mangkuk", "piring", "kaleng", "botol",
@@ -120,6 +111,31 @@ class IndonesianIngredientParser:
         "yang sudah", "yang telah", "siap pakai", "siap saji"
     ]
 
+    # -- 13. Instruksi Pelarutan & Pengenceran Cairan (Noise v3) ---------------
+    RE_LIQUID_PREP = re.compile(
+        r'\b(?:di\s*)?(?:larutkan|cairkan|encerkan|campur(?:kan)?|aduk|kocok|blender|diblend|seduh|mix)\s+(?:dengan|dgn|dg|dalam|ke dalam|\+)?\s*air(?:\s+es|\s+hangat|\s+panas|\s+mendidih|\s+matang)?\b'
+        r'|\b(?:dengan|dgn|dg|dalam|ke dalam|\+)\s*air(?:\s+es|\s+hangat|\s+panas|\s+mendidih|\s+matang)?\b'
+        r'|\blarutan\s+(?:dengan\s+)?air\b',
+        re.IGNORECASE
+    )
+
+    # -- 14. Modifier Komersial & Tipe Bahan Serbaguna (Noise v3) -------------
+    RE_COMMERCIAL_MODIFIERS = re.compile(
+        r'\bserba\s*guna\b'
+        r'|\bsegitiga\s*biru\b'
+        r'|\bcakra\s*kembar\b'
+        r'|\bkunci\s*biru\b'
+        r'|\brose\s*brand\b'
+        r'|\bpro(?:tein)?(?:\s+(?:sedang|tinggi|rendah))?\b',
+        re.IGNORECASE
+    )
+
+    # -- 15. Kata Depan / Stopwords Tepi Residual (Noise v3) ------------------
+    RE_EDGE_PREPS = re.compile(
+        r'^(?:di|ke|dari|yg|yang|dan|dg|dengan|untuk|buat|mix|campur|plus|larutan)\s+|\s+(?:di|ke|dari|yg|yang|dan|dg|dengan|untuk|buat|mix|campur|plus|larutan)$',
+        re.IGNORECASE
+    )
+
     # -- 10. Kamus Sinonim Kanonik Kuliner -------------------------------------
     SYNONYM_MAP = {
         # Protective identity mappings
@@ -138,6 +154,18 @@ class IndonesianIngredientParser:
         "santan instan": "santan",
         "santan kara": "santan",
         "santen kara": "santan",
+        # Varian komersial tepung & bumbu v3
+        "tepung terigu serbaguna": "tepung terigu",
+        "tepung terigu serba guna": "tepung terigu",
+        "tepung serbaguna": "tepung terigu",
+        "tepung serba guna": "tepung terigu",
+        "tepung bumbu serbaguna": "tepung bumbu",
+        "tepung bumbu serba guna": "tepung bumbu",
+        "tepung sasa serbaguna": "tepung bumbu",
+        "tepung bumbu sasa": "tepung bumbu",
+        "tepung sasa": "tepung bumbu",
+        "bumbu racik serbaguna": "bumbu racik",
+
         "kara": "santan",
         "santen": "santan",
         "santan": "santan",
@@ -434,6 +462,10 @@ class IndonesianIngredientParser:
         text = self.RE_FRACTIONS.sub(' ', text)
         text = self.RE_NUMBERS.sub(' ', text)
 
+        # 9b. Hapus instruksi pengenceran cairan dan modifier komersial (v3)
+        text = self.RE_LIQUID_PREP.sub(' ', text)
+        text = self.RE_COMMERCIAL_MODIFIERS.sub(' ', text)
+
         # 10. Hapus pengubah ukuran fisik (misal: 'uk besar', 'ukuran sedang')
         text = self.RE_SIZES.sub(' ', text)
 
@@ -521,11 +553,27 @@ class IndonesianIngredientParser:
 
 PARSER = IndonesianIngredientParser()
 
-if __name__ == "__main__":
-    _test = PARSER.parse_ingredient_line("250 gr dada ayam fillet, potong dadu")
-    print(f"  Test parse: '250 gr dada ayam fillet, potong dadu' -> '{_test}'")
-    _test2 = PARSER.parse_query("2 potong ayam kampung, 5 siung bamer, 3 baput, cabe rawit, santen kara, daun jeruk")
-    print("  Test query: 'ayam kampung, bamer, baput, cabe rawit, santen kara'")
-    print(f"    - core: {_test2['ingredients_core_set']}")
-    print(f"    - IR tokens: {_test2['ingredients_ir_tokens']}")
-    print("[OK] IndonesianIngredientParser v2 siap digunakan.")
+# Pengujian Unit NLP Parser v2 Enhanced
+print("Pengujian Unit IndonesianIngredientParser v2 Enhanced:")
+_t1 = PARSER.parse_ingredient_line("250 gr dada ayam fillet, potong dadu")
+print(f"  Test 1: '250 gr dada ayam fillet, potong dadu' -> '{_t1}'")
+_t2 = PARSER.parse_ingredient_line("5 bh tahu kuning, belah 4")
+print(f"  Test 2: '5 bh tahu kuning, belah 4' -> '{_t2}'")
+_t3 = PARSER.parse_ingredient_line("100 gr Bumbu Kacang untuk Sate")
+print(f"  Test 3: '100 gr Bumbu Kacang untuk Sate' -> '{_t3}'")
+_t4 = PARSER.parse_ingredient_line("1 siung Bawang putih uk besar")
+print(f"  Test 4: '1 siung Bawang putih uk besar' -> '{_t4}'")
+_t5 = PARSER.parse_ingredient_line("santan 65ml")
+print(f"  Test 5: 'santan 65ml' -> '{_t5}'")
+_t6 = PARSER.parse_ingredient_line("daun jeruk sobek2")
+print(f"  Test 6: 'daun jeruk sobek2' -> '{_t6}'")
+_t7 = PARSER.parse_ingredient_line("tomat \U0001f345")
+print(f"  Test 7: 'tomat [emoji]' -> '{_t7}'")
+_t8 = PARSER.parse_ingredient_line("cabai rawit (")
+print(f"  Test 8: 'cabai rawit (' -> '{_t8}'")
+_t9 = PARSER.parse_ingredient_line("tusuk sate secukupnya")
+print(f"  Test 9: 'tusuk sate secukupnya' -> '{_t9}' (harus kosong)")
+_t10 = PARSER.parse_query("2 potong ayam kampung, 5 siung bamer, 3 baput, cabe rawit, bumbu kacang")
+print(f"  Test 10 query core: {_t10['ingredients_core_set']}")
+print("[OK] Cell 5 selesai: IndonesianIngredientParser v2 Enhanced siap digunakan.")
+
