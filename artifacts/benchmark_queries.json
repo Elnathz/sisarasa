@@ -1,0 +1,242 @@
+[
+  {
+    "query_id": "A01",
+    "scenario": "A",
+    "query_text": "telur, tahu, kecap manis"
+  },
+  {
+    "query_id": "A02",
+    "scenario": "A",
+    "query_text": "tempe, cabai rawit, bawang putih"
+  },
+  {
+    "query_id": "A03",
+    "scenario": "A",
+    "query_text": "ayam, bawang merah, garam"
+  },
+  {
+    "query_id": "A04",
+    "scenario": "A",
+    "query_text": "tahu, bayam, bawang putih"
+  },
+  {
+    "query_id": "A05",
+    "scenario": "A",
+    "query_text": "telur, wortel, bawang merah"
+  },
+  {
+    "query_id": "A06",
+    "scenario": "A",
+    "query_text": "udang, bawang putih, cabai"
+  },
+  {
+    "query_id": "A07",
+    "scenario": "A",
+    "query_text": "tempe, kecap manis, cabai rawit"
+  },
+  {
+    "query_id": "A08",
+    "scenario": "A",
+    "query_text": "telur, kangkung"
+  },
+  {
+    "query_id": "A09",
+    "scenario": "A",
+    "query_text": "tahu, cabai merah, tomat"
+  },
+  {
+    "query_id": "A10",
+    "scenario": "A",
+    "query_text": "ikan, kunyit, serai"
+  },
+  {
+    "query_id": "A11",
+    "scenario": "A",
+    "query_text": "daging sapi, bawang bombay, merica"
+  },
+  {
+    "query_id": "A12",
+    "scenario": "A",
+    "query_text": "ayam, jahe, bawang putih"
+  },
+  {
+    "query_id": "B01",
+    "scenario": "B",
+    "query_text": "ayam, bawang merah, bawang putih, kecap manis, merica, kentang"
+  },
+  {
+    "query_id": "B02",
+    "scenario": "B",
+    "query_text": "tempe, cabai merah, bawang merah, bawang putih, tomat, kecap manis"
+  },
+  {
+    "query_id": "B03",
+    "scenario": "B",
+    "query_text": "udang, bawang putih, mentimun, cabai rawit, serai, santan"
+  },
+  {
+    "query_id": "B04",
+    "scenario": "B",
+    "query_text": "telur, wortel, kubis, bawang putih, kecap manis, saus tiram"
+  },
+  {
+    "query_id": "B05",
+    "scenario": "B",
+    "query_text": "tahu, jamur, wortel, bawang putih, saus tiram, daun bawang"
+  },
+  {
+    "query_id": "B06",
+    "scenario": "B",
+    "query_text": "daging sapi, bawang bombay, wortel, kentang, tomat, seledri"
+  },
+  {
+    "query_id": "B07",
+    "scenario": "B",
+    "query_text": "ikan, kunyit, cabai merah, bawang merah, tomat, serai"
+  },
+  {
+    "query_id": "B08",
+    "scenario": "B",
+    "query_text": "ayam, santan, serai, daun jeruk, lengkuas, cabai"
+  },
+  {
+    "query_id": "B09",
+    "scenario": "B",
+    "query_text": "tempe, buncis, bawang merah, bawang putih, cabai hijau, terasi"
+  },
+  {
+    "query_id": "B10",
+    "scenario": "B",
+    "query_text": "telur, bayam, wortel, bawang putih, bawang merah, jagung"
+  },
+  {
+    "query_id": "B11",
+    "scenario": "B",
+    "query_text": "tahu, udang, tauge, kecap manis, bawang putih, saus tiram"
+  },
+  {
+    "query_id": "B12",
+    "scenario": "B",
+    "query_text": "daging sapi, kentang, wortel, bawang bombay, tomat, seledri"
+  },
+  {
+    "query_id": "C01",
+    "scenario": "C",
+    "query_text": "ayam, santan, serai, lengkuas, daun jeruk, kunyit, cabai merah, bawang merah, bawang putih, kemiri"
+  },
+  {
+    "query_id": "C02",
+    "scenario": "C",
+    "query_text": "daging sapi, santan, serai, lengkuas, kunyit, jahe, cabai merah, bawang merah, bawang putih, kelapa"
+  },
+  {
+    "query_id": "C03",
+    "scenario": "C",
+    "query_text": "ikan, kunyit, cabai merah, bawang merah, bawang putih, tomat, serai, daun kunyit, kemiri, asam jawa"
+  },
+  {
+    "query_id": "C04",
+    "scenario": "C",
+    "query_text": "ayam, kentang, wortel, bawang bombay, bawang putih, tomat, seledri, daun salam, merica, pala"
+  },
+  {
+    "query_id": "C05",
+    "scenario": "C",
+    "query_text": "udang, santan, cabai merah, bawang merah, bawang putih, kunyit, serai, lengkuas, daun jeruk"
+  },
+  {
+    "query_id": "C06",
+    "scenario": "C",
+    "query_text": "tempe, tahu, cabai merah, bawang merah, bawang putih, tomat, terasi, kecap manis, daun jeruk, serai"
+  },
+  {
+    "query_id": "C07",
+    "scenario": "C",
+    "query_text": "daging kambing, santan, serai, lengkuas, jahe, kunyit, cabai, ketumbar, jintan, kayu manis"
+  },
+  {
+    "query_id": "C08",
+    "scenario": "C",
+    "query_text": "ayam, bawang merah, bawang putih, jahe, kunyit, ketumbar, kemiri, santan, serai, daun salam"
+  },
+  {
+    "query_id": "C09",
+    "scenario": "C",
+    "query_text": "ikan, bawang merah, bawang putih, cabai merah, cabai rawit, tomat, terasi, serai, lengkuas, kunyit"
+  },
+  {
+    "query_id": "C10",
+    "scenario": "C",
+    "query_text": "telur, santan, bawang merah, bawang putih, cabai, kunyit, daun jeruk, serai, lengkuas"
+  },
+  {
+    "query_id": "C11",
+    "scenario": "C",
+    "query_text": "daging sapi, bawang merah, bawang putih, cabai, jahe, serai, kecap manis, lengkuas, daun salam, merica"
+  },
+  {
+    "query_id": "C12",
+    "scenario": "C",
+    "query_text": "udang, cabai merah, bawang merah, bawang putih, tomat, terasi, lengkuas, serai, daun jeruk, kunyit"
+  },
+  {
+    "query_id": "D01",
+    "scenario": "D",
+    "query_text": "2 potong ayam kampung, 5 siung bamer, 3 baput, cabe rawit, santen kara, daun jeruk"
+  },
+  {
+    "query_id": "D02",
+    "scenario": "D",
+    "query_text": "telor 3 btr, terigu 200gr, mentega, gula pasir, vanili"
+  },
+  {
+    "query_id": "D03",
+    "scenario": "D",
+    "query_text": "1/2 kg daging sapi, 2 bh kentang, bw merah, bw putih, kecap bango"
+  },
+  {
+    "query_id": "D04",
+    "scenario": "D",
+    "query_text": "tempe 1 papan, lombok rawit, bamer 5 siung, baput 3 siung, santen, gula jawa"
+  },
+  {
+    "query_id": "D05",
+    "scenario": "D",
+    "query_text": "udang kupas 250gr, 3 siung baput, cabe ijo, saori, minyak sayur"
+  },
+  {
+    "query_id": "D06",
+    "scenario": "D",
+    "query_text": "3 potong tahu putih, telor 2 butir, terigu, bawang pth, cabe rawit"
+  },
+  {
+    "query_id": "D07",
+    "scenario": "D",
+    "query_text": "1 ekor ikan nila, kunir, laos, sereh, daun salam, cabe merah besar"
+  },
+  {
+    "query_id": "D08",
+    "scenario": "D",
+    "query_text": "dada ayam fillet 500g, bw bombai, saus tomat, kecap, merica bubuk"
+  },
+  {
+    "query_id": "D09",
+    "scenario": "D",
+    "query_text": "toge 1 ikat, tahu 2 buah, bamer, baput, kecap, cabe rawit"
+  },
+  {
+    "query_id": "D10",
+    "scenario": "D",
+    "query_text": "4 butir telor, sledri, daun prei, royco, minyak, garam secukupnya"
+  },
+  {
+    "query_id": "D11",
+    "scenario": "D",
+    "query_text": "kambing 1 kg, santen 500 ml, laos, sereh, jinten, kayu manis, pekak"
+  },
+  {
+    "query_id": "D12",
+    "scenario": "D",
+    "query_text": "ikan tongkol 3 ptg, asem jawa, cabe, bamer, tomat, terasi, gula merah"
+  }
+]
