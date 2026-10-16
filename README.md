@@ -2,7 +2,7 @@
 
 [![Python Version](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.110%2B-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
-[![Tests](https://img.shields.io/badge/Pytest-9%20Passed-success?logo=pytest&logoColor=white)](backend/tests/)
+[![Tests](https://img.shields.io/badge/Pytest-12%20Passed-success?logo=pytest&logoColor=white)](backend/tests/)
 [![Repository](https://img.shields.io/badge/GitHub-Repository-181717?logo=github&logoColor=white)](https://github.com/Elnathz/sisarasa)
 [![Course](https://img.shields.io/badge/Mata%20Kuliah-Sistem%20Temu%20Kembali%20Informasi-orange)](https://github.com/Elnathz/sisarasa)
 
@@ -51,18 +51,18 @@ Evaluasi dilakukan mengikuti standar **TREC Evaluation** pada 48 kueri terstanda
 - **Skenario C**: Kombinasi Bahan Lengkap (7–10 bahan)
 - **Skenario D**: Noisy / Colloquial Input (ragam bahasa percakapan sehari-hari)
 
-Sebanyak **3.605 pasangan dokumen-kueri** dinilai relevansinya menggunakan *Qrels Pooling Generator* (Graded Relevance: 0 = Tidak Relevan, 1 = Relevan Parsial, 2 = Relevan Kuat, 3 = Sangat Relevan / Rekomendasi Utama).
+Sebanyak **3.607 pasangan dokumen-kueri** dinilai relevansinya menggunakan *Qrels Pooling Generator* (Graded Relevance: 0 = Tidak Relevan, 1 = Relevan Parsial, 2 = Relevan Kuat, 3 = Sangat Relevan / Rekomendasi Utama).
 
 ### Tabel Performa Komparatif (Overall Benchmark)
 
 | Model | P@5 | R@5 | nDCG@5 | P@10 | R@10 | nDCG@10 | MAP@10 | MRR | Latensi Rata-rata |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Set-Overlap (Jaccard)** | 0.8083 | 0.1681 | 0.8356 | 0.7875 | 0.2883 | 0.8433 | 0.8020 | 0.8880 | **13.9 ms** |
-| **TF-IDF Cosine** | 0.6417 | 0.1152 | 0.6162 | 0.5917 | 0.1796 | 0.5974 | 0.5320 | 0.8125 | 71.9 ms |
-| **BM25 Okapi** | 0.5292 | 0.0931 | 0.4285 | 0.4854 | 0.1437 | 0.4192 | 0.4367 | 0.6957 | 24.7 ms |
-| **SisaRasa Hybrid (Proposed)** | **0.8958** | **0.2036** | **0.8699** | **0.8583** | **0.3210** | **0.8704** | **0.9112** | **0.9444** | 106.5 ms |
+| **Set-Overlap (Jaccard)** | 0.8708 | 0.1283 | 0.8668 | 0.8583 | 0.2542 | 0.8576 | 0.8214 | 0.9354 | **9.3 ms** |
+| **TF-IDF Cosine** | 0.6875 | 0.0875 | 0.6196 | 0.6396 | 0.1577 | 0.6000 | 0.5469 | 0.8082 | 77.2 ms |
+| **BM25 Okapi** | 0.5958 | 0.0786 | 0.4769 | 0.5521 | 0.1436 | 0.4693 | 0.4728 | 0.8408 | 18.8 ms |
+| **SisaRasa Hybrid (Proposed)** | **0.9458** | **0.1522** | **0.8857** | **0.9292** | **0.2829** | **0.8795** | **0.9359** | **0.9665** | 104.2 ms |
 
-> **Kesimpulan STKI**: Model **SisaRasa Hybrid** mengungguli seluruh model baseline di seluruh metrik utama, menghasilkan **MAP@10 = 0.9112** dan **MRR = 0.9444** dengan latensi responsif ~100 ms di atas 68.747 dokumen.
+> **Kesimpulan STKI**: Model **SisaRasa Hybrid** mengungguli seluruh model baseline di seluruh metrik utama, menghasilkan **MAP@10 = 0.9359** dan **MRR = 0.9665** dengan latensi responsif ~104 ms di atas 68.747 dokumen.
 
 ---
 
@@ -85,15 +85,16 @@ sisarasa/
 │   └── run.py                            # Script peluncur server backend
 │
 ├── artifacts/                            # Artefak tersimpan hasil eksekusi pipeline
-│   ├── index_sisarasa_hybrid.pkl         # Model retriever terkalibrasi (67.4 MB)
-│   ├── sisarasa_corpus_clean.parquet     # Korpus resep bersih (49.8 MB)
+│   ├── index_sisarasa_hybrid.pkl         # Model retriever terkalibrasi (62.0 MB)
+│   ├── sisarasa_corpus_clean.parquet     # Korpus resep bersih (45.6 MB)
 │   ├── benchmark_results.csv             # Tabel metrik evaluasi
 │   ├── benchmark_queries.json            # 48 kueri evaluasi
-│   ├── qrels.json                        # 3.605 ground-truth relevance judgements
+│   ├── qrels.json                        # 3.607 ground-truth relevance judgements
 │   └── *.png                             # Grafik visualisasi EDA & benchmark
 │
 ├── notebooks/                            # Pipeline Riset & Eksperimen STKI
-│   └── sisarasa_pipeline.ipynb           # Notebook master pipeline (Cell 1 s.d. 12)
+│   ├── sisarasa_pipeline.ipynb           # Notebook master pipeline baseline v1
+│   └── sisarasa_v2.ipynb                 # Notebook pipeline v2 dengan enhanced NLP parser
 ├── .env.example                          # Template konfigurasi environment
 ├── .gitignore                            # Aturan git bersih
 └── README.md                             # Dokumentasi proyek
@@ -127,7 +128,7 @@ Jalankan test suite menggunakan `pytest`:
 ```bash
 pytest backend/tests/ -v
 ```
-*(Seluruh 9 unit test mencakup parser NLP, pemisahan bumbu dasar, metrik stats, kalkulasi bahan cocok/kurang, dan endpoint API).*
+*(Seluruh 12 unit test mencakup parser NLP kuliner v2 dengan penanganan 12 derau teks, pemisahan bumbu dasar, metrik stats, kalkulasi bahan cocok/kurang, dan endpoint API).*
 
 ### D. Menjalankan Notebook Pipeline STKI
 Buka dan jalankan seluruh sel notebook secara sekuensial:
