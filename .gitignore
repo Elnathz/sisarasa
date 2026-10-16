@@ -59,7 +59,21 @@ _temp*
 _build*
 
 # ------------------------------------------------------------------------------
-# 7. OS & IDE Specific Files
+# 7. Frontend & Node.js (Next.js)
+# ------------------------------------------------------------------------------
+node_modules/
+frontend/node_modules/
+.next/
+frontend/.next/
+frontend/out/
+frontend/build/
+frontend/.vercel
+*.tsbuildinfo
+next-env.d.ts
+.env*.local
+
+# ------------------------------------------------------------------------------
+# 8. OS & IDE Specific Files
 # ------------------------------------------------------------------------------
 .DS_Store
 Thumbs.db
@@ -68,3 +82,4 @@ desktop.ini
 .idea/
 *.sublime-project
 *.sublime-workspace
+
