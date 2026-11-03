@@ -510,6 +510,10 @@ class IndonesianIngredientParser:
         """
         Proses seluruh daftar baris bahan satu resep.
         Hanya memecah alternatif bahan ('atau' / 'dan' / '+'), tidak memecah tanda koma.
+
+        Token IR untuk DOKUMEN menggunakan dekomposisi compound:
+          "bawang merah" → ["bawang_merah", "bawang", "merah"]
+        Ini memungkinkan partial matching antar bahan saat indexing.
         """
         all_ingredients = set()
         for raw_line in ingredient_lines:
@@ -525,7 +529,8 @@ class IndonesianIngredientParser:
         if not core:
             core = all_ingredients.copy()
 
-        # Bangun token IR komposit untuk indexing
+        # Bangun token IR komposit untuk INDEXING DOKUMEN
+        # Compound word dipecah agar terjadi partial matching antar bahan terkait.
         ir_tokens = set()
         for ingr in all_ingredients:
             words = ingr.split()
@@ -544,11 +549,46 @@ class IndonesianIngredientParser:
             "ingredients_ir_text": " ".join(sorted(ir_tokens)),
         }
 
+    def _build_query_ir_tokens(self, all_ingredients: set) -> str:
+        """
+        Membangun token IR khusus QUERY — berbeda dari indexing dokumen.
+
+        QUERY tidak mendekomposisi compound word agar menghindari false positive:
+          - Dokumen: "bawang goreng" → ["bawang_goreng", "bawang", "goreng"]
+          - Query:   "bawang"        → ["bawang"] saja (tidak pernah cocok dengan "goreng")
+          - Query:   "bawang merah"  → ["bawang_merah"] saja (tidak dipecah jadi "bawang")
+
+        Dengan cara ini, query "bawang" HANYA cocok dengan resep yang memiliki bahan
+        "bawang" secara eksplisit — bukan resep "bawang goreng" atau "bawang merah".
+        """
+        query_ir_tokens = set()
+        for ingr in all_ingredients:
+            words = ingr.split()
+            if len(words) > 1:
+                # Hanya tambahkan bentuk compound (underscore), TIDAK pecah
+                query_ir_tokens.add("_".join(words))  # e.g., bawang_merah
+            else:
+                query_ir_tokens.add(ingr)  # e.g., bawang, tempe, ayam
+        return " ".join(sorted(query_ir_tokens))
+
     def parse_query(self, query_string: str) -> Dict[str, Any]:
-        """Parse query masukan pengguna (dipisahkan koma atau baris baru)."""
+        """
+        Parse query masukan pengguna (dipisahkan koma atau baris baru).
+
+        Output dict mengandung dua representasi IR:
+        - 'ingredients_ir_text': representasi dokumen (dengan dekomposisi compound) — untuk
+          backward-compatibility dengan model yang sudah di-index.
+        - 'ingredients_query_ir_text': representasi query (TANPA dekomposisi compound) — digunakan
+          oleh retriever saat query-time untuk menghindari false positive sub-token.
+        """
         parts = re.split(r'[,\n]+', query_string)
         lines = [p.strip() for p in parts if p.strip()]
-        return self.extract_ingredients_from_recipe(lines)
+        result = self.extract_ingredients_from_recipe(lines)
+        # Tambahkan representasi query yang lebih presisi (tidak mendekomposisi compound)
+        result["ingredients_query_ir_text"] = self._build_query_ir_tokens(
+            result["ingredients_all_set"]
+        )
+        return result
 
 
 PARSER = IndonesianIngredientParser()
