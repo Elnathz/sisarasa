@@ -1,0 +1,37 @@
+case_id,kind,query_text,expected_ingredient,target_available,has_suggestion,candidate_count,candidates,candidate_offered,oracle_choices,oracle_selection_applied,resolved_before,resolved_after,normalized_before,normalized_after
+SP01,curated_alias,bwang greng,bawang goreng,True,False,0,[],False,{},False,bawang goreng,bawang goreng,True,True
+SP02,curated_alias,bawang purih,bawang putih,True,False,0,[],False,{},False,bawang putih,bawang putih,True,True
+SP03,deletion,minyk,minyak goreng,True,True,1,"[""minyak goreng""]",True,"{""minyk"": ""minyak goreng""}",True,minyk,minyak goreng,False,True
+SP04,deletion,thu,tahu,True,True,1,"[""tahu""]",True,"{""thu"": ""tahu""}",True,thu,tahu,False,True
+SP05,deletion,bwang merah,bawang merah,True,True,1,"[""bawang merah""]",True,"{""bwang merah"": ""bawang merah""}",True,bwang merah,bawang merah,False,True
+SP06,deletion,bawang puth,bawang putih,True,True,1,"[""bawang putih""]",True,"{""bawang puth"": ""bawang putih""}",True,bawang puth,bawang putih,False,True
+SP07,deletion,wortl,wortel,True,True,1,"[""wortel""]",True,"{""wortl"": ""wortel""}",True,wortl,wortel,False,True
+SP08,deletion,tomt,tomat,True,True,1,"[""tomat""]",True,"{""tomt"": ""tomat""}",True,tomt,tomat,False,True
+SP09,deletion,kntang,kentang,True,True,1,"[""kentang""]",True,"{""kntang"": ""kentang""}",True,kntang,kentang,False,True
+SP10,deletion,teme,tempe,True,True,1,"[""tempe""]",True,"{""teme"": ""tempe""}",True,teme,tempe,False,True
+SP11,deletion,aym,ayam,True,True,1,"[""ayam""]",True,"{""aym"": ""ayam""}",True,aym,ayam,False,True
+SP12,deletion,cabi rawit,cabai rawit,True,True,1,"[""cabai rawit""]",True,"{""cabi rawit"": ""cabai rawit""}",True,cabi rawit,cabai rawit,False,True
+SP13,deletion,jagng,jagung,True,True,1,"[""jagung""]",True,"{""jagng"": ""jagung""}",True,jagng,jagung,False,True
+SP14,deletion,santn,santan,True,True,1,"[""santan""]",True,"{""santn"": ""santan""}",True,santn,santan,False,True
+SP15,deletion,mentimn,mentimun,True,True,1,"[""mentimun""]",True,"{""mentimn"": ""mentimun""}",True,mentimn,mentimun,False,True
+SP16,deletion,kecp manis,kecap manis,True,True,1,"[""kecap manis""]",True,"{""kecp manis"": ""kecap manis""}",True,kecp manis,kecap manis,False,True
+SP17,substitution,wirtel,wortel,True,True,1,"[""wortel""]",True,"{""wirtel"": ""wortel""}",True,wirtel,wortel,False,True
+SP18,substitution,tomot,tomat,True,True,1,"[""tomat""]",True,"{""tomot"": ""tomat""}",True,tomot,tomat,False,True
+SP19,substitution,kenteng,kentang,True,True,1,"[""kentang""]",True,"{""kenteng"": ""kentang""}",True,kenteng,kentang,False,True
+SP20,substitution,santam,santan,True,True,1,"[""santan""]",True,"{""santam"": ""santan""}",True,santam,santan,False,True
+SP21,ambiguous,susi,susu cair,True,True,3,"[""susu"", ""susu bubuk"", ""susu cair""]",True,"{""susi"": ""susu cair""}",True,susi,susu cair,False,True
+SP22,ambiguous,susi,susu bubuk,True,True,3,"[""susu"", ""susu bubuk"", ""susu cair""]",True,"{""susi"": ""susu bubuk""}",True,susi,susu bubuk,False,True
+SP23,transposition,thau,tahu,True,False,0,[],False,{},False,thau,thau,False,False
+SP24,transposition,tmepe,tempe,True,False,0,[],False,{},False,tmepe,tmepe,False,False
+SP25,short,th,tahu,True,False,0,[],False,{},False,th,th,False,False
+SP26,short,mk,minyak goreng,True,False,0,[],False,{},False,mk,mk,False,False
+SP27,valid,tahu,tahu,True,False,0,[],False,{},False,tahu,tahu,True,True
+SP28,valid,susu cair,susu cair,True,False,0,[],False,{},False,susu cair,susu cair,True,True
+SP29,valid,susu bubuk,susu bubuk,True,False,0,[],False,{},False,susu bubuk,susu bubuk,True,True
+SP30,valid,bawang putih,bawang putih,True,False,0,[],False,{},False,bawang putih,bawang putih,True,True
+SP31,valid,ayam,ayam,True,False,0,[],False,{},False,ayam,ayam,True,True
+SP32,valid,ikan,ikan,True,False,0,[],False,{},False,ikan,ikan,True,True
+SP33,valid,bayam,bayam,True,False,0,[],False,{},False,bayam,bayam,True,True
+SP34,valid,minyak goreng,minyak goreng,True,False,0,[],False,{},False,minyak goreng,minyak goreng,True,True
+SP35,unknown,xyzq,,False,False,0,[],False,{},False,xyzq,xyzq,,
+SP36,unknown,qwerty bahan,,False,False,0,[],False,{},False,qwerty bahan,qwerty bahan,,
