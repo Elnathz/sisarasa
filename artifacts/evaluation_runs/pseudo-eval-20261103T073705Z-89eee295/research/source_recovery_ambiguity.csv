@@ -1,0 +1,13 @@
+query_id,query_text,reference_ingredient_count,ingredient_compatible_documents,target_doc_id
+KI002,"bawang merah, cabai rawit, daun bawang",3,2388,SR_036664
+KI004,"ayam, bawang putih, terasi",3,182,SR_000027
+KI014,"ayam, bawang bombay, saus tiram",3,687,SR_028123
+KI015,"jintan, ketumbar, udang",3,5,SR_014216
+KI016,"bawang merah, bawang putih, daun jeruk",3,11788,SR_025522
+KI023,"bawang bombay, bawang merah, bawang putih",3,2756,SR_052088
+KI027,"bawang merah, bawang putih",2,37670,SR_044936
+KI029,"daun jeruk, kecap manis, kunyit",3,1160,SR_016185
+KI030,"cabai merah, daun jeruk, udang",3,111,SR_031520
+KI041,"bawang merah, ikan, serai",3,1157,SR_047326
+KI043,"bawang merah, seledri, serai",3,440,SR_020642
+KI047,"tahu, tepung terigu",2,1169,SR_009307

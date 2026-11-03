@@ -1,0 +1,338 @@
+[
+  {
+    "family_id": "[\"bawang putih\",\"bumbu kaldu\"]",
+    "query_id": "AN01",
+    "scenario": "A",
+    "split": "dev",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"bawang bombay\",\"sosis\"]",
+    "query_id": "AN02",
+    "scenario": "A",
+    "split": "dev",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"jahe\",\"rempah bumbu spikuk\",\"serai\"]",
+    "query_id": "AN03",
+    "scenario": "A",
+    "split": "test",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"bawang bombay\",\"jamur kancing\",\"telur\"]",
+    "query_id": "AN04",
+    "scenario": "A",
+    "split": "dev",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"cabai merah cabai rawit\",\"lengkuas\"]",
+    "query_id": "AN05",
+    "scenario": "A",
+    "split": "dev",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"bawang merah\",\"tahu\",\"tauge\"]",
+    "query_id": "AN06",
+    "scenario": "A",
+    "split": "dev",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"rawit merah\",\"telur\"]",
+    "query_id": "AN07",
+    "scenario": "A",
+    "split": "dev",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"bawang bombay\",\"daging yg udh di\",\"kecap manis\"]",
+    "query_id": "AN08",
+    "scenario": "A",
+    "split": "dev",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"cabai merah\",\"telur\"]",
+    "query_id": "AN09",
+    "scenario": "A",
+    "split": "dev",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"cabai\",\"kecap asin\",\"seledri\"]",
+    "query_id": "AN10",
+    "scenario": "A",
+    "split": "test",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"bawang putih\",\"cabai merah\"]",
+    "query_id": "AN11",
+    "scenario": "A",
+    "split": "dev",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"baluran tepung\",\"tepung beras\"]",
+    "query_id": "AN12",
+    "scenario": "A",
+    "split": "test",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"ayam\",\"bawang bombay\",\"bawang putih\",\"cabai hijau\",\"cabai merah\",\"kecap manis\"]",
+    "query_id": "BN01",
+    "scenario": "B",
+    "split": "dev",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"bawang putih\",\"cabai merah\",\"daging ikan gabus\",\"telur\",\"tepung tapioka\"]",
+    "query_id": "BN02",
+    "scenario": "B",
+    "split": "dev",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"bawang putih\",\"cabai rawit\",\"daun bawang\",\"tahu susu\",\"tepung crispy sajiku\"]",
+    "query_id": "BN03",
+    "scenario": "B",
+    "split": "dev",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"kecap inggris\",\"kecap manis\",\"paha\",\"saos tomat\",\"tepung tapioka\"]",
+    "query_id": "BN04",
+    "scenario": "B",
+    "split": "dev",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"bawang putih\",\"kemiri\",\"lele bersihkan\",\"peres ketumbar bubuk\",\"tomat\"]",
+    "query_id": "BN05",
+    "scenario": "B",
+    "split": "dev",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"ayam dengan kulitnya\",\"bakso daging sapi\",\"bawang putih\",\"daun bawang\",\"sawi putih\",\"tofu telur rasa ayam bagian\"]",
+    "query_id": "BN06",
+    "scenario": "B",
+    "split": "test",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"bawang putih\",\"cabai hijau\",\"kemiri\",\"serai\"]",
+    "query_id": "BN07",
+    "scenario": "B",
+    "split": "dev",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"bawang putih\",\"daging sapi\",\"kemiri\",\"lengkuas\",\"sisir gula merah\"]",
+    "query_id": "BN08",
+    "scenario": "B",
+    "split": "dev",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"bawang merah\",\"cabai merah\",\"desaku balado\",\"kacang\",\"tempe\",\"tomat\"]",
+    "query_id": "BN09",
+    "scenario": "B",
+    "split": "dev",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"bumbu dasar bawang\",\"jantung ayam\",\"maggi seasoning\",\"saus tiram\",\"tahu\"]",
+    "query_id": "BN10",
+    "scenario": "B",
+    "split": "test",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"cabai merah\",\"ketumbar bubuk\",\"saus tomat\",\"terasi\"]",
+    "query_id": "BN11",
+    "scenario": "B",
+    "split": "test",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"ayam\",\"baso daging sapi\",\"broccoli rendem dgn garam\",\"kecap asin\",\"tofu lalu hingga kecoklatan\"]",
+    "query_id": "BN12",
+    "scenario": "B",
+    "split": "dev",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"cabai rawit\",\"daging kambing yg sudah\",\"daun bawang\",\"daun salam\",\"kemiri\",\"kunyit\",\"tomat\"]",
+    "query_id": "CN01",
+    "scenario": "C",
+    "split": "dev",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"bawang putih\",\"dipanggang di teflon\",\"jeruk nipis\",\"kecap manis\",\"ketumbar\",\"margarin\",\"mentimun\",\"sambal matah\",\"tomat\"]",
+    "query_id": "CN02",
+    "scenario": "C",
+    "split": "test",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"bawang merah\",\"bawang putih\",\"daging campur kikil yg sudah di empuk\",\"daun salam\",\"kaldu\",\"lengkuas\",\"saset santan\",\"seledri\"]",
+    "query_id": "CN03",
+    "scenario": "C",
+    "split": "test",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"bawang putih\",\"cabai merah\",\"cabai rawit\",\"daun jeruk\",\"daun salam\",\"ikan\",\"kecap manis\"]",
+    "query_id": "CN04",
+    "scenario": "C",
+    "split": "dev",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"aram\",\"bawang merah\",\"bawang putih\",\"cabai merah kriting\",\"kecap manis\",\"tempe\",\"teri asin\"]",
+    "query_id": "CN05",
+    "scenario": "C",
+    "split": "dev",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"ayam\",\"bubuk bawang putih\",\"jahe\",\"jeruk nipis\",\"kecap asin\",\"saus tiram\",\"sckp garam\",\"tepung maizena\"]",
+    "query_id": "CN06",
+    "scenario": "C",
+    "split": "dev",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"asam jawa\",\"bawang merah\",\"cabai rawit\",\"cabai rawit gelondongan\",\"daun salam & daun jeruk\",\"ikan\",\"jeruk nipis tomat\",\"ketumbar lengkuas jahe\",\"kunyit\",\"serai digeprek\"]",
+    "query_id": "CN07",
+    "scenario": "C",
+    "split": "dev",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"bawang putih\",\"cabai merah\",\"cabai rawit setan\",\"jeruk nipis\",\"menumis\",\"serai\",\"tepung bumbu ayam kobe\"]",
+    "query_id": "CN08",
+    "scenario": "C",
+    "split": "dev",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"bawang goreng\",\"bawang putih\",\"cabai rawit\",\"daging sapi\",\"jahe\",\"kacang tanah\",\"kemiri\",\"kunyit\",\"lengkuas\",\"tauge\"]",
+    "query_id": "CN09",
+    "scenario": "C",
+    "split": "dev",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"bawang merah\",\"bawang putih\",\"cabai gede hijau\",\"jahe\",\"jeruk sambal jeruk nipis\",\"kulit daging kambing\",\"lengkuas\",\"tomat\"]",
+    "query_id": "CN10",
+    "scenario": "C",
+    "split": "dev",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"bawang merah\",\"bawang purih\",\"cabai setan\",\"menumis\",\"sarden\",\"telur\",\"tepung maizena\"]",
+    "query_id": "CN11",
+    "scenario": "C",
+    "split": "test",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"bawang merah\",\"bawang putih\",\"cabai keriting merah\",\"kecap manis\",\"menggoreng\",\"saus tiram\",\"tempe\"]",
+    "query_id": "CN12",
+    "scenario": "C",
+    "split": "dev",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"bawang putih\",\"kacang tanah\",\"tomat\"]",
+    "query_id": "DN01",
+    "scenario": "D",
+    "split": "test",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"kangkung ambil daunnya saja\",\"telur\",\"tepung\"]",
+    "query_id": "DN02",
+    "scenario": "D",
+    "split": "dev",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"bawang merah\",\"cabai rawit\",\"kacang\"]",
+    "query_id": "DN03",
+    "scenario": "D",
+    "split": "dev",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"bawang goreng\",\"daging kambing\",\"daun bawang\",\"pala\"]",
+    "query_id": "DN04",
+    "scenario": "D",
+    "split": "test",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"bawang merah\",\"hijau\",\"ikan peda\"]",
+    "query_id": "DN05",
+    "scenario": "D",
+    "split": "dev",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"asam jawa kandis\",\"buncis\",\"daun jeruk\",\"daun salam\",\"kemiri\",\"kunyit\",\"santan\"]",
+    "query_id": "DN06",
+    "scenario": "D",
+    "split": "test",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"bawang bombay\",\"buji wijen\",\"garamnya\",\"salmon slice\",\"shoyu\",\"tepung kentang\"]",
+    "query_id": "DN07",
+    "scenario": "D",
+    "split": "dev",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"ayam\",\"creamer\",\"daun jeruk\",\"daun salam\"]",
+    "query_id": "DN08",
+    "scenario": "D",
+    "split": "dev",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"asam jawa kandis\",\"bawang putih\",\"cabai\",\"daun jeruk\",\"pemasak daging kambing\",\"tetetan daging sapi\"]",
+    "query_id": "DN09",
+    "scenario": "D",
+    "split": "dev",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"ayam dada\",\"soda kue\",\"tepung cakra\"]",
+    "query_id": "DN10",
+    "scenario": "D",
+    "split": "dev",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"keju mozzarella\",\"margarin\",\"mayonnaise\",\"telur\"]",
+    "query_id": "DN11",
+    "scenario": "D",
+    "split": "dev",
+    "target_doc_id": null
+  },
+  {
+    "family_id": "[\"bawang putih\",\"daging sapi\",\"jahe\",\"kayumanis\",\"kemiri\",\"kunyit\",\"santan\"]",
+    "query_id": "DN12",
+    "scenario": "D",
+    "split": "dev",
+    "target_doc_id": null
+  }
+]

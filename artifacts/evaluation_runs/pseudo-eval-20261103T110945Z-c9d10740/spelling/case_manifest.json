@@ -1,0 +1,218 @@
+[
+  {
+    "case_id": "SP01",
+    "expected_ingredient": "bawang goreng",
+    "kind": "curated_alias",
+    "query_text": "bwang greng"
+  },
+  {
+    "case_id": "SP02",
+    "expected_ingredient": "bawang putih",
+    "kind": "curated_alias",
+    "query_text": "bawang purih"
+  },
+  {
+    "case_id": "SP03",
+    "expected_ingredient": "minyak goreng",
+    "kind": "deletion",
+    "query_text": "minyk"
+  },
+  {
+    "case_id": "SP04",
+    "expected_ingredient": "tahu",
+    "kind": "deletion",
+    "query_text": "thu"
+  },
+  {
+    "case_id": "SP05",
+    "expected_ingredient": "bawang merah",
+    "kind": "deletion",
+    "query_text": "bwang merah"
+  },
+  {
+    "case_id": "SP06",
+    "expected_ingredient": "bawang putih",
+    "kind": "deletion",
+    "query_text": "bawang puth"
+  },
+  {
+    "case_id": "SP07",
+    "expected_ingredient": "wortel",
+    "kind": "deletion",
+    "query_text": "wortl"
+  },
+  {
+    "case_id": "SP08",
+    "expected_ingredient": "tomat",
+    "kind": "deletion",
+    "query_text": "tomt"
+  },
+  {
+    "case_id": "SP09",
+    "expected_ingredient": "kentang",
+    "kind": "deletion",
+    "query_text": "kntang"
+  },
+  {
+    "case_id": "SP10",
+    "expected_ingredient": "tempe",
+    "kind": "deletion",
+    "query_text": "teme"
+  },
+  {
+    "case_id": "SP11",
+    "expected_ingredient": "ayam",
+    "kind": "deletion",
+    "query_text": "aym"
+  },
+  {
+    "case_id": "SP12",
+    "expected_ingredient": "cabai rawit",
+    "kind": "deletion",
+    "query_text": "cabi rawit"
+  },
+  {
+    "case_id": "SP13",
+    "expected_ingredient": "jagung",
+    "kind": "deletion",
+    "query_text": "jagng"
+  },
+  {
+    "case_id": "SP14",
+    "expected_ingredient": "santan",
+    "kind": "deletion",
+    "query_text": "santn"
+  },
+  {
+    "case_id": "SP15",
+    "expected_ingredient": "mentimun",
+    "kind": "deletion",
+    "query_text": "mentimn"
+  },
+  {
+    "case_id": "SP16",
+    "expected_ingredient": "kecap manis",
+    "kind": "deletion",
+    "query_text": "kecp manis"
+  },
+  {
+    "case_id": "SP17",
+    "expected_ingredient": "wortel",
+    "kind": "substitution",
+    "query_text": "wirtel"
+  },
+  {
+    "case_id": "SP18",
+    "expected_ingredient": "tomat",
+    "kind": "substitution",
+    "query_text": "tomot"
+  },
+  {
+    "case_id": "SP19",
+    "expected_ingredient": "kentang",
+    "kind": "substitution",
+    "query_text": "kenteng"
+  },
+  {
+    "case_id": "SP20",
+    "expected_ingredient": "santan",
+    "kind": "substitution",
+    "query_text": "santam"
+  },
+  {
+    "case_id": "SP21",
+    "expected_ingredient": "susu cair",
+    "kind": "ambiguous",
+    "query_text": "susi"
+  },
+  {
+    "case_id": "SP22",
+    "expected_ingredient": "susu bubuk",
+    "kind": "ambiguous",
+    "query_text": "susi"
+  },
+  {
+    "case_id": "SP23",
+    "expected_ingredient": "tahu",
+    "kind": "transposition",
+    "query_text": "thau"
+  },
+  {
+    "case_id": "SP24",
+    "expected_ingredient": "tempe",
+    "kind": "transposition",
+    "query_text": "tmepe"
+  },
+  {
+    "case_id": "SP25",
+    "expected_ingredient": "tahu",
+    "kind": "short",
+    "query_text": "th"
+  },
+  {
+    "case_id": "SP26",
+    "expected_ingredient": "minyak goreng",
+    "kind": "short",
+    "query_text": "mk"
+  },
+  {
+    "case_id": "SP27",
+    "expected_ingredient": "tahu",
+    "kind": "valid",
+    "query_text": "tahu"
+  },
+  {
+    "case_id": "SP28",
+    "expected_ingredient": "susu cair",
+    "kind": "valid",
+    "query_text": "susu cair"
+  },
+  {
+    "case_id": "SP29",
+    "expected_ingredient": "susu bubuk",
+    "kind": "valid",
+    "query_text": "susu bubuk"
+  },
+  {
+    "case_id": "SP30",
+    "expected_ingredient": "bawang putih",
+    "kind": "valid",
+    "query_text": "bawang putih"
+  },
+  {
+    "case_id": "SP31",
+    "expected_ingredient": "ayam",
+    "kind": "valid",
+    "query_text": "ayam"
+  },
+  {
+    "case_id": "SP32",
+    "expected_ingredient": "ikan",
+    "kind": "valid",
+    "query_text": "ikan"
+  },
+  {
+    "case_id": "SP33",
+    "expected_ingredient": "bayam",
+    "kind": "valid",
+    "query_text": "bayam"
+  },
+  {
+    "case_id": "SP34",
+    "expected_ingredient": "minyak goreng",
+    "kind": "valid",
+    "query_text": "minyak goreng"
+  },
+  {
+    "case_id": "SP35",
+    "expected_ingredient": null,
+    "kind": "unknown",
+    "query_text": "xyzq"
+  },
+  {
+    "case_id": "SP36",
+    "expected_ingredient": null,
+    "kind": "unknown",
+    "query_text": "qwerty bahan"
+  }
+]

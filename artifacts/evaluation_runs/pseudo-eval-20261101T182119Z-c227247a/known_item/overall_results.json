@@ -1,0 +1,82 @@
+{
+  "BM25": {
+    "dev": {
+      "Hit@10": 0.5278,
+      "Hit@5": 0.4722,
+      "Latency (ms)": 7.493,
+      "MRR@10": 0.4039,
+      "query_count": 36,
+      "zero_idcg_queries": null,
+      "zero_relevant_queries": 0
+    },
+    "test": {
+      "Hit@10": 0.6667,
+      "Hit@5": 0.6667,
+      "Latency (ms)": 7.4317,
+      "MRR@10": 0.5625,
+      "query_count": 12,
+      "zero_idcg_queries": null,
+      "zero_relevant_queries": 0
+    }
+  },
+  "Set-Overlap": {
+    "dev": {
+      "Hit@10": 0.3056,
+      "Hit@5": 0.2778,
+      "Latency (ms)": 4.4608,
+      "MRR@10": 0.1618,
+      "query_count": 36,
+      "zero_idcg_queries": null,
+      "zero_relevant_queries": 0
+    },
+    "test": {
+      "Hit@10": 0.3333,
+      "Hit@5": 0.3333,
+      "Latency (ms)": 4.2911,
+      "MRR@10": 0.2111,
+      "query_count": 12,
+      "zero_idcg_queries": null,
+      "zero_relevant_queries": 0
+    }
+  },
+  "SisaRasa Hybrid": {
+    "dev": {
+      "Hit@10": 0.5,
+      "Hit@5": 0.4167,
+      "Latency (ms)": 51.7199,
+      "MRR@10": 0.3771,
+      "query_count": 36,
+      "zero_idcg_queries": null,
+      "zero_relevant_queries": 0
+    },
+    "test": {
+      "Hit@10": 0.5,
+      "Hit@5": 0.5,
+      "Latency (ms)": 51.1974,
+      "MRR@10": 0.4333,
+      "query_count": 12,
+      "zero_idcg_queries": null,
+      "zero_relevant_queries": 0
+    }
+  },
+  "TF-IDF Cosine": {
+    "dev": {
+      "Hit@10": 0.3889,
+      "Hit@5": 0.3333,
+      "Latency (ms)": 39.1579,
+      "MRR@10": 0.2875,
+      "query_count": 36,
+      "zero_idcg_queries": null,
+      "zero_relevant_queries": 0
+    },
+    "test": {
+      "Hit@10": 0.6667,
+      "Hit@5": 0.5833,
+      "Latency (ms)": 39.2579,
+      "MRR@10": 0.4875,
+      "query_count": 12,
+      "zero_idcg_queries": null,
+      "zero_relevant_queries": 0
+    }
+  }
+}

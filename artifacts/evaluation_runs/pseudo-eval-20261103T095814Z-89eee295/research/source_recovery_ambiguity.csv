@@ -1,0 +1,12 @@
+query_id,query_text,reference_ingredient_count,ingredient_compatible_documents,target_doc_id
+KI001,"kecap asin, kecap manis, saus tiram",3,1299,SR_006606
+KI003,"bawang putih, lengkuas, tempe",3,951,SR_058431
+KI007,"bawang putih, kemiri, santan",3,3313,SR_030462
+KI009,"bawang merah, bawang putih, cabai merah",3,13078,SR_009749
+KI010,"bawang merah, daging sapi, kecap manis",3,1438,SR_057246
+KI019,"bawang merah, bawang putih, telur",3,7346,SR_046438
+KI029,"bawang putih, mentimun",2,788,SR_043172
+KI034,"bawang bombay, bawang merah, cabai rawit",3,832,SR_013589
+KI039,"bawang merah, ketumbar, lengkuas",3,3148,SR_065605
+KI041,"bawang putih, cabai merah, tomat",3,4749,SR_066184
+KI044,"asam jawa, bawang putih, daging kambing",3,208,SR_004399

@@ -1,0 +1,94 @@
+{
+  "assessment_doc_count": 68747,
+  "completion_marker": "_SUCCESS",
+  "corpus_hash_sha256_full_records": "4b8496e2cd6e4d01a9895a43bd1770604e6a7af2ac7cafc3bac77c180f9d6073",
+  "created_utc": "20261103T065302Z",
+  "cutoffs": [
+    5,
+    10
+  ],
+  "evaluator_version": "pseudo_ir_metrics_v5",
+  "known_item_query_manifest_hash_sha256": "cd90d42253caee877a624fd6f724d3f71992bf5bb8eece29c810b0fdadb02b06",
+  "models": {
+    "BM25": {
+      "class": "BM25Retriever",
+      "parameters": {
+        "b": 0.4,
+        "k1": 1.2
+      }
+    },
+    "Set-Overlap": {
+      "class": "SetOverlapRetriever",
+      "parameters": {}
+    },
+    "SisaRasa Hybrid": {
+      "class": "SisaRasaHybridRetriever",
+      "parameters": {
+        "epsilon": 1e-09,
+        "w1": 0.1,
+        "w2": 0.05,
+        "w3": 0.2,
+        "w4": 0.2,
+        "w5": 0.1,
+        "w_jaccard": 0.35,
+        "w_prot": 0.25
+      }
+    },
+    "TF-IDF Cosine": {
+      "class": "TfidfCosineRetriever",
+      "parameters": {
+        "w_ingr": 0.7,
+        "w_title": 0.3
+      }
+    }
+  },
+  "proxy_query_manifest_hash_sha256": "f80e35d3ca2c2a8f380e3d886cc930273e98273bb75abfbd04c157c8fe1c0cd7",
+  "query_generator_version": "sisarasa_v4_queries_1",
+  "query_processing_version": "sisarasa_v4_suggestions_1",
+  "rubric": {
+    "aggregation": "macro means for all queries and eligible queries within each split and scenario; binary eligibility requires grade >= 2, nDCG eligibility requires IDCG > 0",
+    "binary_relevance_threshold": 2,
+    "coverage_formula": "shared_core / document_core_count when both core sets are nonempty",
+    "grade_rules": {
+      "0": "all remaining pairs; omitted from sparse qrels inside the declared corpus universe",
+      "1": ">= 2 shared core ingredients and core coverage >= 0.30",
+      "2": "protein match when applicable; >= 2 shared core ingredients; core coverage >= 0.45; query utility >= 0.50",
+      "3": "protein match when query has protein; core coverage >= 0.65; query utility >= 0.60"
+    },
+    "hybrid_feature_overlap": [
+      "core coverage",
+      "query utility",
+      "protein alignment"
+    ],
+    "known_item_label": "pemulihan resep sumber berdasarkan bahan",
+    "known_item_limit": "sampled ingredient subsets may match many recipes and need not identify a unique target",
+    "known_item_relevance": "measure recovery of the declared source recipe only; other recipes are not judged irrelevant",
+    "latency_limit": "one retrieval call per query without warm-up; descriptive only",
+    "limitations": "Heuristic ingredient rubric overlaps Hybrid core coverage, query utility, and protein alignment; proxy scores measure rubric agreement, not human relevance. Corpus-derived synthetic queries do not establish real-user performance.",
+    "metric_definitions": {
+      "AP@10": "sum of precision at relevant ranks in top 10 / min(10, total relevant)",
+      "P@k": "relevant returned in top k / k",
+      "R@k": "relevant returned in top k / all relevant in proxy assessment universe",
+      "RR@10": "reciprocal rank of first grade >= 2 within top 10, else zero",
+      "nDCG@k": "gain 2**grade - 1 with log2(rank + 1) discount; ideal from all qrels"
+    },
+    "model_feature_limit": "TF-IDF also uses titles; model differences are not algorithm-only",
+    "noisy_scenario": "synthetic quantities and selected culinary aliases, not typo correction",
+    "parser_dependency": "IndonesianIngredientParser.parse_query core ingredient output",
+    "proxy_assessment_universe": "all df_all doc_id values",
+    "proxy_qrel_input": "clean reference ingredients; retrieval receives the original query",
+    "proxy_qrel_version": "proxy_v2",
+    "query_utility_formula": "shared_core / reference_query_core_count when both core sets are nonempty",
+    "query_vocabulary": "non-staple canonical synonym-map terms only; unlisted valid ingredients are excluded",
+    "seed": 42,
+    "split_limit": "exact family grouping only; inspected synthetic queries are not an untouched holdout",
+    "split_ratio": {
+      "dev": 0.75,
+      "test": 0.25
+    },
+    "split_unit": "canonical reference ingredient family",
+    "zero_denominator_policy": "score zero for all-query macro; eligible-only mean is null when no query is eligible"
+  },
+  "run_id": "pseudo-eval-20261103T065302Z-89eee295",
+  "seed": 42
+}
