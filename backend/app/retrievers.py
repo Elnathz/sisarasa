@@ -105,7 +105,8 @@ class TfidfCosineRetriever(BaseRetriever):
 
     def retrieve(self, query_str: str, top_k: int = 10) -> List[Tuple[str, float]]:
         q_parsed = self.parser.parse_query(query_str)
-        q_ir_text = q_parsed["ingredients_ir_text"]
+        # Gunakan query IR text (tanpa dekomposisi compound) untuk menghindari false positive
+        q_ir_text = q_parsed.get("ingredients_query_ir_text") or q_parsed["ingredients_ir_text"]
         if not q_ir_text.strip():
             return []
 
@@ -122,7 +123,8 @@ class TfidfCosineRetriever(BaseRetriever):
     def get_scores_array(self, query_str: str) -> np.ndarray:
         """Return full score array untuk model hybrid."""
         q_parsed = self.parser.parse_query(query_str)
-        q_ir_text = q_parsed["ingredients_ir_text"]
+        # Gunakan query IR text (tanpa dekomposisi compound) untuk menghindari false positive
+        q_ir_text = q_parsed.get("ingredients_query_ir_text") or q_parsed["ingredients_ir_text"]
         if not q_ir_text.strip():
             return np.zeros(len(self.doc_ids))
         q_vec_ingr = self.vectorizer_ingr.transform([q_ir_text])
@@ -184,7 +186,8 @@ class BM25Retriever(BaseRetriever):
     def get_scores_array(self, query_str: str) -> np.ndarray:
         """Return full score array untuk model hybrid via perkalian matriks sparse."""
         q_parsed = self.parser.parse_query(query_str)
-        q_ir_text = q_parsed["ingredients_ir_text"]
+        # Gunakan query IR text (tanpa dekomposisi compound) untuk menghindari false positive
+        q_ir_text = q_parsed.get("ingredients_query_ir_text") or q_parsed["ingredients_ir_text"]
         if not q_ir_text.strip() or self.bm25_matrix is None:
             return np.zeros(len(self.doc_ids))
 

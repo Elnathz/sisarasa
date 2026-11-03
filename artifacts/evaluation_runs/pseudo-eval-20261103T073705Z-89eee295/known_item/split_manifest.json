@@ -1,0 +1,338 @@
+[
+  {
+    "family_id": "[\"ayam\",\"kemiri\",\"serai\"]",
+    "query_id": "KI001",
+    "scenario": "known_item",
+    "split": "dev",
+    "target_doc_id": "SR_028437"
+  },
+  {
+    "family_id": "[\"bawang merah\",\"cabai rawit\",\"daun bawang\"]",
+    "query_id": "KI002",
+    "scenario": "known_item",
+    "split": "test",
+    "target_doc_id": "SR_036664"
+  },
+  {
+    "family_id": "[\"daun jeruk\",\"santan\",\"tahu\"]",
+    "query_id": "KI003",
+    "scenario": "known_item",
+    "split": "dev",
+    "target_doc_id": "SR_039393"
+  },
+  {
+    "family_id": "[\"ayam\",\"bawang putih\",\"terasi\"]",
+    "query_id": "KI004",
+    "scenario": "known_item",
+    "split": "test",
+    "target_doc_id": "SR_000027"
+  },
+  {
+    "family_id": "[\"kecap manis\",\"margarin\",\"saus tiram\"]",
+    "query_id": "KI005",
+    "scenario": "known_item",
+    "split": "dev",
+    "target_doc_id": "SR_023551"
+  },
+  {
+    "family_id": "[\"bawang merah\",\"bawang putih\",\"cabai merah\"]",
+    "query_id": "KI006",
+    "scenario": "known_item",
+    "split": "dev",
+    "target_doc_id": "SR_005395"
+  },
+  {
+    "family_id": "[\"bawang putih\",\"daun bawang\",\"seledri\"]",
+    "query_id": "KI007",
+    "scenario": "known_item",
+    "split": "dev",
+    "target_doc_id": "SR_038425"
+  },
+  {
+    "family_id": "[\"ayam\",\"bawang merah\",\"tomat\"]",
+    "query_id": "KI008",
+    "scenario": "known_item",
+    "split": "dev",
+    "target_doc_id": "SR_063351"
+  },
+  {
+    "family_id": "[\"cabai rawit\",\"daging kambing\",\"kecap manis\"]",
+    "query_id": "KI009",
+    "scenario": "known_item",
+    "split": "dev",
+    "target_doc_id": "SR_005088"
+  },
+  {
+    "family_id": "[\"bawang merah\",\"cabai merah\",\"ikan\"]",
+    "query_id": "KI010",
+    "scenario": "known_item",
+    "split": "dev",
+    "target_doc_id": "SR_043364"
+  },
+  {
+    "family_id": "[\"bawang merah\",\"cabai rawit\",\"serai\"]",
+    "query_id": "KI011",
+    "scenario": "known_item",
+    "split": "dev",
+    "target_doc_id": "SR_030104"
+  },
+  {
+    "family_id": "[\"bawang merah\",\"ikan\",\"tomat\"]",
+    "query_id": "KI012",
+    "scenario": "known_item",
+    "split": "dev",
+    "target_doc_id": "SR_002979"
+  },
+  {
+    "family_id": "[\"daging kambing\",\"kemiri\",\"ketumbar\"]",
+    "query_id": "KI013",
+    "scenario": "known_item",
+    "split": "dev",
+    "target_doc_id": "SR_003794"
+  },
+  {
+    "family_id": "[\"ayam\",\"bawang bombay\",\"saus tiram\"]",
+    "query_id": "KI014",
+    "scenario": "known_item",
+    "split": "test",
+    "target_doc_id": "SR_028123"
+  },
+  {
+    "family_id": "[\"jintan\",\"ketumbar\",\"udang\"]",
+    "query_id": "KI015",
+    "scenario": "known_item",
+    "split": "test",
+    "target_doc_id": "SR_014216"
+  },
+  {
+    "family_id": "[\"bawang merah\",\"bawang putih\",\"daun jeruk\"]",
+    "query_id": "KI016",
+    "scenario": "known_item",
+    "split": "test",
+    "target_doc_id": "SR_025522"
+  },
+  {
+    "family_id": "[\"bawang putih\",\"kemiri\",\"pakcoy\"]",
+    "query_id": "KI017",
+    "scenario": "known_item",
+    "split": "dev",
+    "target_doc_id": "SR_021993"
+  },
+  {
+    "family_id": "[\"bawang bombay\",\"bawang putih\",\"kecap inggris\"]",
+    "query_id": "KI018",
+    "scenario": "known_item",
+    "split": "dev",
+    "target_doc_id": "SR_004695"
+  },
+  {
+    "family_id": "[\"bawang putih\",\"kemiri\",\"kunyit\"]",
+    "query_id": "KI019",
+    "scenario": "known_item",
+    "split": "dev",
+    "target_doc_id": "SR_024921"
+  },
+  {
+    "family_id": "[\"daun jeruk\",\"serai\"]",
+    "query_id": "KI020",
+    "scenario": "known_item",
+    "split": "dev",
+    "target_doc_id": "SR_039593"
+  },
+  {
+    "family_id": "[\"daging sapi\",\"santan\"]",
+    "query_id": "KI021",
+    "scenario": "known_item",
+    "split": "dev",
+    "target_doc_id": "SR_015786"
+  },
+  {
+    "family_id": "[\"daging kambing\",\"kubis\",\"santan\"]",
+    "query_id": "KI022",
+    "scenario": "known_item",
+    "split": "dev",
+    "target_doc_id": "SR_004764"
+  },
+  {
+    "family_id": "[\"bawang bombay\",\"bawang merah\",\"bawang putih\"]",
+    "query_id": "KI023",
+    "scenario": "known_item",
+    "split": "test",
+    "target_doc_id": "SR_052088"
+  },
+  {
+    "family_id": "[\"bawang putih\",\"cabai merah\",\"tahu\"]",
+    "query_id": "KI024",
+    "scenario": "known_item",
+    "split": "dev",
+    "target_doc_id": "SR_015127"
+  },
+  {
+    "family_id": "[\"telur\",\"tepung maizena\"]",
+    "query_id": "KI025",
+    "scenario": "known_item",
+    "split": "dev",
+    "target_doc_id": "SR_054500"
+  },
+  {
+    "family_id": "[\"bawang putih\",\"ikan\",\"serai\"]",
+    "query_id": "KI026",
+    "scenario": "known_item",
+    "split": "dev",
+    "target_doc_id": "SR_027712"
+  },
+  {
+    "family_id": "[\"bawang merah\",\"bawang putih\"]",
+    "query_id": "KI027",
+    "scenario": "known_item",
+    "split": "test",
+    "target_doc_id": "SR_044936"
+  },
+  {
+    "family_id": "[\"lengkuas\",\"santan\",\"serai\"]",
+    "query_id": "KI028",
+    "scenario": "known_item",
+    "split": "dev",
+    "target_doc_id": "SR_023534"
+  },
+  {
+    "family_id": "[\"daun jeruk\",\"kecap manis\",\"kunyit\"]",
+    "query_id": "KI029",
+    "scenario": "known_item",
+    "split": "test",
+    "target_doc_id": "SR_016185"
+  },
+  {
+    "family_id": "[\"cabai merah\",\"daun jeruk\",\"udang\"]",
+    "query_id": "KI030",
+    "scenario": "known_item",
+    "split": "test",
+    "target_doc_id": "SR_031520"
+  },
+  {
+    "family_id": "[\"cabai hijau\",\"serai\"]",
+    "query_id": "KI031",
+    "scenario": "known_item",
+    "split": "dev",
+    "target_doc_id": "SR_066444"
+  },
+  {
+    "family_id": "[\"bawang merah\",\"bawang putih\",\"cabai rawit\"]",
+    "query_id": "KI032",
+    "scenario": "known_item",
+    "split": "dev",
+    "target_doc_id": "SR_062554"
+  },
+  {
+    "family_id": "[\"bawang merah\",\"cabai merah\",\"kecap manis\"]",
+    "query_id": "KI033",
+    "scenario": "known_item",
+    "split": "dev",
+    "target_doc_id": "SR_015492"
+  },
+  {
+    "family_id": "[\"bawang bombay\",\"kecap manis\",\"margarin\"]",
+    "query_id": "KI034",
+    "scenario": "known_item",
+    "split": "dev",
+    "target_doc_id": "SR_055398"
+  },
+  {
+    "family_id": "[\"bawang bombay\",\"daun bawang\",\"saus tiram\"]",
+    "query_id": "KI035",
+    "scenario": "known_item",
+    "split": "dev",
+    "target_doc_id": "SR_026014"
+  },
+  {
+    "family_id": "[\"bawang putih\",\"kemiri\",\"tahu\"]",
+    "query_id": "KI036",
+    "scenario": "known_item",
+    "split": "dev",
+    "target_doc_id": "SR_001598"
+  },
+  {
+    "family_id": "[\"bawang putih\",\"margarin\",\"tomat\"]",
+    "query_id": "KI037",
+    "scenario": "known_item",
+    "split": "dev",
+    "target_doc_id": "SR_018119"
+  },
+  {
+    "family_id": "[\"bawang putih\",\"jintan\",\"ketumbar\"]",
+    "query_id": "KI038",
+    "scenario": "known_item",
+    "split": "dev",
+    "target_doc_id": "SR_006792"
+  },
+  {
+    "family_id": "[\"kunyit\",\"lengkuas\",\"tempe\"]",
+    "query_id": "KI039",
+    "scenario": "known_item",
+    "split": "dev",
+    "target_doc_id": "SR_011237"
+  },
+  {
+    "family_id": "[\"bawang putih\",\"kecap asin\",\"telur\"]",
+    "query_id": "KI040",
+    "scenario": "known_item",
+    "split": "dev",
+    "target_doc_id": "SR_028456"
+  },
+  {
+    "family_id": "[\"bawang merah\",\"ikan\",\"serai\"]",
+    "query_id": "KI041",
+    "scenario": "known_item",
+    "split": "test",
+    "target_doc_id": "SR_047326"
+  },
+  {
+    "family_id": "[\"bawang merah\",\"bawang putih\",\"daun bawang\"]",
+    "query_id": "KI042",
+    "scenario": "known_item",
+    "split": "dev",
+    "target_doc_id": "SR_035110"
+  },
+  {
+    "family_id": "[\"bawang merah\",\"seledri\",\"serai\"]",
+    "query_id": "KI043",
+    "scenario": "known_item",
+    "split": "test",
+    "target_doc_id": "SR_020642"
+  },
+  {
+    "family_id": "[\"bawang merah\",\"bawang putih\",\"serai\"]",
+    "query_id": "KI044",
+    "scenario": "known_item",
+    "split": "dev",
+    "target_doc_id": "SR_007293"
+  },
+  {
+    "family_id": "[\"bawang merah\",\"daun jeruk\",\"santan\"]",
+    "query_id": "KI045",
+    "scenario": "known_item",
+    "split": "dev",
+    "target_doc_id": "SR_057749"
+  },
+  {
+    "family_id": "[\"bawang merah\",\"bawang putih\",\"cabai rawit\"]",
+    "query_id": "KI046",
+    "scenario": "known_item",
+    "split": "dev",
+    "target_doc_id": "SR_024327"
+  },
+  {
+    "family_id": "[\"tahu\",\"tepung terigu\"]",
+    "query_id": "KI047",
+    "scenario": "known_item",
+    "split": "test",
+    "target_doc_id": "SR_009307"
+  },
+  {
+    "family_id": "[\"kemiri\",\"lengkuas\",\"tahu\"]",
+    "query_id": "KI048",
+    "scenario": "known_item",
+    "split": "dev",
+    "target_doc_id": "SR_041684"
+  }
+]

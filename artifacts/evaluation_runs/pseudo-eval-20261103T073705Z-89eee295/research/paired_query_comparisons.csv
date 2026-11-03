@@ -1,0 +1,13 @@
+left,right,metric,split,query_count,family_count,wins,ties,losses,mean_delta
+SisaRasa Hybrid,Set-Overlap,AP@10,dev,37,36,4,26,7,-0.0162977262977263
+SisaRasa Hybrid,Set-Overlap,nDCG@10,dev,37,36,3,17,17,-0.04837585274100278
+SisaRasa Hybrid,TF-IDF Cosine,AP@10,dev,37,36,30,7,0,0.38983805233805235
+SisaRasa Hybrid,TF-IDF Cosine,nDCG@10,dev,37,36,37,0,0,0.31531343636674175
+SisaRasa Hybrid,BM25,AP@10,dev,37,36,29,8,0,0.3696496496496495
+SisaRasa Hybrid,BM25,nDCG@10,dev,37,36,36,1,0,0.33748229371408117
+SisaRasa Hybrid,Set-Overlap,AP@10,test,11,11,2,9,0,0.05084415584415585
+SisaRasa Hybrid,Set-Overlap,nDCG@10,test,11,11,3,6,2,0.020716247471306716
+SisaRasa Hybrid,TF-IDF Cosine,AP@10,test,11,11,8,3,0,0.3177623170480313
+SisaRasa Hybrid,TF-IDF Cosine,nDCG@10,test,11,11,10,1,0,0.31112282327941193
+SisaRasa Hybrid,BM25,AP@10,test,11,11,7,4,0,0.26097402597402597
+SisaRasa Hybrid,BM25,nDCG@10,test,11,11,10,1,0,0.28624357571603903

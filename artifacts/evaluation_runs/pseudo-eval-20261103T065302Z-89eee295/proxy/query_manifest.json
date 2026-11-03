@@ -1,0 +1,1299 @@
+[
+  {
+    "expected_core_ingredients": [
+      "kecap asin",
+      "tomat"
+    ],
+    "family_id": "[\"kecap asin\",\"tomat\"]",
+    "noise_types": [],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "kecap asin",
+      "tomat"
+    ],
+    "query_id": "AN01",
+    "query_text": "kecap asin, tomat",
+    "reference_query_text": "kecap asin, tomat",
+    "requested_ingredient_count": 2,
+    "scenario": "A",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled",
+    "split": "dev"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang merah",
+      "ikan",
+      "kentang"
+    ],
+    "family_id": "[\"bawang merah\",\"ikan\",\"kentang\"]",
+    "noise_types": [],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang merah",
+      "ikan",
+      "kentang"
+    ],
+    "query_id": "AN02",
+    "query_text": "kentang, bawang merah, ikan",
+    "reference_query_text": "kentang, bawang merah, ikan",
+    "requested_ingredient_count": 3,
+    "scenario": "A",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled",
+    "split": "dev"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang bombay",
+      "daun bawang"
+    ],
+    "family_id": "[\"bawang bombay\",\"daun bawang\"]",
+    "noise_types": [],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang bombay",
+      "daun bawang"
+    ],
+    "query_id": "AN03",
+    "query_text": "bawang bombay, daun bawang",
+    "reference_query_text": "bawang bombay, daun bawang",
+    "requested_ingredient_count": 2,
+    "scenario": "A",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled",
+    "split": "dev"
+  },
+  {
+    "expected_core_ingredients": [
+      "ayam",
+      "bawang putih"
+    ],
+    "family_id": "[\"ayam\",\"bawang putih\"]",
+    "noise_types": [],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "ayam",
+      "bawang putih"
+    ],
+    "query_id": "AN04",
+    "query_text": "ayam, bawang putih",
+    "reference_query_text": "ayam, bawang putih",
+    "requested_ingredient_count": 2,
+    "scenario": "A",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled",
+    "split": "dev"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang merah",
+      "kemiri",
+      "serai"
+    ],
+    "family_id": "[\"bawang merah\",\"kemiri\",\"serai\"]",
+    "noise_types": [],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang merah",
+      "kemiri",
+      "serai"
+    ],
+    "query_id": "AN05",
+    "query_text": "kemiri, bawang merah, serai",
+    "reference_query_text": "kemiri, bawang merah, serai",
+    "requested_ingredient_count": 3,
+    "scenario": "A",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled",
+    "split": "dev"
+  },
+  {
+    "expected_core_ingredients": [
+      "ayam",
+      "wortel"
+    ],
+    "family_id": "[\"ayam\",\"wortel\"]",
+    "noise_types": [],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "ayam",
+      "wortel"
+    ],
+    "query_id": "AN06",
+    "query_text": "ayam, wortel",
+    "reference_query_text": "ayam, wortel",
+    "requested_ingredient_count": 2,
+    "scenario": "A",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled",
+    "split": "test"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang bombay",
+      "telur",
+      "tomat"
+    ],
+    "family_id": "[\"bawang bombay\",\"telur\",\"tomat\"]",
+    "noise_types": [],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang bombay",
+      "telur",
+      "tomat"
+    ],
+    "query_id": "AN07",
+    "query_text": "bawang bombay, telur, tomat",
+    "reference_query_text": "bawang bombay, telur, tomat",
+    "requested_ingredient_count": 3,
+    "scenario": "A",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled",
+    "split": "dev"
+  },
+  {
+    "expected_core_ingredients": [
+      "daun bawang",
+      "kemiri"
+    ],
+    "family_id": "[\"daun bawang\",\"kemiri\"]",
+    "noise_types": [],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "daun bawang",
+      "kemiri"
+    ],
+    "query_id": "AN08",
+    "query_text": "kemiri, daun bawang",
+    "reference_query_text": "kemiri, daun bawang",
+    "requested_ingredient_count": 2,
+    "scenario": "A",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled",
+    "split": "test"
+  },
+  {
+    "expected_core_ingredients": [
+      "cabai rawit",
+      "tempe"
+    ],
+    "family_id": "[\"cabai rawit\",\"tempe\"]",
+    "noise_types": [],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "cabai rawit",
+      "tempe"
+    ],
+    "query_id": "AN09",
+    "query_text": "tempe, cabai rawit",
+    "reference_query_text": "tempe, cabai rawit",
+    "requested_ingredient_count": 2,
+    "scenario": "A",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled",
+    "split": "dev"
+  },
+  {
+    "expected_core_ingredients": [
+      "ayam",
+      "bawang putih"
+    ],
+    "family_id": "[\"ayam\",\"bawang putih\"]",
+    "noise_types": [],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "ayam",
+      "bawang putih"
+    ],
+    "query_id": "AN10",
+    "query_text": "bawang putih, ayam",
+    "reference_query_text": "bawang putih, ayam",
+    "requested_ingredient_count": 2,
+    "scenario": "A",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled",
+    "split": "dev"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang merah",
+      "bawang putih",
+      "cabai rawit"
+    ],
+    "family_id": "[\"bawang merah\",\"bawang putih\",\"cabai rawit\"]",
+    "noise_types": [],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang merah",
+      "bawang putih",
+      "cabai rawit"
+    ],
+    "query_id": "AN11",
+    "query_text": "bawang merah, cabai rawit, bawang putih",
+    "reference_query_text": "bawang merah, cabai rawit, bawang putih",
+    "requested_ingredient_count": 3,
+    "scenario": "A",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled",
+    "split": "dev"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang bombay",
+      "kecap asin",
+      "saus tiram"
+    ],
+    "family_id": "[\"bawang bombay\",\"kecap asin\",\"saus tiram\"]",
+    "noise_types": [],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang bombay",
+      "kecap asin",
+      "saus tiram"
+    ],
+    "query_id": "AN12",
+    "query_text": "kecap asin, bawang bombay, saus tiram",
+    "reference_query_text": "kecap asin, bawang bombay, saus tiram",
+    "requested_ingredient_count": 3,
+    "scenario": "A",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled",
+    "split": "dev"
+  },
+  {
+    "expected_core_ingredients": [
+      "cabai merah",
+      "daun bawang",
+      "telur",
+      "wortel"
+    ],
+    "family_id": "[\"cabai merah\",\"daun bawang\",\"telur\",\"wortel\"]",
+    "noise_types": [],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "cabai merah",
+      "daun bawang",
+      "telur",
+      "wortel"
+    ],
+    "query_id": "BN01",
+    "query_text": "cabai merah, daun bawang, telur, wortel",
+    "reference_query_text": "cabai merah, daun bawang, telur, wortel",
+    "requested_ingredient_count": 6,
+    "scenario": "B",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled",
+    "split": "dev"
+  },
+  {
+    "expected_core_ingredients": [
+      "cabai",
+      "daun jeruk",
+      "kecap asin",
+      "kecap manis",
+      "seledri"
+    ],
+    "family_id": "[\"cabai\",\"daun jeruk\",\"kecap asin\",\"kecap manis\",\"seledri\"]",
+    "noise_types": [],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "cabai",
+      "daun jeruk",
+      "kecap asin",
+      "kecap manis",
+      "seledri"
+    ],
+    "query_id": "BN02",
+    "query_text": "seledri, kecap asin, daun jeruk, cabai, kecap manis",
+    "reference_query_text": "seledri, kecap asin, daun jeruk, cabai, kecap manis",
+    "requested_ingredient_count": 5,
+    "scenario": "B",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled",
+    "split": "test"
+  },
+  {
+    "expected_core_ingredients": [
+      "cabai merah",
+      "kemiri",
+      "ketumbar",
+      "lengkuas"
+    ],
+    "family_id": "[\"cabai merah\",\"kemiri\",\"ketumbar\",\"lengkuas\"]",
+    "noise_types": [],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "cabai merah",
+      "kemiri",
+      "ketumbar",
+      "lengkuas"
+    ],
+    "query_id": "BN03",
+    "query_text": "ketumbar, cabai merah, kemiri, lengkuas",
+    "reference_query_text": "ketumbar, cabai merah, kemiri, lengkuas",
+    "requested_ingredient_count": 4,
+    "scenario": "B",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled",
+    "split": "test"
+  },
+  {
+    "expected_core_ingredients": [
+      "saus sambal",
+      "telur",
+      "tepung roti",
+      "wortel"
+    ],
+    "family_id": "[\"saus sambal\",\"telur\",\"tepung roti\",\"wortel\"]",
+    "noise_types": [],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "saus sambal",
+      "telur",
+      "tepung roti",
+      "wortel"
+    ],
+    "query_id": "BN04",
+    "query_text": "saus sambal, tepung roti, telur, wortel",
+    "reference_query_text": "saus sambal, tepung roti, telur, wortel",
+    "requested_ingredient_count": 4,
+    "scenario": "B",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled",
+    "split": "dev"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang bombay",
+      "bawang putih",
+      "daging sapi",
+      "saus tiram"
+    ],
+    "family_id": "[\"bawang bombay\",\"bawang putih\",\"daging sapi\",\"saus tiram\"]",
+    "noise_types": [],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang bombay",
+      "bawang putih",
+      "daging sapi",
+      "saus tiram"
+    ],
+    "query_id": "BN05",
+    "query_text": "bawang putih, daging sapi, saus tiram, bawang bombay",
+    "reference_query_text": "bawang putih, daging sapi, saus tiram, bawang bombay",
+    "requested_ingredient_count": 4,
+    "scenario": "B",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled",
+    "split": "dev"
+  },
+  {
+    "expected_core_ingredients": [
+      "ayam",
+      "bawang merah",
+      "kecap manis",
+      "lengkuas"
+    ],
+    "family_id": "[\"ayam\",\"bawang merah\",\"kecap manis\",\"lengkuas\"]",
+    "noise_types": [],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "ayam",
+      "bawang merah",
+      "kecap manis",
+      "lengkuas"
+    ],
+    "query_id": "BN06",
+    "query_text": "ayam, lengkuas, kecap manis, bawang merah",
+    "reference_query_text": "ayam, lengkuas, kecap manis, bawang merah",
+    "requested_ingredient_count": 4,
+    "scenario": "B",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled",
+    "split": "test"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang putih",
+      "kemiri",
+      "santan",
+      "tomat"
+    ],
+    "family_id": "[\"bawang putih\",\"kemiri\",\"santan\",\"tomat\"]",
+    "noise_types": [],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang putih",
+      "kemiri",
+      "santan",
+      "tomat"
+    ],
+    "query_id": "BN07",
+    "query_text": "santan, kemiri, bawang putih, tomat",
+    "reference_query_text": "santan, kemiri, bawang putih, tomat",
+    "requested_ingredient_count": 4,
+    "scenario": "B",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled",
+    "split": "dev"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang merah",
+      "bawang putih",
+      "seledri",
+      "tomat",
+      "wortel"
+    ],
+    "family_id": "[\"bawang merah\",\"bawang putih\",\"seledri\",\"tomat\",\"wortel\"]",
+    "noise_types": [],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang merah",
+      "bawang putih",
+      "seledri",
+      "tomat",
+      "wortel"
+    ],
+    "query_id": "BN08",
+    "query_text": "bawang putih, tomat, bawang merah, wortel, seledri",
+    "reference_query_text": "bawang putih, tomat, bawang merah, wortel, seledri",
+    "requested_ingredient_count": 5,
+    "scenario": "B",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled",
+    "split": "dev"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang putih",
+      "kecap inggris",
+      "kecap manis",
+      "tepung tapioka"
+    ],
+    "family_id": "[\"bawang putih\",\"kecap inggris\",\"kecap manis\",\"tepung tapioka\"]",
+    "noise_types": [],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang putih",
+      "kecap inggris",
+      "kecap manis",
+      "tepung tapioka"
+    ],
+    "query_id": "BN09",
+    "query_text": "kecap manis, tepung tapioka, kecap inggris, bawang putih",
+    "reference_query_text": "kecap manis, tepung tapioka, kecap inggris, bawang putih",
+    "requested_ingredient_count": 4,
+    "scenario": "B",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled",
+    "split": "dev"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang putih",
+      "cabai rawit",
+      "daun jeruk",
+      "kemiri",
+      "tempe"
+    ],
+    "family_id": "[\"bawang putih\",\"cabai rawit\",\"daun jeruk\",\"kemiri\",\"tempe\"]",
+    "noise_types": [],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang putih",
+      "cabai rawit",
+      "daun jeruk",
+      "kemiri",
+      "tempe"
+    ],
+    "query_id": "BN10",
+    "query_text": "tempe, daun jeruk, bawang putih, kemiri, cabai rawit",
+    "reference_query_text": "tempe, daun jeruk, bawang putih, kemiri, cabai rawit",
+    "requested_ingredient_count": 5,
+    "scenario": "B",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled",
+    "split": "dev"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang goreng",
+      "bawang merah",
+      "cabai rawit",
+      "daging sapi",
+      "kunyit",
+      "serai"
+    ],
+    "family_id": "[\"bawang goreng\",\"bawang merah\",\"cabai rawit\",\"daging sapi\",\"kunyit\",\"serai\"]",
+    "noise_types": [],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang goreng",
+      "bawang merah",
+      "cabai rawit",
+      "daging sapi",
+      "kunyit",
+      "serai"
+    ],
+    "query_id": "BN11",
+    "query_text": "kunyit, bawang goreng, cabai rawit, bawang merah, serai, daging sapi",
+    "reference_query_text": "kunyit, bawang goreng, cabai rawit, bawang merah, serai, daging sapi",
+    "requested_ingredient_count": 6,
+    "scenario": "B",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled",
+    "split": "dev"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang bombay",
+      "bawang putih",
+      "cabai hijau",
+      "daun bawang",
+      "saus sambal"
+    ],
+    "family_id": "[\"bawang bombay\",\"bawang putih\",\"cabai hijau\",\"daun bawang\",\"saus sambal\"]",
+    "noise_types": [],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang bombay",
+      "bawang putih",
+      "cabai hijau",
+      "daun bawang",
+      "saus sambal"
+    ],
+    "query_id": "BN12",
+    "query_text": "bawang bombay, cabai hijau, bawang putih, daun bawang, saus sambal",
+    "reference_query_text": "bawang bombay, cabai hijau, bawang putih, daun bawang, saus sambal",
+    "requested_ingredient_count": 5,
+    "scenario": "B",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled",
+    "split": "dev"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang putih",
+      "cabai rawit",
+      "daun bawang",
+      "kecap asin",
+      "kecap ikan",
+      "kecap manis",
+      "saus tiram",
+      "telur",
+      "tepung maizena"
+    ],
+    "family_id": "[\"bawang putih\",\"cabai rawit\",\"daun bawang\",\"kecap asin\",\"kecap ikan\",\"kecap manis\",\"saus tiram\",\"telur\",\"tepung maizena\"]",
+    "noise_types": [],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang putih",
+      "cabai rawit",
+      "daun bawang",
+      "kecap asin",
+      "kecap ikan",
+      "kecap manis",
+      "saus tiram",
+      "telur",
+      "tepung maizena"
+    ],
+    "query_id": "CN01",
+    "query_text": "bawang putih, kecap manis, kecap asin, daun bawang, saus tiram, kecap ikan, cabai rawit, telur, tepung maizena",
+    "reference_query_text": "bawang putih, kecap manis, kecap asin, daun bawang, saus tiram, kecap ikan, cabai rawit, telur, tepung maizena",
+    "requested_ingredient_count": 9,
+    "scenario": "C",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled",
+    "split": "test"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang merah",
+      "bawang putih",
+      "daun bawang",
+      "kecap asin",
+      "tepung maizena",
+      "udang",
+      "wortel"
+    ],
+    "family_id": "[\"bawang merah\",\"bawang putih\",\"daun bawang\",\"kecap asin\",\"tepung maizena\",\"udang\",\"wortel\"]",
+    "noise_types": [],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang merah",
+      "bawang putih",
+      "daun bawang",
+      "kecap asin",
+      "tepung maizena",
+      "udang",
+      "wortel"
+    ],
+    "query_id": "CN02",
+    "query_text": "bawang merah, bawang putih, daun bawang, kecap asin, tepung maizena, udang, wortel",
+    "reference_query_text": "bawang merah, bawang putih, daun bawang, kecap asin, tepung maizena, udang, wortel",
+    "requested_ingredient_count": 9,
+    "scenario": "C",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled",
+    "split": "dev"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang merah",
+      "bawang putih",
+      "buncis",
+      "kecap asin",
+      "kecap manis",
+      "margarin",
+      "telur",
+      "udang"
+    ],
+    "family_id": "[\"bawang merah\",\"bawang putih\",\"buncis\",\"kecap asin\",\"kecap manis\",\"margarin\",\"telur\",\"udang\"]",
+    "noise_types": [],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang merah",
+      "bawang putih",
+      "buncis",
+      "kecap asin",
+      "kecap manis",
+      "margarin",
+      "telur",
+      "udang"
+    ],
+    "query_id": "CN03",
+    "query_text": "bawang merah, bawang putih, buncis, kecap asin, kecap manis, margarin, telur, udang",
+    "reference_query_text": "bawang merah, bawang putih, buncis, kecap asin, kecap manis, margarin, telur, udang",
+    "requested_ingredient_count": 10,
+    "scenario": "C",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled",
+    "split": "dev"
+  },
+  {
+    "expected_core_ingredients": [
+      "ayam",
+      "bawang merah",
+      "bawang putih",
+      "telur",
+      "tepung maizena",
+      "tepung tapioka",
+      "tepung terigu"
+    ],
+    "family_id": "[\"ayam\",\"bawang merah\",\"bawang putih\",\"telur\",\"tepung maizena\",\"tepung tapioka\",\"tepung terigu\"]",
+    "noise_types": [],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "ayam",
+      "bawang merah",
+      "bawang putih",
+      "telur",
+      "tepung maizena",
+      "tepung tapioka",
+      "tepung terigu"
+    ],
+    "query_id": "CN04",
+    "query_text": "ayam, bawang merah, bawang putih, telur, tepung maizena, tepung tapioka, tepung terigu",
+    "reference_query_text": "ayam, bawang merah, bawang putih, telur, tepung maizena, tepung tapioka, tepung terigu",
+    "requested_ingredient_count": 9,
+    "scenario": "C",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled",
+    "split": "dev"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang merah",
+      "bawang putih",
+      "cabai merah",
+      "cabai rawit",
+      "kecap asin",
+      "kecap manis",
+      "telur",
+      "tomat"
+    ],
+    "family_id": "[\"bawang merah\",\"bawang putih\",\"cabai merah\",\"cabai rawit\",\"kecap asin\",\"kecap manis\",\"telur\",\"tomat\"]",
+    "noise_types": [],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang merah",
+      "bawang putih",
+      "cabai merah",
+      "cabai rawit",
+      "kecap asin",
+      "kecap manis",
+      "telur",
+      "tomat"
+    ],
+    "query_id": "CN05",
+    "query_text": "telur, tomat, cabai rawit, kecap manis, kecap asin, bawang merah, cabai merah, bawang putih",
+    "reference_query_text": "telur, tomat, cabai rawit, kecap manis, kecap asin, bawang merah, cabai merah, bawang putih",
+    "requested_ingredient_count": 8,
+    "scenario": "C",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled",
+    "split": "test"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang merah",
+      "bawang putih",
+      "cabai merah",
+      "cabai rawit",
+      "daging sapi",
+      "saus tiram",
+      "terasi"
+    ],
+    "family_id": "[\"bawang merah\",\"bawang putih\",\"cabai merah\",\"cabai rawit\",\"daging sapi\",\"saus tiram\",\"terasi\"]",
+    "noise_types": [],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang merah",
+      "bawang putih",
+      "cabai merah",
+      "cabai rawit",
+      "daging sapi",
+      "saus tiram",
+      "terasi"
+    ],
+    "query_id": "CN06",
+    "query_text": "cabai rawit, saus tiram, daging sapi, terasi, bawang putih, cabai merah, bawang merah",
+    "reference_query_text": "cabai rawit, saus tiram, daging sapi, terasi, bawang putih, cabai merah, bawang merah",
+    "requested_ingredient_count": 7,
+    "scenario": "C",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled",
+    "split": "test"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang bombay",
+      "bawang merah",
+      "bawang putih",
+      "telur",
+      "tempe",
+      "tepung tapioka",
+      "tepung terigu",
+      "wortel"
+    ],
+    "family_id": "[\"bawang bombay\",\"bawang merah\",\"bawang putih\",\"telur\",\"tempe\",\"tepung tapioka\",\"tepung terigu\",\"wortel\"]",
+    "noise_types": [],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang bombay",
+      "bawang merah",
+      "bawang putih",
+      "telur",
+      "tempe",
+      "tepung tapioka",
+      "tepung terigu",
+      "wortel"
+    ],
+    "query_id": "CN07",
+    "query_text": "bawang putih, bawang bombay, wortel, tepung tapioka, bawang merah, telur, tempe, tepung terigu",
+    "reference_query_text": "bawang putih, bawang bombay, wortel, tepung tapioka, bawang merah, telur, tempe, tepung terigu",
+    "requested_ingredient_count": 8,
+    "scenario": "C",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled",
+    "split": "dev"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang merah",
+      "bawang putih",
+      "bunga lawang",
+      "cabai",
+      "daging kambing",
+      "kemiri",
+      "kunyit",
+      "serai"
+    ],
+    "family_id": "[\"bawang merah\",\"bawang putih\",\"bunga lawang\",\"cabai\",\"daging kambing\",\"kemiri\",\"kunyit\",\"serai\"]",
+    "noise_types": [],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang merah",
+      "bawang putih",
+      "bunga lawang",
+      "cabai",
+      "daging kambing",
+      "kemiri",
+      "kunyit",
+      "serai"
+    ],
+    "query_id": "CN08",
+    "query_text": "bawang merah, bawang putih, bunga lawang, cabai, daging kambing, kemiri, kunyit, serai",
+    "reference_query_text": "bawang merah, bawang putih, bunga lawang, cabai, daging kambing, kemiri, kunyit, serai",
+    "requested_ingredient_count": 9,
+    "scenario": "C",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled",
+    "split": "dev"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang bombay",
+      "bawang putih",
+      "cabai merah",
+      "kecap manis",
+      "pakcoy",
+      "saus tiram",
+      "telur"
+    ],
+    "family_id": "[\"bawang bombay\",\"bawang putih\",\"cabai merah\",\"kecap manis\",\"pakcoy\",\"saus tiram\",\"telur\"]",
+    "noise_types": [],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang bombay",
+      "bawang putih",
+      "cabai merah",
+      "kecap manis",
+      "pakcoy",
+      "saus tiram",
+      "telur"
+    ],
+    "query_id": "CN09",
+    "query_text": "bawang bombay, bawang putih, telur, saus tiram, pakcoy, kecap manis, cabai merah",
+    "reference_query_text": "bawang bombay, bawang putih, telur, saus tiram, pakcoy, kecap manis, cabai merah",
+    "requested_ingredient_count": 7,
+    "scenario": "C",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled",
+    "split": "dev"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang putih",
+      "bunga lawang",
+      "daging sapi",
+      "daun jeruk",
+      "kecap manis",
+      "kentang",
+      "serai"
+    ],
+    "family_id": "[\"bawang putih\",\"bunga lawang\",\"daging sapi\",\"daun jeruk\",\"kecap manis\",\"kentang\",\"serai\"]",
+    "noise_types": [],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang putih",
+      "bunga lawang",
+      "daging sapi",
+      "daun jeruk",
+      "kecap manis",
+      "kentang",
+      "serai"
+    ],
+    "query_id": "CN10",
+    "query_text": "bawang putih, bunga lawang, daging sapi, daun jeruk, kecap manis, kentang, serai",
+    "reference_query_text": "bawang putih, bunga lawang, daging sapi, daun jeruk, kecap manis, kentang, serai",
+    "requested_ingredient_count": 9,
+    "scenario": "C",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled",
+    "split": "dev"
+  },
+  {
+    "expected_core_ingredients": [
+      "ayam",
+      "bawang merah",
+      "bawang putih",
+      "daun bawang",
+      "daun jeruk",
+      "kubis",
+      "seledri"
+    ],
+    "family_id": "[\"ayam\",\"bawang merah\",\"bawang putih\",\"daun bawang\",\"daun jeruk\",\"kubis\",\"seledri\"]",
+    "noise_types": [],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "ayam",
+      "bawang merah",
+      "bawang putih",
+      "daun bawang",
+      "daun jeruk",
+      "kubis",
+      "seledri"
+    ],
+    "query_id": "CN11",
+    "query_text": "ayam, bawang merah, bawang putih, daun bawang, daun jeruk, kubis, seledri",
+    "reference_query_text": "ayam, bawang merah, bawang putih, daun bawang, daun jeruk, kubis, seledri",
+    "requested_ingredient_count": 9,
+    "scenario": "C",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled",
+    "split": "dev"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang merah",
+      "bawang putih",
+      "kemiri",
+      "kentang",
+      "lengkuas",
+      "seledri",
+      "serai",
+      "tomat"
+    ],
+    "family_id": "[\"bawang merah\",\"bawang putih\",\"kemiri\",\"kentang\",\"lengkuas\",\"seledri\",\"serai\",\"tomat\"]",
+    "noise_types": [],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang merah",
+      "bawang putih",
+      "kemiri",
+      "kentang",
+      "lengkuas",
+      "seledri",
+      "serai",
+      "tomat"
+    ],
+    "query_id": "CN12",
+    "query_text": "bawang merah, kentang, tomat, lengkuas, kemiri, bawang putih, seledri, serai",
+    "reference_query_text": "bawang merah, kentang, tomat, lengkuas, kemiri, bawang putih, seledri, serai",
+    "requested_ingredient_count": 8,
+    "scenario": "C",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled",
+    "split": "dev"
+  },
+  {
+    "expected_core_ingredients": [
+      "cabai merah",
+      "kecap manis",
+      "telur"
+    ],
+    "family_id": "[\"cabai merah\",\"kecap manis\",\"telur\"]",
+    "noise_types": [
+      "quantity",
+      "culinary_alias"
+    ],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "cabai merah",
+      "kecap manis",
+      "telur"
+    ],
+    "query_id": "DN01",
+    "query_text": "1 buah telor, 2 buah kecap manis, 3 buah cabai merah",
+    "reference_query_text": "telur, kecap manis, cabai merah",
+    "requested_ingredient_count": 3,
+    "scenario": "D",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled_noisy",
+    "split": "test"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang merah",
+      "bawang putih",
+      "kecap manis"
+    ],
+    "family_id": "[\"bawang merah\",\"bawang putih\",\"kecap manis\"]",
+    "noise_types": [
+      "quantity",
+      "culinary_alias"
+    ],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang merah",
+      "bawang putih",
+      "kecap manis"
+    ],
+    "query_id": "DN02",
+    "query_text": "1 buah bamer, 2 buah baput, 3 buah kecap manis",
+    "reference_query_text": "bawang merah, bawang putih, kecap manis",
+    "requested_ingredient_count": 3,
+    "scenario": "D",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled_noisy",
+    "split": "dev"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang putih",
+      "cabai",
+      "jintan",
+      "kunyit",
+      "santan"
+    ],
+    "family_id": "[\"bawang putih\",\"cabai\",\"jintan\",\"kunyit\",\"santan\"]",
+    "noise_types": [
+      "quantity",
+      "culinary_alias"
+    ],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang putih",
+      "cabai",
+      "jintan",
+      "kunyit",
+      "santan"
+    ],
+    "query_id": "DN03",
+    "query_text": "1 buah santen, 2 buah jintan, 3 buah baput, 4 buah kunyit, 5 buah cabe",
+    "reference_query_text": "santan, jintan, bawang putih, kunyit, cabai",
+    "requested_ingredient_count": 5,
+    "scenario": "D",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled_noisy",
+    "split": "dev"
+  },
+  {
+    "expected_core_ingredients": [
+      "ayam",
+      "kecap asin",
+      "saus tiram",
+      "tepung maizena"
+    ],
+    "family_id": "[\"ayam\",\"kecap asin\",\"saus tiram\",\"tepung maizena\"]",
+    "noise_types": [
+      "quantity"
+    ],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "ayam",
+      "kecap asin",
+      "saus tiram",
+      "tepung maizena"
+    ],
+    "query_id": "DN04",
+    "query_text": "1 buah ayam, 2 buah kecap asin, 3 buah saus tiram, 4 buah tepung maizena",
+    "reference_query_text": "ayam, kecap asin, saus tiram, tepung maizena",
+    "requested_ingredient_count": 6,
+    "scenario": "D",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled_noisy",
+    "split": "test"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang bombay",
+      "bawang putih",
+      "telur"
+    ],
+    "family_id": "[\"bawang bombay\",\"bawang putih\",\"telur\"]",
+    "noise_types": [
+      "quantity",
+      "culinary_alias"
+    ],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang bombay",
+      "bawang putih",
+      "telur"
+    ],
+    "query_id": "DN05",
+    "query_text": "1 buah telor, 2 buah baput, 3 buah bawang bombay",
+    "reference_query_text": "telur, bawang putih, bawang bombay",
+    "requested_ingredient_count": 3,
+    "scenario": "D",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled_noisy",
+    "split": "dev"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang putih",
+      "kemiri",
+      "kunyit",
+      "tomat"
+    ],
+    "family_id": "[\"bawang putih\",\"kemiri\",\"kunyit\",\"tomat\"]",
+    "noise_types": [
+      "quantity",
+      "culinary_alias"
+    ],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang putih",
+      "kemiri",
+      "kunyit",
+      "tomat"
+    ],
+    "query_id": "DN06",
+    "query_text": "1 buah tomat, 2 buah baput, 3 buah kunyit, 4 buah kemiri",
+    "reference_query_text": "tomat, bawang putih, kunyit, kemiri",
+    "requested_ingredient_count": 4,
+    "scenario": "D",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled_noisy",
+    "split": "dev"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang merah",
+      "bawang putih",
+      "cabai merah",
+      "cabai rawit",
+      "kubis",
+      "seledri"
+    ],
+    "family_id": "[\"bawang merah\",\"bawang putih\",\"cabai merah\",\"cabai rawit\",\"kubis\",\"seledri\"]",
+    "noise_types": [
+      "quantity",
+      "culinary_alias"
+    ],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang merah",
+      "bawang putih",
+      "cabai merah",
+      "cabai rawit",
+      "kubis",
+      "seledri"
+    ],
+    "query_id": "DN07",
+    "query_text": "1 buah bamer, 2 buah baput, 3 buah cabai merah, 4 buah cabai rawit, 5 buah kubis, 6 buah seledri",
+    "reference_query_text": "bawang merah, bawang putih, cabai merah, cabai rawit, kubis, seledri",
+    "requested_ingredient_count": 7,
+    "scenario": "D",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled_noisy",
+    "split": "dev"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang merah",
+      "bawang putih",
+      "kecap asin",
+      "saus tiram"
+    ],
+    "family_id": "[\"bawang merah\",\"bawang putih\",\"kecap asin\",\"saus tiram\"]",
+    "noise_types": [
+      "quantity",
+      "culinary_alias"
+    ],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang merah",
+      "bawang putih",
+      "kecap asin",
+      "saus tiram"
+    ],
+    "query_id": "DN08",
+    "query_text": "1 buah bamer, 2 buah baput, 3 buah kecap asin, 4 buah saus tiram",
+    "reference_query_text": "bawang merah, bawang putih, kecap asin, saus tiram",
+    "requested_ingredient_count": 5,
+    "scenario": "D",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled_noisy",
+    "split": "dev"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang goreng",
+      "bawang putih",
+      "cabai merah",
+      "cabai rawit",
+      "daging sapi",
+      "serai"
+    ],
+    "family_id": "[\"bawang goreng\",\"bawang putih\",\"cabai merah\",\"cabai rawit\",\"daging sapi\",\"serai\"]",
+    "noise_types": [
+      "quantity",
+      "culinary_alias"
+    ],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang goreng",
+      "bawang putih",
+      "cabai merah",
+      "cabai rawit",
+      "daging sapi",
+      "serai"
+    ],
+    "query_id": "DN09",
+    "query_text": "1 buah bawang goreng, 2 buah cabai rawit, 3 buah baput, 4 buah cabai merah, 5 buah daging sapi, 6 buah sereh",
+    "reference_query_text": "bawang goreng, cabai rawit, bawang putih, cabai merah, daging sapi, serai",
+    "requested_ingredient_count": 6,
+    "scenario": "D",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled_noisy",
+    "split": "dev"
+  },
+  {
+    "expected_core_ingredients": [
+      "asam jawa",
+      "bawang merah",
+      "bawang putih",
+      "daging sapi",
+      "daun jeruk"
+    ],
+    "family_id": "[\"asam jawa\",\"bawang merah\",\"bawang putih\",\"daging sapi\",\"daun jeruk\"]",
+    "noise_types": [
+      "quantity",
+      "culinary_alias"
+    ],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "asam jawa",
+      "bawang merah",
+      "bawang putih",
+      "daging sapi",
+      "daun jeruk"
+    ],
+    "query_id": "DN10",
+    "query_text": "1 buah daun jeruk, 2 buah bamer, 3 buah baput, 4 buah daging sapi, 5 buah asam jawa",
+    "reference_query_text": "daun jeruk, bawang merah, bawang putih, daging sapi, asam jawa",
+    "requested_ingredient_count": 5,
+    "scenario": "D",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled_noisy",
+    "split": "dev"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang merah",
+      "bawang putih",
+      "tomat"
+    ],
+    "family_id": "[\"bawang merah\",\"bawang putih\",\"tomat\"]",
+    "noise_types": [
+      "quantity",
+      "culinary_alias"
+    ],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang merah",
+      "bawang putih",
+      "tomat"
+    ],
+    "query_id": "DN11",
+    "query_text": "1 buah bamer, 2 buah baput, 3 buah tomat",
+    "reference_query_text": "bawang merah, bawang putih, tomat",
+    "requested_ingredient_count": 3,
+    "scenario": "D",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled_noisy",
+    "split": "dev"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang merah",
+      "kecap manis",
+      "tempe"
+    ],
+    "family_id": "[\"bawang merah\",\"kecap manis\",\"tempe\"]",
+    "noise_types": [
+      "quantity",
+      "culinary_alias"
+    ],
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang merah",
+      "kecap manis",
+      "tempe"
+    ],
+    "query_id": "DN12",
+    "query_text": "1 buah kecap manis, 2 buah tempe, 3 buah bamer",
+    "reference_query_text": "kecap manis, tempe, bawang merah",
+    "requested_ingredient_count": 3,
+    "scenario": "D",
+    "scenario_range_valid": true,
+    "source": "corpus_sampled_noisy",
+    "split": "test"
+  }
+]

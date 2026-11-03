@@ -1,0 +1,138 @@
+{
+  "BM25": {
+    "dev": {
+      "F1@10": 0.0952,
+      "F1@5": 0.1222,
+      "Latency (ms)": 9.6807,
+      "MAP@10": 0.357,
+      "MRR@10": 0.6762,
+      "P@10": 0.2333,
+      "P@5": 0.3056,
+      "R@10": 0.274,
+      "R@5": 0.2516,
+      "nDCG@10": 0.457,
+      "nDCG@5": 0.4972,
+      "query_count": 36,
+      "zero_idcg_queries": 1,
+      "zero_relevant_queries": 1
+    },
+    "test": {
+      "F1@10": 0.0734,
+      "F1@5": 0.0962,
+      "Latency (ms)": 9.7001,
+      "MAP@10": 0.2612,
+      "MRR@10": 0.6,
+      "P@10": 0.1417,
+      "P@5": 0.2167,
+      "R@10": 0.2085,
+      "R@5": 0.1985,
+      "nDCG@10": 0.4085,
+      "nDCG@5": 0.4863,
+      "query_count": 12,
+      "zero_idcg_queries": 1,
+      "zero_relevant_queries": 2
+    }
+  },
+  "Set-Overlap": {
+    "dev": {
+      "F1@10": 0.258,
+      "F1@5": 0.2287,
+      "Latency (ms)": 5.6701,
+      "MAP@10": 0.8476,
+      "MRR@10": 0.9167,
+      "P@10": 0.6306,
+      "P@5": 0.6722,
+      "R@10": 0.4428,
+      "R@5": 0.3592,
+      "nDCG@10": 0.8707,
+      "nDCG@5": 0.8724,
+      "query_count": 36,
+      "zero_idcg_queries": 1,
+      "zero_relevant_queries": 1
+    },
+    "test": {
+      "F1@10": 0.3261,
+      "F1@5": 0.3648,
+      "Latency (ms)": 5.7588,
+      "MAP@10": 0.7852,
+      "MRR@10": 0.7917,
+      "P@10": 0.5333,
+      "P@5": 0.6667,
+      "R@10": 0.5304,
+      "R@5": 0.4574,
+      "nDCG@10": 0.8675,
+      "nDCG@5": 0.8754,
+      "query_count": 12,
+      "zero_idcg_queries": 1,
+      "zero_relevant_queries": 2
+    }
+  },
+  "SisaRasa Hybrid": {
+    "dev": {
+      "F1@10": 0.2302,
+      "F1@5": 0.2315,
+      "Latency (ms)": 51.6334,
+      "MAP@10": 0.8079,
+      "MRR@10": 0.9222,
+      "P@10": 0.575,
+      "P@5": 0.6389,
+      "R@10": 0.4398,
+      "R@5": 0.3789,
+      "nDCG@10": 0.8607,
+      "nDCG@5": 0.8663,
+      "query_count": 36,
+      "zero_idcg_queries": 1,
+      "zero_relevant_queries": 1
+    },
+    "test": {
+      "F1@10": 0.283,
+      "F1@5": 0.2962,
+      "Latency (ms)": 50.3343,
+      "MAP@10": 0.6756,
+      "MRR@10": 0.7917,
+      "P@10": 0.475,
+      "P@5": 0.5667,
+      "R@10": 0.4912,
+      "R@5": 0.3887,
+      "nDCG@10": 0.8069,
+      "nDCG@5": 0.8224,
+      "query_count": 12,
+      "zero_idcg_queries": 1,
+      "zero_relevant_queries": 2
+    }
+  },
+  "TF-IDF Cosine": {
+    "dev": {
+      "F1@10": 0.0878,
+      "F1@5": 0.1173,
+      "Latency (ms)": 43.4504,
+      "MAP@10": 0.3677,
+      "MRR@10": 0.6745,
+      "P@10": 0.2389,
+      "P@5": 0.3222,
+      "R@10": 0.2332,
+      "R@5": 0.2267,
+      "nDCG@10": 0.4657,
+      "nDCG@5": 0.5114,
+      "query_count": 36,
+      "zero_idcg_queries": 1,
+      "zero_relevant_queries": 1
+    },
+    "test": {
+      "F1@10": 0.0918,
+      "F1@5": 0.1068,
+      "Latency (ms)": 43.1267,
+      "MAP@10": 0.2754,
+      "MRR@10": 0.4444,
+      "P@10": 0.1333,
+      "P@5": 0.2,
+      "R@10": 0.2463,
+      "R@5": 0.2119,
+      "nDCG@10": 0.3659,
+      "nDCG@5": 0.3972,
+      "query_count": 12,
+      "zero_idcg_queries": 1,
+      "zero_relevant_queries": 2
+    }
+  }
+}
