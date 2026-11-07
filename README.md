@@ -1,310 +1,109 @@
-<div align="center">
+# SisaRasa: Riset Temu Kembali Resep Berbasis Bahan
 
-# 🍳 SisaRasa
+SisaRasa adalah studi Sistem Temu Kembali Informasi (STKI) untuk mencari resep masakan Indonesia dari bahan yang dimiliki pengguna. Satu resep adalah satu dokumen, dan daftar bahan pengguna adalah query. Sistem mengembalikan resep berperingkat beserta bahan yang cocok dan bahan inti yang masih kurang.
 
-### Buka kulkas. Temukan ide. Mulai masak.
+Branch `main` berisi riset: notebook, data, dan hasil evaluasi. Aplikasi web (backend FastAPI dan frontend Next.js) ada di branch [`deployment`](https://github.com/Elnathz/sisarasa/tree/deployment). Perubahan riset di `main` tidak otomatis masuk ke `deployment`; branch itu perlu di-merge dari `main` bila aplikasinya ingin mengikuti versi riset terbaru.
 
-**Temukan resep Indonesia dari bahan yang sudah kamu punya.**
+## Pertanyaan penelitian
 
-Ada ayam, tahu, atau beberapa sayuran yang belum sempat diolah?
-Masukkan bahanmu, bandingkan pilihan resep, lalu lihat apa yang masih perlu disiapkan.
+| | Pertanyaan | Ukuran utama |
+|---|---|---|
+| RQ1 | Bagaimana SisaRasa Hybrid dibanding Set-Overlap, TF-IDF Cosine, dan BM25? | nDCG@10, MAP@10, P@5, menang/seri/kalah per query, interval bootstrap 95% |
+| RQ2 | Apa pengaruh komponen kecocokan protein dan penalti bahan kurang? | Perubahan metrik saat satu bobot dinolkan (ablation) |
+| RQ3 | Seberapa baik saran bahan menangani salah eja? | Kandidat benar ditawarkan, saran keliru pada input valid |
 
-**🥕 Pakai bahan yang ada · 🧩 Lihat kecocokannya · 🛒 Ketahui bahan tambahannya**
+Ambang keberhasilan RQ1 sampai RQ3 ditetapkan di `CONFIRMATION_PROTOCOL` sebelum set konfirmasi dibangkitkan. Rinciannya ada di sel pembuka notebook.
 
-[Kenapa SisaRasa?](#kenapa-sisarasa) · [Jelajahi fitur](#fitur-sisarasa) · [Cara menggunakan](#dari-bahan-ke-ide-masakan) · [Jalankan sendiri](#menjalankan-sisarasa)
+## Notebook
 
-</div>
+Notebook utama: [notebooks/sisarasa_v4.ipynb](notebooks/sisarasa_v4.ipynb). Notebook v1 sampai v3 disimpan sebagai riwayat.
 
----
+Alur v4:
 
-## Punya bahan, belum punya ide?
+1. Memuat dua dataset resep dari berkas lokal.
+2. Menyatukan skema, menyaring resep tidak lengkap, dan menghapus duplikat dua tahap.
+3. Menormalkan bahan bahasa Indonesia ke token komposit, lalu membuang resep yang tidak menghasilkan bahan kanonik.
+4. Membangun indeks Set-Overlap, TF-IDF Cosine, BM25, dan SisaRasa Hybrid.
+5. Mengevaluasi dengan pseudo-qrels `proxy_v3` dan pemulihan resep sumber.
+6. Menjalankan ablation, sensitivitas rubric, interval bootstrap, latensi, dan diagnostik ejaan.
+7. Menjalankan set konfirmasi dengan seed dan keluarga query baru.
+8. Mengekspor seluruh hasil ke direktori run baru.
 
-Kadang yang membuat bingung bukan cara memasak, tetapi menentukan masakan dari bahan yang tersisa. Sudah menemukan resep yang menarik, ternyata bahan utamanya belum ada. Kembali mencari, membuka resep lain, lalu memeriksa daftar bahannya lagi.
+## Data
 
-SisaRasa membantu kamu memulai dari isi dapur. Cukup tulis bahan yang tersedia, lalu temukan pilihan resep dengan informasi bahan yang cocok dan bahan inti yang masih diperlukan.
+| Sumber | Isi | Lisensi menurut metadata sumber |
+|---|---|---|
+| [canggih/indonesian-food-recipes](https://www.kaggle.com/datasets/canggih/indonesian-food-recipes) (Kaggle) | Resep per kategori bahan utama | CC0: Public Domain; data diambil dari Cookpad pada 23 Februari 2018 |
+| [junwatu/indonesian-recipes](https://huggingface.co/datasets/junwatu/indonesian-recipes) (Hugging Face) | Judul, bahan, dan langkah memasak | `other` (research-use-as-is); dataset bersifat gated |
 
-Dengan begitu, kamu bisa memilih menu sambil mempertimbangkan apa yang sudah dimiliki dan apa yang perlu ditambahkan.
+Label CC0 dari pengunggah tidak otomatis menyelesaikan hak cipta resep asli. Pemakaian di repo ini terbatas pada riset dan tugas kuliah.
 
-> **Mulai dari bahanmu. Temukan pilihan yang masuk akal untuk dimasak hari ini.**
-
-## Kenapa SisaRasa?
-
-### 🥕 Bahan yang ada jadi titik awal
-
-Kamu tidak harus menentukan nama masakan terlebih dahulu. Mulai dari `ayam, bawang putih, kecap manis`, atau kombinasi bahan lain yang tersedia. SisaRasa mencarikan pilihan resep berdasarkan masukan tersebut.
-
-### 🧩 Kecocokan terlihat sebelum membuka resep
-
-Setiap hasil menampilkan persentase kecocokan, bahan yang sudah sesuai, dan bahan yang masih diperlukan. Kamu punya gambaran untuk membandingkan pilihan sebelum membaca detail masakannya.
-
-### 🛒 Lebih mudah merencanakan bahan tambahan
-
-Lihat apa yang kurang dari resep yang menarik perhatianmu. Informasi ini membantu menentukan apakah kamu ingin melengkapi bahannya atau memilih resep lain yang lebih sesuai dengan persediaan.
-
-### 🍽️ Ada ide baru untuk bahan yang sama
-
-Satu kombinasi bahan bisa membuka beberapa pilihan masakan. Bandingkan hasilnya, pilih kategori yang tersedia, dan temukan menu yang ingin kamu coba.
-
-### 🌱 Membantu memanfaatkan persediaan dapur
-
-Bahan yang masih layak pakai bisa kembali menjadi pertimbangan saat memilih menu. SisaRasa mengajak kamu melihat dulu apa yang tersedia sebelum memutuskan bahan tambahan yang ingin dibeli.
-
-## Apa yang membedakan pendekatannya?
-
-Keunggulan SisaRasa ada pada cara memulai pencarian: **pilihan masakan berangkat dari bahan yang kamu miliki**. Nama menu bisa menyusul setelah kamu melihat hasilnya.
-
-| Langkah memilih menu | Mulai dari nama masakan | Mulai dengan SisaRasa |
-| --- | --- | --- |
-| Pertanyaan awal | “Hari ini mau masak apa?” | “Bahan apa yang ada di dapur?” |
-| Memulai pencarian | Tentukan nama menu yang ingin dibuat. | Masukkan kombinasi bahan yang tersedia. |
-| Memeriksa bahan | Cocokkan daftar bahan resep dengan persediaanmu. | Lihat bahan yang cocok dan yang masih kurang pada hasil pencarian. |
-| Memilih resep | Pertimbangkan menu setelah memeriksa bahannya. | Bandingkan kecocokan bahan, lalu buka detail resep yang menarik. |
-
-Pendekatan ini berguna ketika kamu ingin memanfaatkan persediaan terlebih dahulu, mencari alternatif menu, atau merencanakan tambahan bahan dengan lebih jelas.
-
-## Fitur SisaRasa
-
-| Fitur | Yang bisa kamu lakukan | Manfaatnya |
-| --- | --- | --- |
-| 🥕 **Pencarian dari beberapa bahan** | Masukkan kombinasi bahan yang dimiliki. | Cari ide masakan sesuai isi dapurmu. |
-| 🧄 **Sebutan bahan sehari-hari** | Gunakan beberapa variasi nama yang dikenali, seperti `bamer`, `baput`, dan `cabe rawit`. | Tidak selalu perlu menulis nama bahan dengan istilah baku. |
-| 🧩 **Ringkasan kecocokan** | Lihat persentase dan daftar bahan yang cocok. | Bandingkan pilihan dengan informasi yang terlihat. |
-| 🛒 **Bahan yang perlu ditambahkan** | Periksa bahan inti yang masih diperlukan. | Pertimbangkan tambahan bahan sebelum memilih menu. |
-| 🍽️ **Filter kategori** | Persempit hasil menurut kategori yang tersedia. | Fokus pada jenis masakan yang ingin kamu lihat. |
-| ↕️ **Pengurutan hasil** | Urutkan hasil menurut kecocokan bahan atau skor pencarian. | Bandingkan pilihan dari sudut yang kamu perlukan. |
-| 📖 **Detail resep** | Buka daftar bahan dan langkah memasak. | Lanjutkan dari menemukan ide ke menyiapkan masakan. |
-| 🔗 **Tautan sumber** | Kunjungi resep asli apabila tautannya tersedia. | Baca informasi tambahan langsung dari sumbernya. |
-
-## Dari bahan ke ide masakan
-
-### 1. Tulis bahan yang kamu punya
-
-Misalnya, di dapur ada:
+Data mentah tidak disimpan di Git. Letakkan berkasnya di:
 
 ```text
-ayam, bawang putih, kecap manis
+data/raw/indonesian-food-recipes/dataset-*.csv
+data/raw/indonesian-recipes/indonesian_recipes.parquet
 ```
 
-Tambahkan bahan lewat kolom pencarian. Kamu juga bisa menghapus atau mengganti bahan saat ingin mencoba kombinasi lain.
+Jika berkas Hugging Face belum ada, loader membutuhkan `HF_TOKEN` dari akun yang sudah menyetujui syarat dataset. Salin `.env.example` menjadi `.env`, lalu isi tokennya. Jangan commit `.env`.
 
-### 2. Bandingkan pilihan resep
+## Menjalankan notebook
 
-Perhatikan tiga informasi pada hasil:
-
-- **Persentase kecocokan:** gambaran kecocokan bahan inti resep dengan bahan yang dimasukkan.
-- **Bahan dimiliki:** bahan yang dikenali sebagai cocok.
-- **Perlu tambahan:** bahan inti resep yang masih perlu kamu siapkan.
-
-Gunakan filter kategori dan pengurutan untuk membantu memilih dari hasil yang tersedia.
-
-### 3. Buka detail, lalu tentukan pilihan
-
-Baca daftar bahan dan langkah memasaknya. Pilih resep yang sesuai dengan bahan, selera, dan persiapan yang ingin kamu lakukan. Tautan resep asli tersedia jika tercantum pada sumber data.
-
-**Belum menemukan pilihan yang pas?** Ubah kombinasi bahan atau kategori, lalu cari kembali.
-
-## Cocok untuk siapa?
-
-| Untuk kamu yang… | SisaRasa membantu dengan… |
-| --- | --- |
-| 🎓 Tinggal sendiri atau di kos | Mencari ide dari persediaan bahan yang terbatas. |
-| 💼 Bingung menentukan menu setelah beraktivitas | Memberikan titik awal pencarian dari bahan yang tersedia. |
-| 🏡 Menyiapkan menu di rumah | Membandingkan beberapa resep dan kebutuhan bahan tambahannya. |
-| 🌱 Ingin lebih sering memanfaatkan isi kulkas | Mengajak memasukkan persediaan yang masih layak pakai ke dalam pilihan menu. |
-| 🍳 Ingin mencoba variasi masakan | Menemukan pilihan resep dari kombinasi bahan yang sama atau berbeda. |
-
-## Pertanyaan yang sering muncul
-
-### Apakah semua bahan resep harus sudah tersedia?
-
-Kamu tetap bisa melihat pilihan resep meskipun belum memiliki semua bahannya. Periksa bagian **Perlu Tambahan** untuk mengetahui bahan inti yang masih diperlukan.
-
-### Apa arti persentase kecocokan?
-
-Angka tersebut menggambarkan kecocokan bahan inti resep dengan bahan yang kamu masukkan. Gunakan untuk membandingkan pilihan, kemudian periksa daftar bahan dan langkah memasak pada detail resep.
-
-### Bolehkah memakai singkatan nama bahan?
-
-Beberapa sebutan sehari-hari dikenali, misalnya `bamer` untuk bawang merah dan `baput` untuk bawang putih. Jika hasilnya belum sesuai, coba nama bahan yang lengkap.
-
-### Mengapa hasilnya bisa sedikit?
-
-Hasil bergantung pada kombinasi bahan, data resep, dan kategori yang dipilih. Coba ubah bahan atau longgarkan filter kategori untuk melihat pilihan lain.
-
-### Bagaimana cara mencobanya?
-
-SisaRasa dapat dijalankan secara lokal melalui panduan berikut. Aplikasi terdiri dari tampilan web dan layanan pencarian yang perlu berjalan bersamaan.
-
----
-
-## Menjalankan SisaRasa
-
-Bagian ini ditujukan untuk mencoba aplikasi di komputer sendiri atau melanjutkan pengembangannya.
-
-### Yang perlu disiapkan
-
-- Python 3.10 atau lebih baru.
-- Node.js dan npm yang kompatibel dengan proyek frontend.
-- Data resep dan indeks pencarian yang sesuai dengan backend.
-- JupyterLab jika ingin menjalankan notebook.
-
-<details>
-<summary><strong>💻 Menjalankan aplikasi web</strong></summary>
-
-Jalankan perintah dari direktori utama proyek.
-
-**1. Siapkan lingkungan Python**
+Butuh Python 3.10 atau lebih baru.
 
 ```bash
 python -m venv .venv
-```
-
-Aktifkan di Windows PowerShell:
-
-```powershell
-.venv\Scripts\Activate.ps1
-```
-
-Atau di macOS/Linux:
-
-```bash
-source .venv/bin/activate
-```
-
-Pasang dependensi:
-
-```bash
-python -m pip install -r backend/requirements.txt
-```
-
-**2. Siapkan data aplikasi**
-
-Backend membutuhkan dua file berikut:
-
-```text
-artifacts/sisarasa_corpus_clean.parquet
-artifacts/index_sisarasa_hybrid.pkl
-```
-
-File data dan indeks besar tidak disertakan sebagai file terlacak Git. Siapkan versi yang kompatibel dengan backend sebelum menyalakan aplikasi. Menjalankan notebook pengembangan tidak otomatis memasang hasilnya ke backend.
-
-**3. Nyalakan layanan pencarian**
-
-```bash
-python backend/run.py
-```
-
-Layanan berjalan di `http://127.0.0.1:8000`. Dokumentasi API tersedia di `http://127.0.0.1:8000/docs`.
-
-**4. Nyalakan tampilan web**
-
-Buka terminal lain dari direktori utama proyek:
-
-```bash
-cd frontend
-npm ci
-npm run dev
-```
-
-Buka **http://localhost:3000**. Pastikan layanan pencarian tetap berjalan saat menggunakan aplikasi.
-
-</details>
-
-<details>
-<summary><strong>📓 Menjalankan notebook pengembangan</strong></summary>
-
-Notebook terbaru tersedia di [notebooks/sisarasa_v4.ipynb](notebooks/sisarasa_v4.ipynb). Isinya mencakup pengolahan resep, pencarian, contoh penggunaan, dan pemeriksaan hasil.
-
-Dari direktori utama proyek dengan lingkungan Python yang sudah aktif:
-
-```bash
-python -m pip install -r backend/requirements.txt jupyterlab
+.venv\Scripts\Activate.ps1          # Windows PowerShell
+# source .venv/bin/activate         # macOS/Linux
+python -m pip install pandas numpy matplotlib seaborn tqdm scikit-learn rank_bm25 pyarrow datasets kagglehub python-dotenv ipywidgets jupyterlab
 jupyter lab notebooks/sisarasa_v4.ipynb
 ```
 
-Jalankan sel secara berurutan. Untuk mengulang seluruh proses, mulai dengan kernel baru.
+Jalankan dari kernel baru dengan Restart Kernel and Run All. Set konfirmasi hanya sah jika dijalankan satu kali tanpa mengubah parser, bobot, rubric, ambang, atau seed setelah hasilnya terlihat. Commit notebook sebelum menjalankannya agar ambang tercatat lebih dahulu daripada hasil.
 
-**Perhatikan efek sampingnya:** notebook dapat memasang paket yang belum tersedia, membaca konfigurasi lokal, mengunduh data, menulis atau menimpa cache, serta membuat direktori. Pastikan sumber data, ruang penyimpanan, dan tujuan penyimpanan sudah sesuai.
+Efek samping notebook: Cell 1 memasang paket yang belum ada, notebook membaca `.env`, dapat mengunduh dataset, dan menulis run baru ke `artifacts/evaluation_runs/`. Run lama tidak ditimpa.
 
-Setelah sel pencarian selesai, coba:
-
-```python
-search_sisarasa(
-    "ayam, bawang putih, kecap manis",
-    top_k=5,
-    model_name="hybrid",
-)
-```
-
-Contoh pemeriksaan salah ketik di notebook:
+Contoh pencarian setelah seluruh sel selesai:
 
 ```python
-search_sisarasa("bwang greng", top_k=5, model_name="hybrid")
+search_sisarasa("ayam, bawang putih, kecap manis", top_k=5, model_name="hybrid")
+PARSER.suggest_query("minyk, thu, susi")
 ```
 
-Notebook v4 membakukan salah eja terdaftar seperti `bwang greng` menjadi `bawang goreng` pada data resep dan masukan pencarian. Koreksi ejaan lainnya mengikuti batas pemeriksaan yang tersedia. Pembaruan ini belum seluruhnya terhubung ke aplikasi web.
+## Hasil evaluasi
 
-Hasil evaluasi disimpan di `artifacts/evaluation_runs/<run-id>/`. File `_SUCCESS` menandakan ekspor run selesai. Catatan metode dan batas penafsirannya tersedia di notebook.
+Setiap run tersimpan di `artifacts/evaluation_runs/<run-id>/`. File `_SUCCESS` menandakan ekspor selesai, dan `metadata.json` mencatat versi normalisasi, rubric, protokol riset, serta hash korpus dan query.
 
-Ekspor data resep dan indeks dilakukan secara terpisah dengan `export_corpus_and_indices(...)` ke direktori baru. Hasil ekspor perlu diperiksa kompatibilitasnya sebelum digunakan pada backend.
+| Folder | Isi |
+|---|---|
+| `proxy/` | Query, split, qrels, dan metrik per query untuk dev dan test |
+| `known_item/` | Pemulihan resep sumber (Hit@k, MRR@10) |
+| `research/` | Ablation, sensitivitas rubric, bootstrap, latensi, resep yang dibuang quality gate |
+| `spelling/` | 36 kasus diagnostik ejaan |
+| `confirmation/` | Protokol, query, hasil, dan tabel kriteria set konfirmasi |
 
-</details>
+Run sebelum protokol `sisarasa_v4_research_2` tidak memiliki folder `confirmation/`, dan angkanya berasal dari korpus sebelum quality gate pasca-parsing. Pakai angka dari run terbaru yang sesuai dengan versi notebook.
 
-<details>
-<summary><strong>🧪 Menjalankan pengujian</strong></summary>
+## Batasan
 
-Dari direktori utama proyek dengan dependensi Python yang sudah terpasang:
+- Relevansi dinilai oleh rubric otomatis berbasis irisan bahan, bukan oleh manusia. Rubric dan Hybrid berbagi sinyal yang sama.
+- Query evaluasi dibangkitkan dari korpus dan tidak mewakili semua kosakata pengguna.
+- Split dev dan test sudah diperiksa saat analisis, sehingga bersifat eksploratif. Set konfirmasi mengurangi masalah ini, tetapi tetap dinilai dengan pseudo-qrels.
+- Kepuasan pengguna, pengurangan limbah makanan, gizi, dan alergi tidak diukur.
 
-```bash
-python -m pytest backend/tests/ -v
-```
-
-Tes API membutuhkan data resep dan indeks yang kompatibel. Notebook juga menyertakan pemeriksaan untuk normalisasi bahan, pencarian, dan evaluasi.
-
-</details>
-
-## Struktur proyek
+## Struktur
 
 ```text
 sisarasa/
-├── frontend/                 # Aplikasi web yang digunakan untuk mencari resep
-│   ├── src/
-│   │   ├── app/              # Halaman dan tampilan utama
-│   │   ├── components/       # Input bahan, kartu resep, dan detail resep
-│   │   ├── services/         # Penghubung ke layanan pencarian
-│   │   └── types/            # Bentuk data resep
-│   ├── public/               # Aset statis aplikasi
-│   └── package.json
-├── backend/                  # Layanan pencarian dan penyedia detail resep
-│   ├── app/                  # Pengolahan bahan, pencarian, dan API
-│   ├── tests/                # Pengujian layanan
-│   ├── requirements.txt
-│   └── run.py
-├── notebooks/                # Pengolahan data dan pengembangan pencarian
-├── artifacts/                # Data olahan, indeks, dan hasil pemeriksaan
-│   └── evaluation_runs/      # Hasil tiap run, jika sudah dibuat
-├── data/                     # Data lokal, jika sudah disiapkan
-├── .env.example              # Contoh konfigurasi lokal
-├── .gitignore
-└── README.md
+├── notebooks/           # sisarasa_v4.ipynb (utama) dan versi sebelumnya
+├── artifacts/           # Hasil benchmark lama dan evaluation_runs/
+├── data/raw/            # Data mentah lokal, tidak di-commit
+├── documents/           # Catatan audit dan perbaikan
+├── Paper/               # Ekspor pencarian literatur (Elicit, Consensus)
+├── Template_Ide_Produk_dan_Rancangan_Penelitian.pdf
+└── .env.example
 ```
 
-Data lokal, hasil run, dan file besar dapat berbeda pada setiap komputer. Simpan kredensial di konfigurasi lokal dan jangan sertakan token atau kata sandi dalam repositori.
+## Pengembang
 
-## Tentang pengembangan
-
-SisaRasa dikembangkan oleh **Farros Rifantiarno Ramadhani** · **A11.2024.15694**, mahasiswa S1 Teknik Informatika, Universitas Dian Nuswantoro, untuk UTS mata kuliah **Sistem Temu Kembali Informasi**.
-
-Pengembangan layanan menggunakan Python dan FastAPI. Tampilan web menggunakan Next.js dan React.
-
----
-
-<div align="center">
-
-**Isi dapurmu bisa jadi awal ide masakan berikutnya.**
-
-Mulai dari bahan yang kamu punya, lalu temukan resep yang ingin kamu masak.
-
-[Jalankan SisaRasa di komputermu](#menjalankan-sisarasa)
-
-</div>
+Farros Rifantiarno Ramadhani (A11.2024.15694), S1 Teknik Informatika, Universitas Dian Nuswantoro. UTS mata kuliah Sistem Temu Kembali Informasi.
