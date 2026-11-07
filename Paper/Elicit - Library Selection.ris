@@ -1,0 +1,218 @@
+﻿TY  - JOUR
+TI  - Emerging trends of recommender system for e-commerce: a comprehensive
+review
+AU  - Chour Singh Rajpoot
+AU  - Varun Tiwari
+AU  - S. Vishwakarma
+PY  - 2026
+JO  - Discover Computing
+AB  - With the rapid growth of online information, the recommender system
+(RSs) has become essential tools for filtering information and
+generating personalized recommendations for customers. These systems
+analyze individual user preferences, past reviews, and product ratings
+to enhance decision-making in the e-commerce sector. In this
+comprehensive review, several research articles published between 2020
+and 2025 have been reviewed from various journals and conferences,
+covering multiple dimensions of recommender systems. The study
+emphasizes emerging techniques aimed at improving system performance.
+It begins by providing background information on recommender systems,
+including existing literature and prevailing research challenges.
+Furthermore, it explores cutting-edge methodologies such as machine
+learning, deep learning, large language models, and conversational
+recommender systems that are contributing to the evolution of RSs.
+Beyond traditional approaches, this review addresses significant
+research gaps and identifies key aspects influencing RS platforms. The
+ultimate goal of this study is to present a comprehensive
+understanding of the current state and future direction of recommender
+systems in the e-commerce industry.
+DO  - 10.1007/s10791-026-09923-z
+UR  - https://link.springer.com/content/pdf/10.1007/s10791-026-09923-z.pdf
+ER  - 
+TY  - JOUR
+TI  - Food Recommender System: A Review on Techniques, Datasets and
+Evaluation Metrics
+AU  - Y. Chow
+AU  - S. Haw
+AU  - P. Naveen
+AU  - E. Anaam
+AU  - Hairulnizam Bin Mahdin
+PY  - 2023
+JO  - Journal of system and management sciences
+AB  - . With the rise of digital platforms and the availability of large
+amounts of data, food recommender systems have become a powerful tool
+for helping people discover new and delicious meals. Today, these
+systems use algorithms and machine learning models to analyze
+ingredients and recommend meals based on factors such as cuisine,
+dietary restrictions, and ingredient compatibility. Hence, this paper
+aims to review the various recommendation techniques employed in the
+food recommender system. We also discuss the various algorithms that
+are used in meal recommender systems, including collaborative
+filtering, content-based filtering, and hybrid approaches. Overall,
+this paper provides a comprehensive overview of the current
+state-of-the-art meal recommender systems and to identify the
+opportunities for future enhancement and development in this field.
+DO  - 10.33168/jsms.2023.0510
+UR  - https://doi.org/10.33168/jsms.2023.0510
+ER  - 
+TY  - JOUR
+TI  - A Survey of Various Recommendation Systems
+AU  - Harshit Dharmik
+AU  - Karan Motwani
+AU  - Khushbu Pareek
+AU  - S. Tikar
+AU  - Faizan Khandwani
+PY  - 2024
+JO  - International Journal of Advanced Research in Science, Communication
+and Technology
+AB  - Geolocation-based recommender systems have gained significant traction
+in recent years due to their ability to provide personalized
+recommendations tailored to users' geographical locations [1]. This
+survey paper explores the landscape of food recommendation systems
+with a specific focus on geographical aspects. It examines existing
+frameworks, solutions, and challenges in the field, highlighting key
+research contributions and methodologies [2]. By incorporating spatial
+context into the recommendation process, these systems can identify
+nearby food establishments, consider regional culinary preferences,
+and recommend dishes that are popular or highly rated in the vicinity
+[1]. The paper also discusses the potential of location-aware
+recommendation systems and proposes a novel approach for food
+recommendation based on geographical location [3]. Various
+methodologies employed in geolocation-based food recommendation
+systems, including collaborative filtering, content-based filtering,
+and hybrid approaches, are explored, along with their advantages and
+limitations [5]. Challenges associated with developing
+geolocation-based recommendation systems, such as data privacy
+concerns and data sparsity in certain regions, are also addressed [4].
+The proposed approach aims to provide more accurate and personalized
+recommendations by integrating geolocation data with user preferences
+and contextual information, thereby enriching the overall dining
+experience for users worldwide [3].
+DO  - 10.48175/ijarsct-17832
+UR  - https://doi.org/10.48175/ijarsct-17832
+ER  - 
+TY  - JOUR
+TI  - Recipe Recommendation System Using TF-IDF
+AU  - Shubham Chhipa
+AU  - Vishal Berwal
+AU  - Tushar Hirapure
+AU  - Soumi Banerjee
+PY  - 2022
+JO  - ITM Web of Conferences
+AB  - A Recipe Recommendation System is being proposed in this following
+paper. Food recommendation is a new area, with few systems that are
+focus on analysing and user preferences and constraints such as
+ingredients available at their side being deployed in real settings in
+the form of web application or mobile application [4]. The proposed
+model is a mobile application which allows users to search recipes
+using ingredients available at them including vegetables. For this
+work we have find a dataset which is a collection of Indian cuisines
+recipes and apply the content-based recommendation using Term
+Frequency – Inverse Document Frequency (TF-IDF) and Cosine Similarity
+[1]. This application gives the recommendation of Indian recipes based
+on ingredients available at them and allows users to filter out the
+recipes on course type, diet type, etc.
+DO  - 10.1051/itmconf/20224402006
+UR  - https://www.itm-conferences.org/articles/itmconf/pdf/2022/04/itmconf_icacc2022_02006.pdf
+ER  - 
+TY  - JOUR
+TI  - FOOD RECIPE RECOMMENDATION SYSTEM WITH SUFFIX TREE ALGORITHM BASED ON
+THE AVAILABLE TOOLS AND INGREDIENTS
+AU  - Lidiawati Lidiawati
+AU  - H. Saputra
+AU  - Halim Agung
+PY  - 2018
+AB  - Food recipes are an important thing when we want to cook something in
+order to know the ingredients and tools needed. Food recipes can
+become unusable if ingredients and tools are not available. Therefore,
+an application that can recommend food recipes based on available
+ingredients and tools is necessary. This application was created using
+the Suffix Tree algorithm. This application can perform the process of
+finding recipes that match the tools and ingredients available. The
+Suffix Tree algorithm can search for string data types within its
+string of large numbers. The process of selecting recipes starts with
+the user entering the word to search for the recipes that have been
+entered. The suffix tree will be called and used to create trees from
+existing recipes. To find the appropriate preset keyword (string)
+begins with searching for its tree, if Try falling from the tree (not
+found) then nothing matches. Suffix Tree's algorithm can be applied in
+recipe recommendation system applications based on available tools and
+ingredients.
+DO  - 10.20961/itsmart.v7i1.18756
+UR  - https://www.semanticscholar.org/paper/47fb65a55114654e1e50f0a93a440441790ed833
+ER  - 
+TY  - JOUR
+TI  - An Implementation of Recipe Recommendation System Based on Ingredients
+Availability Using Content-based and Collaborative Filtering
+AU  - Y. Syaifudin
+AU  - Triatna Fatmawati
+AU  - N. A. Ardyningrum
+AU  - I. Siradjuddin
+AU  - Dwi Puspitasari
+AU  - Mungki Astiningrum
+PY  - 2023
+JO  - 2023 International Conference on Converging Technology in Electrical
+and Information Engineering (ICCTEIE)
+AB  - Cooking is an essential part of daily life activity for many people
+worldwide to fulfill nutritional needs. Basically, it is the process
+of preparing food by combining different ingredients and applying
+various cooking techniques. Commonly, most people use the available
+ingredients they have on hand to prepare meals. The preferred
+ingredients often depend on what’s in their pantry, refrigerator, or
+garden, as well as what’s easily accessible from local grocery stores
+or markets. This paper presents an approach method to providing a list
+of recommended recipes based on the availability of ingredients and
+recipe selection behavior of users by implementing a recipe
+recommendation system, namely EasyCook. Data on recipes is gathered
+from various websites that provide popular Indonesian food recipes
+using the web scraping process. Then, content-based filtering is
+applied as an approach method to identify the similarity of recipe
+ingredients and generate recipe recommendations. To evaluate the
+developed system’s effectiveness, aspects of web scraping and the
+recommendation process based on ingredient availability and
+user-preferred recipes are investigated. The results show that the
+developed system effectively provides recommended recipes for users
+based on ingredient availability and user-preferred recipes.
+DO  - 10.1109/ICCTEIE60099.2023.10366631
+UR  - https://www.semanticscholar.org/paper/03d68f4e4bfd90d101724d473d811d8957f800a0
+ER  - 
+TY  - JOUR
+TI  - AI-Recipe Recommendation System
+AU  - Abhishek H. B.
+AU  - P. Mallya
+AU  - P. C. Hiremath
+AU  - Swarnatama Ganguli
+AU  - S. Pradeep
+AU  - Prashanth Kannadaguli
+PY  - 2025
+JO  - 2025 International Conference on Advances in Next-Gen Computer Science
+(ICANCS)
+AB  - The development and deployment of a deep learning (DL) and machine
+learning (ML)-based recipe recommendation system techniques to make
+recipe recommendations based on user-available ingredients is
+presented in this project. With the increasing complexity of meal
+planning and the wide variety of Indian and international cuisines,
+people frequently don't understand what they are capable of producing
+with certain or limited ingredient. To overcome this difficulty, the
+system makes use of a dataset of more than 59,000 recipes that has
+been enhanced by preprocessing procedures such ingredient
+standardization, data cleaning, normalization, and duplicate removal.
+TF-IDF, word2vec and glove embeddings were among the methods used to
+extract features, logistic regressions, k-nearest neighbors, and
+XGboost, as well as CNN-style deep learning algorithms, LSTM, and
+transformer-based architectures, were assessed. Transformer models
+outperformed the others in terms of accurately and contextually aware
+recipe prediction. To help accommodate user time constraints, recipes
+were separated into three as well. preparations time bins, Quick (less
+than 30 minutes), medium (30 to 60 minutes), and long (more than 60
+minutes), A streamlit- based web application was created to guarantee
+real-world applicability, users may enter ingredients and instantly
+obtain recipe recommendations and preparation instructions. The
+absence of dietary choice and allergy considerations is Among the
+system's present drawbacks, but it also improves user convenience,
+reduces food waste and encourages effective ingredient use. Overall,
+by providing individualized, effective and sustainable meal
+recommendations, the study demonstrates how AI-driven solutions have
+the potential to revolutionize everyday cooking.
+DO  - 10.1109/ICANCS65819.2025.11376688
+UR  - https://www.semanticscholar.org/paper/b7d599cde08b39841e3a5b0457bce438d3160ea3
+ER  - 
