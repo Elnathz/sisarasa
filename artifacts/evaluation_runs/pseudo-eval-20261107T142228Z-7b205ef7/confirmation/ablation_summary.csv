@@ -1,0 +1,4 @@
+variant,split,P@5,R@5,F1@5,nDCG@5,P@10,R@10,F1@10,nDCG@10,MAP@10,MRR@10,Latency (ms),query_count,zero_relevant_queries,zero_idcg_queries,P@5 (eligible),R@5 (eligible),F1@5 (eligible),nDCG@5 (eligible),P@10 (eligible),R@10 (eligible),F1@10 (eligible),nDCG@10 (eligible),MAP@10 (eligible),MRR@10 (eligible),binary_eligible_queries,ndcg_eligible_queries
+full,confirm,0.9333,0.1327,0.15,0.9344,0.8896,0.1927,0.2019,0.9209,0.9334,0.9792,33.9427,48,1,0,0.9532,0.1355,0.1532,0.9344,0.9085,0.1968,0.2062,0.9209,0.9532,1.0,47,48
+without_protein,confirm,0.9333,0.1327,0.15,0.9344,0.8708,0.19,0.1979,0.9131,0.9111,0.9792,33.3805,48,1,0,0.9532,0.1355,0.1532,0.9344,0.8894,0.194,0.2022,0.9131,0.9305,1.0,47,48
+without_missing_penalty,confirm,0.9208,0.1294,0.145,0.8997,0.8562,0.1824,0.1878,0.8821,0.88,0.9625,32.7239,48,1,0,0.9404,0.1322,0.1481,0.8997,0.8745,0.1863,0.1918,0.8821,0.8987,0.983,47,48
