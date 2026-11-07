@@ -1,0 +1,13 @@
+query_id,query_text,reference_ingredient_count,ingredient_compatible_documents,target_doc_id
+KI007,"ayam, tepung tapioka, tepung terigu",3,365,SR_001876
+KI011,"bunga lawang, jintan, kunyit",3,254,SR_036467
+KI016,"ayam, bawang merah, bawang putih",3,4391,SR_023719
+KI025,"daun bawang, tahu, telur",3,1179,SR_037295
+KI026,"kecap asin, kecap manis, tepung maizena",3,351,SR_023195
+KI030,"bawang merah, bawang putih",2,37682,SR_011552
+KI032,"bawang merah, bawang putih, kemiri",3,12442,SR_004722
+KI036,"bawang merah, cabai rawit, tomat",3,5281,SR_055918
+KI040,"kunyit, serai, wortel",3,207,SR_001973
+KI042,"daun bawang, tepung terigu",2,1887,SR_027909
+KI044,"bawang merah, bawang putih, kemiri",3,12442,SR_052906
+KI045,"bawang putih, mentega, saus tiram",3,228,SR_000420

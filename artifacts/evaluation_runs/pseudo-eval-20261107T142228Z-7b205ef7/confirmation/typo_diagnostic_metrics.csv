@@ -1,0 +1,7 @@
+metric,numerator,denominator,rate
+candidate_offer_recall,27,30,0.9
+normalization_before,0,30,0.0
+normalization_after_oracle,27,30,0.9
+false_suggestion_valid,0,10,0.0
+suggestion_on_unknown,0,0,
+no_suggestion_unresolved,3,30,0.1

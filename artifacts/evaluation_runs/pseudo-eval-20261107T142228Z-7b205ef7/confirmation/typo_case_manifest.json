@@ -1,0 +1,242 @@
+[
+  {
+    "case_id": "CT01",
+    "expected_ingredient": "bihun",
+    "kind": "deletion",
+    "query_text": "bihn"
+  },
+  {
+    "case_id": "CT02",
+    "expected_ingredient": "saus sambal",
+    "kind": "deletion",
+    "query_text": "saus smbal"
+  },
+  {
+    "case_id": "CT03",
+    "expected_ingredient": "gula merah",
+    "kind": "deletion",
+    "query_text": "gua merah"
+  },
+  {
+    "case_id": "CT04",
+    "expected_ingredient": "tepung terigu",
+    "kind": "deletion",
+    "query_text": "teung terigu"
+  },
+  {
+    "case_id": "CT05",
+    "expected_ingredient": "cabai",
+    "kind": "deletion",
+    "query_text": "caba"
+  },
+  {
+    "case_id": "CT06",
+    "expected_ingredient": "terong",
+    "kind": "deletion",
+    "query_text": "teron"
+  },
+  {
+    "case_id": "CT07",
+    "expected_ingredient": "ketumbar",
+    "kind": "deletion",
+    "query_text": "ketumbr"
+  },
+  {
+    "case_id": "CT08",
+    "expected_ingredient": "cumi",
+    "kind": "deletion",
+    "query_text": "cui"
+  },
+  {
+    "case_id": "CT09",
+    "expected_ingredient": "ikan",
+    "kind": "deletion",
+    "query_text": "ikn"
+  },
+  {
+    "case_id": "CT10",
+    "expected_ingredient": "bayam",
+    "kind": "deletion",
+    "query_text": "byam"
+  },
+  {
+    "case_id": "CT11",
+    "expected_ingredient": "sawi hijau",
+    "kind": "substitution",
+    "query_text": "sawi hihau"
+  },
+  {
+    "case_id": "CT12",
+    "expected_ingredient": "bunga lawang",
+    "kind": "substitution",
+    "query_text": "bunga lawzng"
+  },
+  {
+    "case_id": "CT13",
+    "expected_ingredient": "daging sapi",
+    "kind": "substitution",
+    "query_text": "dahing sapi"
+  },
+  {
+    "case_id": "CT14",
+    "expected_ingredient": "mentega",
+    "kind": "substitution",
+    "query_text": "mjntega"
+  },
+  {
+    "case_id": "CT15",
+    "expected_ingredient": "bawang putih",
+    "kind": "substitution",
+    "query_text": "bawang phtih"
+  },
+  {
+    "case_id": "CT16",
+    "expected_ingredient": "gula merah",
+    "kind": "substitution",
+    "query_text": "guda merah"
+  },
+  {
+    "case_id": "CT17",
+    "expected_ingredient": "tepung maizena",
+    "kind": "substitution",
+    "query_text": "tppung maizena"
+  },
+  {
+    "case_id": "CT18",
+    "expected_ingredient": "saus tiram",
+    "kind": "substitution",
+    "query_text": "sauk tiram"
+  },
+  {
+    "case_id": "CT19",
+    "expected_ingredient": "kemiri",
+    "kind": "substitution",
+    "query_text": "kemini"
+  },
+  {
+    "case_id": "CT20",
+    "expected_ingredient": "terong",
+    "kind": "substitution",
+    "query_text": "teronj"
+  },
+  {
+    "case_id": "CT21",
+    "expected_ingredient": "bayam",
+    "kind": "transposition",
+    "query_text": "bayma"
+  },
+  {
+    "case_id": "CT22",
+    "expected_ingredient": "minyak zaitun",
+    "kind": "transposition",
+    "query_text": "minyak zatiun"
+  },
+  {
+    "case_id": "CT23",
+    "expected_ingredient": "terong",
+    "kind": "transposition",
+    "query_text": "treong"
+  },
+  {
+    "case_id": "CT24",
+    "expected_ingredient": "daun bawang",
+    "kind": "transposition",
+    "query_text": "daun bwaang"
+  },
+  {
+    "case_id": "CT25",
+    "expected_ingredient": "saus tiram",
+    "kind": "transposition",
+    "query_text": "saus tiarm"
+  },
+  {
+    "case_id": "CT26",
+    "expected_ingredient": "tepung bumbu",
+    "kind": "transposition",
+    "query_text": "teupng bumbu"
+  },
+  {
+    "case_id": "CT27",
+    "expected_ingredient": "daging sapi",
+    "kind": "transposition",
+    "query_text": "daging spai"
+  },
+  {
+    "case_id": "CT28",
+    "expected_ingredient": "tauge",
+    "kind": "transposition",
+    "query_text": "taueg"
+  },
+  {
+    "case_id": "CT29",
+    "expected_ingredient": "seledri",
+    "kind": "transposition",
+    "query_text": "seledir"
+  },
+  {
+    "case_id": "CT30",
+    "expected_ingredient": "lengkuas",
+    "kind": "transposition",
+    "query_text": "lenkguas"
+  },
+  {
+    "case_id": "CT31",
+    "expected_ingredient": "bawang putih",
+    "kind": "valid",
+    "query_text": "bawang putih"
+  },
+  {
+    "case_id": "CT32",
+    "expected_ingredient": "daging sapi",
+    "kind": "valid",
+    "query_text": "daging sapi"
+  },
+  {
+    "case_id": "CT33",
+    "expected_ingredient": "ketumbar",
+    "kind": "valid",
+    "query_text": "ketumbar"
+  },
+  {
+    "case_id": "CT34",
+    "expected_ingredient": "lengkuas",
+    "kind": "valid",
+    "query_text": "lengkuas"
+  },
+  {
+    "case_id": "CT35",
+    "expected_ingredient": "minyak zaitun",
+    "kind": "valid",
+    "query_text": "minyak zaitun"
+  },
+  {
+    "case_id": "CT36",
+    "expected_ingredient": "saus sambal",
+    "kind": "valid",
+    "query_text": "saus sambal"
+  },
+  {
+    "case_id": "CT37",
+    "expected_ingredient": "saus tiram",
+    "kind": "valid",
+    "query_text": "saus tiram"
+  },
+  {
+    "case_id": "CT38",
+    "expected_ingredient": "tauge",
+    "kind": "valid",
+    "query_text": "tauge"
+  },
+  {
+    "case_id": "CT39",
+    "expected_ingredient": "tepung bumbu",
+    "kind": "valid",
+    "query_text": "tepung bumbu"
+  },
+  {
+    "case_id": "CT40",
+    "expected_ingredient": "terong",
+    "kind": "valid",
+    "query_text": "terong"
+  }
+]
