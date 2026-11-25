@@ -1,0 +1,17 @@
+{
+  "run_id": "parser-typo-pilot-20261125T080904479536Z-e2240235",
+  "created_utc": "2026-11-25T08:09:04.479536+00:00",
+  "input_commit": "e2240235dda915eb624e1a3f609a4117bf71c976",
+  "notebook": "notebooks/sisarasa_v4.ipynb",
+  "parser_cell": "f095687e",
+  "parser_source_sha256": "55bf5dd72dc0b98eb0fac9dcce35dc867c831a99047c92246036bc5c7609c2e5",
+  "normalization_version": "sisarasa_v4_normalization_3",
+  "query_processing_version": "sisarasa_v4_suggestions_2",
+  "protocol": "documents/sisarasa_v4_protokol_evaluasi.md",
+  "fixture": "documents/sisarasa_v4_pilot_parser_typo.json",
+  "fixture_sha256": "7cda463a18a6ffe213266429b650cdb16cd2b312df42c342b8cde002dc22bb77",
+  "fixture_version": "sisarasa_v4_parser_typo_fixture_1",
+  "status": "exploratory_synthetic",
+  "scope": "Audit komponen E2 dan E3 pada kasus buatan dengan kosakata simulasi. E2 membandingkan pencocokan literal seluruh baris resep dengan parser v4. E3 mengukur penawaran kandidat dan hasil setelah pilihan simulasi. Label harapan belum dinilai independen.",
+  "python": "3.14.6"
+}

@@ -1,0 +1,39 @@
+{
+  "status": "exploratory_synthetic",
+  "scope": "Audit komponen E2 dan E3 pada kasus buatan dengan kosakata simulasi. E2 membandingkan pencocokan literal seluruh baris resep dengan parser v4. E3 mengukur penawaran kandidat dan hasil setelah pilihan simulasi. Label harapan belum dinilai independen.",
+  "normalization": {
+    "literal": {
+      "cases": 12,
+      "exact": 4,
+      "true_positive": 3,
+      "false_positive": 0,
+      "false_negative": 9,
+      "precision": 1.0,
+      "recall": 0.25,
+      "f1": 0.4
+    },
+    "v4_parser": {
+      "cases": 12,
+      "exact": 12,
+      "true_positive": 12,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    }
+  },
+  "typo": {
+    "typo_cases": 13,
+    "eligible_typos": 12,
+    "target_unavailable": 1,
+    "hits_at_3": 10,
+    "candidate_recall_at_3": 0.8333333333333334,
+    "before_exact": 0,
+    "oracle_exact": 10,
+    "valid_controls": 5,
+    "false_suggestions_on_valid": 0,
+    "unknown_controls": 1,
+    "unknown_with_suggestions": 0
+  }
+}
