@@ -1,4 +1,4 @@
-"""Compare v4 retrieval features on the archived proxy_v3 confirmation queries.
+"""Cross ingredient representation and title weight on the archived proxy_v3 queries.
 
 Use the local sisarasa Python environment. This runner reads both raw sources,
 reconstructs the corpus in memory, and writes a new evaluation directory.
@@ -34,6 +34,11 @@ ARCHIVE_FILES = (
 )
 HYBRID = "SisaRasa Hybrid"
 SET_OVERLAP = "Set-Overlap"
+TFIDF = "TF-IDF Cosine"
+ALL_TITLE = "v4_shared_candidates"
+ALL_NO_TITLE = "all_no_title_shared_candidates"
+CORE_TITLE = "core_with_title_shared_candidates"
+CORE_NO_TITLE = "core_shared_candidates"
 METRICS = {"nDCG@10": "nDCG@10", "P@5": "P@5", "MAP@10": "AP@10"}
 
 
@@ -117,12 +122,11 @@ def load_local_corpus(notebook, parser):
     return namespace, fingerprints
 
 
-def build_models(namespace, corpus, parser, model_metadata, core_only=False):
+def build_models(namespace, corpus, parser, model_metadata):
     def parameters(model_name):
         return model_metadata[model_name]["parameters"].copy()
 
-    tfidf_parameters = {"w_ingr": 1.0, "w_title": 0.0} if core_only else parameters("TF-IDF Cosine")
-    tfidf = namespace["TfidfCosineRetriever"](parser, **tfidf_parameters)
+    tfidf = namespace["TfidfCosineRetriever"](parser, **parameters(TFIDF))
     bm25 = namespace["BM25Retriever"](parser, **parameters("BM25"))
     hybrid_parameters = parameters(HYBRID)
     epsilon = hybrid_parameters.pop("epsilon")
@@ -132,7 +136,7 @@ def build_models(namespace, corpus, parser, model_metadata, core_only=False):
         raise ValueError("Daftar protein Hybrid berbeda dari baseline.")
     models = {
         SET_OVERLAP: namespace["SetOverlapRetriever"](parser),
-        "TF-IDF Cosine": tfidf,
+        TFIDF: tfidf,
         "BM25": bm25,
         HYBRID: hybrid,
     }
@@ -181,20 +185,42 @@ def paired_statistics(differences):
 
 
 def compare_arms(arms):
-    gaps = {}
+    scores = {}
     for arm, rows in arms.items():
-        scores = {(row["model"], row["query_id"]): row["nDCG@10"] for row in rows}
-        gaps[arm] = {
-            query_id: value - scores[SET_OVERLAP, query_id]
-            for (model, query_id), value in scores.items() if model == HYBRID
+        scores[arm] = {
+            (row["model"], row["query_id"]): row["nDCG@10"]
+            for row in rows
         }
-    reference = gaps["v4_shared_candidates"]
-    core = gaps["core_shared_candidates"]
-    if reference.keys() != core.keys():
-        raise ValueError("Arm tidak memakai query yang sama.")
+        if len(scores[arm]) != len(rows):
+            raise ValueError(f"Model dan query duplikat pada arm {arm}.")
+    reference = scores[ALL_TITLE]
+    if any(values.keys() != reference.keys() for values in scores.values()):
+        raise ValueError("Arm tidak memakai model dan query yang sama.")
+    query_ids = sorted(query_id for model, query_id in reference if model == SET_OVERLAP)
+
+    gaps = {
+        arm: np.array([values[HYBRID, query_id] - values[SET_OVERLAP, query_id] for query_id in query_ids])
+        for arm, values in scores.items()
+    }
+    factorial = {}
+    for model in sorted({model for model, _ in reference}):
+        all_title, all_no_title, core_title, core_no_title = (
+            np.array([scores[arm][model, query_id] for query_id in query_ids])
+            for arm in (ALL_TITLE, ALL_NO_TITLE, CORE_TITLE, CORE_NO_TITLE)
+        )
+        title_effect_all = all_title - all_no_title
+        title_effect_core = core_title - core_no_title
+        factorial[model] = {
+            "title_effect_all": paired_statistics(title_effect_all),
+            "title_effect_core": paired_statistics(title_effect_core),
+            "core_effect_with_title": paired_statistics(core_title - all_title),
+            "core_effect_without_title": paired_statistics(core_no_title - all_no_title),
+            "title_effect_core_minus_all": paired_statistics(title_effect_core - title_effect_all),
+        }
     return {
-        "hybrid_minus_set_overlap": {arm: paired_statistics(list(values.values())) for arm, values in gaps.items()},
-        "change_in_hybrid_gap_core_minus_v4": paired_statistics([core[key] - reference[key] for key in reference]),
+        "hybrid_minus_set_overlap": {arm: paired_statistics(values) for arm, values in gaps.items()},
+        "change_in_hybrid_gap_core_minus_v4": paired_statistics(gaps[CORE_NO_TITLE] - gaps[ALL_TITLE]),
+        "factorial_ndcg_at_10": factorial,
     }
 
 
@@ -222,16 +248,23 @@ def run(notebook, archive):
     evaluator = namespace["IRMetricsEvaluator"]()
     models = build_models(namespace, corpus, parser, baseline["models"])
     candidates = common_candidates(corpus, queries, parser)
-    replay, replay_rows = evaluate_arm("archived_replay", models, evaluator, queries, qrels, doc_ids)
-    v4, v4_rows = evaluate_arm("v4_shared_candidates", models, evaluator, queries, qrels, doc_ids, candidates)
-
+    replay = evaluate_arm("archived_replay", models, evaluator, queries, qrels, doc_ids)
     core_corpus = corpus.assign(ingredients_ir_text=corpus["ingredients_core_set"].map(core_ir_text))
-    core_models = build_models(namespace, core_corpus, CoreOnlyParser(parser), baseline["models"], core_only=True)
-    core, core_rows = evaluate_arm("core_shared_candidates", core_models, evaluator, queries, qrels, doc_ids, candidates)
-    summaries = {"archived_replay": replay, "v4_shared_candidates": v4, "core_shared_candidates": core}
-    rows = {"archived_replay": replay_rows, "v4_shared_candidates": v4_rows, "core_shared_candidates": core_rows}
+    core_models = build_models(namespace, core_corpus, CoreOnlyParser(parser), baseline["models"])
+    measurements = {"archived_replay": replay}
+    for with_title, without_title, model_set in (
+        (ALL_TITLE, ALL_NO_TITLE, models),
+        (CORE_TITLE, CORE_NO_TITLE, core_models),
+    ):
+        measurements[with_title] = evaluate_arm(with_title, model_set, evaluator, queries, qrels, doc_ids, candidates)
+        # Hybrid shares this TF-IDF instance. Turning off the title uses the same fitted index.
+        model_set[TFIDF].w_ingr, model_set[TFIDF].w_title = 1.0, 0.0
+        measurements[without_title] = evaluate_arm(without_title, model_set, evaluator, queries, qrels, doc_ids, candidates)
+
+    summaries = {arm: measurement[0] for arm, measurement in measurements.items()}
+    rows = {arm: measurement[1] for arm, measurement in measurements.items()}
     old = saved["confirmation/overall_results.json"]
-    replay_matches = all(replay[model][key] == old[model]["confirm"][key] for model in replay for key in METRICS)
+    replay_matches = all(result[key] == old[model]["confirm"][key] for model, result in replay[0].items() for key in METRICS)
     return {
         "corpus_hash_sha256_full_records": corpus_hash,
         "document_count": len(corpus),
@@ -241,6 +274,7 @@ def run(notebook, archive):
         "raw_input_sha256": fingerprints,
         "replay_matches_archived_metrics": replay_matches,
         "candidate_counts": {query["query_id"]: len(candidates[query["query_text"]]) for query in queries},
+        "title_enabled_tfidf_weights": baseline["models"][TFIDF]["parameters"],
     }, summaries, compare_arms(rows), [row for group in rows.values() for row in group]
 
 
@@ -262,9 +296,16 @@ def main():
             "protocol": PROTOCOL,
             "query_count": 48,
             "archive_input_sha256": {name: hashlib.sha256(blob).hexdigest() for name, blob in archive.items()},
-            "candidate_rule": "At least one matching core ingredient in both shared-candidate arms.",
-            "output_rule": "Positive scores; ties by ascending doc_id in both shared-candidate arms.",
-            "core_features": "Same compound core tokens for documents and queries; TF-IDF title weight zero.",
+            "candidate_rule": "At least one matching core ingredient in all four shared-candidate arms.",
+            "output_rule": "Positive scores; ties by ascending doc_id in all four shared-candidate arms.",
+            "shared_candidate_arms": {
+                ALL_TITLE: {"ingredient_tokens": "all", "title_enabled": True},
+                ALL_NO_TITLE: {"ingredient_tokens": "all", "title_enabled": False},
+                CORE_TITLE: {"ingredient_tokens": "core", "title_enabled": True},
+                CORE_NO_TITLE: {"ingredient_tokens": "core", "title_enabled": False},
+            },
+            "title_disabled_tfidf_weights": {"w_ingr": 1.0, "w_title": 0.0},
+            "title_query": "The notebook title channel tokenizes the ingredient query from the selected representation.",
             "bootstrap": {"unit": "query family", "resamples": 10_000, "seed": 42},
             "python": sys.version.split()[0],
             "packages": {package: version(package) for package in ("numpy", "pandas", "scipy", "scikit-learn", "pyarrow")},
