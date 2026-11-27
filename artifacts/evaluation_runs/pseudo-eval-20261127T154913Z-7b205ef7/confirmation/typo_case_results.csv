@@ -1,0 +1,41 @@
+case_id,kind,query_text,expected_ingredient,target_available,has_suggestion,candidate_count,candidates,candidate_offered,oracle_choices,oracle_selection_applied,resolved_before,resolved_after,normalized_before,normalized_after
+CT01,deletion,bihn,bihun,True,True,1,"[""bihun""]",True,"{""bihn"": ""bihun""}",True,bihn,bihun,False,True
+CT02,deletion,saus smbal,saus sambal,True,True,1,"[""saus sambal""]",True,"{""saus smbal"": ""saus sambal""}",True,saus smbal,saus sambal,False,True
+CT03,deletion,gua merah,gula merah,True,True,1,"[""gula merah""]",True,"{""gua merah"": ""gula merah""}",True,gua merah,gula merah,False,True
+CT04,deletion,teung terigu,tepung terigu,True,False,0,[],False,{},False,teung terigu,teung terigu,False,False
+CT05,deletion,caba,cabai,True,True,4,"[""cabai"", ""cabai hijau"", ""cabai merah"", ""cabai rawit""]",True,"{""caba"": ""cabai""}",True,caba,cabai,False,True
+CT06,deletion,teron,terong,True,True,1,"[""terong""]",True,"{""teron"": ""terong""}",True,teron,terong,False,True
+CT07,deletion,ketumbr,ketumbar,True,True,1,"[""ketumbar""]",True,"{""ketumbr"": ""ketumbar""}",True,ketumbr,ketumbar,False,True
+CT08,deletion,cui,cumi,True,True,1,"[""cumi""]",True,"{""cui"": ""cumi""}",True,cui,cumi,False,True
+CT09,deletion,ikn,ikan,True,True,1,"[""ikan""]",True,"{""ikn"": ""ikan""}",True,ikn,ikan,False,True
+CT10,deletion,byam,bayam,True,True,2,"[""ayam"", ""bayam""]",True,"{""byam"": ""bayam""}",True,byam,bayam,False,True
+CT11,substitution,sawi hihau,sawi hijau,True,True,1,"[""sawi hijau""]",True,"{""sawi hihau"": ""sawi hijau""}",True,sawi hihau,sawi hijau,False,True
+CT12,substitution,bunga lawzng,bunga lawang,True,True,1,"[""bunga lawang""]",True,"{""bunga lawzng"": ""bunga lawang""}",True,bunga lawzng,bunga lawang,False,True
+CT13,substitution,dahing sapi,daging sapi,True,False,0,[],False,{},False,dahing sapi,dahing sapi,False,False
+CT14,substitution,mjntega,mentega,True,True,1,"[""mentega""]",True,"{""mjntega"": ""mentega""}",True,mjntega,mentega,False,True
+CT15,substitution,bawang phtih,bawang putih,True,True,1,"[""bawang putih""]",True,"{""bawang phtih"": ""bawang putih""}",True,bawang phtih,bawang putih,False,True
+CT16,substitution,guda merah,gula merah,True,True,1,"[""gula merah""]",True,"{""guda merah"": ""gula merah""}",True,guda merah,gula merah,False,True
+CT17,substitution,tppung maizena,tepung maizena,True,False,0,[],False,{},False,tppung maizena,tppung maizena,False,False
+CT18,substitution,sauk tiram,saus tiram,True,True,1,"[""saus tiram""]",True,"{""sauk tiram"": ""saus tiram""}",True,sauk tiram,saus tiram,False,True
+CT19,substitution,kemini,kemiri,True,True,1,"[""kemiri""]",True,"{""kemini"": ""kemiri""}",True,kemini,kemiri,False,True
+CT20,substitution,teronj,terong,True,True,1,"[""terong""]",True,"{""teronj"": ""terong""}",True,teronj,terong,False,True
+CT21,transposition,bayma,bayam,True,True,1,"[""bayam""]",True,"{""bayma"": ""bayam""}",True,bayma,bayam,False,True
+CT22,transposition,minyak zatiun,minyak zaitun,True,True,1,"[""minyak zaitun""]",True,"{""minyak zatiun"": ""minyak zaitun""}",True,minyak zatiun,minyak zaitun,False,True
+CT23,transposition,treong,terong,True,True,1,"[""terong""]",True,"{""treong"": ""terong""}",True,treong,terong,False,True
+CT24,transposition,daun bwaang,daun bawang,True,True,1,"[""daun bawang""]",True,"{""daun bwaang"": ""daun bawang""}",True,daun bwaang,daun bawang,False,True
+CT25,transposition,saus tiarm,saus tiram,True,True,1,"[""saus tiram""]",True,"{""saus tiarm"": ""saus tiram""}",True,saus tiarm,saus tiram,False,True
+CT26,transposition,teupng bumbu,tepung bumbu,True,True,1,"[""tepung bumbu""]",True,"{""teupng bumbu"": ""tepung bumbu""}",True,teupng bumbu,tepung bumbu,False,True
+CT27,transposition,daging spai,daging sapi,True,True,1,"[""daging sapi""]",True,"{""daging spai"": ""daging sapi""}",True,daging spai,daging sapi,False,True
+CT28,transposition,taueg,tauge,True,True,1,"[""tauge""]",True,"{""taueg"": ""tauge""}",True,taueg,tauge,False,True
+CT29,transposition,seledir,seledri,True,True,1,"[""seledri""]",True,"{""seledir"": ""seledri""}",True,seledir,seledri,False,True
+CT30,transposition,lenkguas,lengkuas,True,True,1,"[""lengkuas""]",True,"{""lenkguas"": ""lengkuas""}",True,lenkguas,lengkuas,False,True
+CT31,valid,bawang putih,bawang putih,True,False,0,[],False,{},False,bawang putih,bawang putih,True,True
+CT32,valid,daging sapi,daging sapi,True,False,0,[],False,{},False,daging sapi,daging sapi,True,True
+CT33,valid,ketumbar,ketumbar,True,False,0,[],False,{},False,ketumbar,ketumbar,True,True
+CT34,valid,lengkuas,lengkuas,True,False,0,[],False,{},False,lengkuas,lengkuas,True,True
+CT35,valid,minyak zaitun,minyak zaitun,True,False,0,[],False,{},False,minyak zaitun,minyak zaitun,True,True
+CT36,valid,saus sambal,saus sambal,True,False,0,[],False,{},False,saus sambal,saus sambal,True,True
+CT37,valid,saus tiram,saus tiram,True,False,0,[],False,{},False,saus tiram,saus tiram,True,True
+CT38,valid,tauge,tauge,True,False,0,[],False,{},False,tauge,tauge,True,True
+CT39,valid,tepung bumbu,tepung bumbu,True,False,0,[],False,{},False,tepung bumbu,tepung bumbu,True,True
+CT40,valid,terong,terong,True,False,0,[],False,{},False,terong,terong,True,True
