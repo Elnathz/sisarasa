@@ -41,6 +41,10 @@ class NotebookProvenanceTest(unittest.TestCase):
             )
             commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=root, text=True).strip()
             self.assertEqual(checkpoint(root), commit)
+            self.assertEqual(checkpoint(root, ["x = 1"]), commit)
+            for history in ([], ["x = 2"], ["previous_run()", "x = 1"]):
+                with self.subTest(history=history), self.assertRaisesRegex(RuntimeError, "kernel"):
+                    checkpoint(root, history)
             sample["cells"][0].update({"outputs": [], "execution_count": 3})
             path.write_text(json.dumps(sample), encoding="utf-8")
             self.assertEqual(checkpoint(root), commit)
