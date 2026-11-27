@@ -1,0 +1,300 @@
+{
+  "hybrid_minus_set_overlap": {
+    "archived_replay": {
+      "queries": 48,
+      "mean": -0.022022777137260103,
+      "ci_95": [
+        -0.03888453923509088,
+        -0.005427568307630431
+      ],
+      "positive": 6,
+      "tied": 21,
+      "negative": 21
+    },
+    "v4_shared_candidates": {
+      "queries": 48,
+      "mean": -0.01683998086396622,
+      "ci_95": [
+        -0.036939566852943716,
+        0.003917285565149787
+      ],
+      "positive": 6,
+      "tied": 22,
+      "negative": 20
+    },
+    "all_no_title_shared_candidates": {
+      "queries": 48,
+      "mean": -0.015055321361056107,
+      "ci_95": [
+        -0.03489456000496603,
+        0.005510590276100248
+      ],
+      "positive": 6,
+      "tied": 22,
+      "negative": 20
+    },
+    "core_with_title_shared_candidates": {
+      "queries": 48,
+      "mean": -0.019277139098661196,
+      "ci_95": [
+        -0.040907311730822425,
+        0.002605653653367845
+      ],
+      "positive": 6,
+      "tied": 22,
+      "negative": 20
+    },
+    "core_shared_candidates": {
+      "queries": 48,
+      "mean": -0.01813009452709401,
+      "ci_95": [
+        -0.03986285635427962,
+        0.0037089836546622067
+      ],
+      "positive": 6,
+      "tied": 23,
+      "negative": 19
+    }
+  },
+  "change_in_hybrid_gap_core_minus_v4": {
+    "queries": 48,
+    "mean": -0.0012901136631277889,
+    "ci_95": [
+      -0.012556618917716032,
+      0.0072347403733132995
+    ],
+    "positive": 10,
+    "tied": 33,
+    "negative": 5
+  },
+  "factorial_ndcg_at_10": {
+    "BM25": {
+      "title_effect_all": {
+        "queries": 48,
+        "mean": 0.0,
+        "ci_95": [
+          0.0,
+          0.0
+        ],
+        "positive": 0,
+        "tied": 48,
+        "negative": 0
+      },
+      "title_effect_core": {
+        "queries": 48,
+        "mean": 0.0,
+        "ci_95": [
+          0.0,
+          0.0
+        ],
+        "positive": 0,
+        "tied": 48,
+        "negative": 0
+      },
+      "core_effect_with_title": {
+        "queries": 48,
+        "mean": 0.12087727688896886,
+        "ci_95": [
+          0.08163113569772598,
+          0.1634511369736481
+        ],
+        "positive": 39,
+        "tied": 7,
+        "negative": 2
+      },
+      "core_effect_without_title": {
+        "queries": 48,
+        "mean": 0.12087727688896886,
+        "ci_95": [
+          0.08163113569772598,
+          0.1634511369736481
+        ],
+        "positive": 39,
+        "tied": 7,
+        "negative": 2
+      },
+      "title_effect_core_minus_all": {
+        "queries": 48,
+        "mean": 0.0,
+        "ci_95": [
+          0.0,
+          0.0
+        ],
+        "positive": 0,
+        "tied": 48,
+        "negative": 0
+      }
+    },
+    "Set-Overlap": {
+      "title_effect_all": {
+        "queries": 48,
+        "mean": 0.0,
+        "ci_95": [
+          0.0,
+          0.0
+        ],
+        "positive": 0,
+        "tied": 48,
+        "negative": 0
+      },
+      "title_effect_core": {
+        "queries": 48,
+        "mean": 0.0,
+        "ci_95": [
+          0.0,
+          0.0
+        ],
+        "positive": 0,
+        "tied": 48,
+        "negative": 0
+      },
+      "core_effect_with_title": {
+        "queries": 48,
+        "mean": 0.0,
+        "ci_95": [
+          0.0,
+          0.0
+        ],
+        "positive": 0,
+        "tied": 48,
+        "negative": 0
+      },
+      "core_effect_without_title": {
+        "queries": 48,
+        "mean": 0.0,
+        "ci_95": [
+          0.0,
+          0.0
+        ],
+        "positive": 0,
+        "tied": 48,
+        "negative": 0
+      },
+      "title_effect_core_minus_all": {
+        "queries": 48,
+        "mean": 0.0,
+        "ci_95": [
+          0.0,
+          0.0
+        ],
+        "positive": 0,
+        "tied": 48,
+        "negative": 0
+      }
+    },
+    "SisaRasa Hybrid": {
+      "title_effect_all": {
+        "queries": 48,
+        "mean": -0.0017846595029101149,
+        "ci_95": [
+          -0.004113083404362855,
+          -0.00022868729960697406
+        ],
+        "positive": 1,
+        "tied": 42,
+        "negative": 5
+      },
+      "title_effect_core": {
+        "queries": 48,
+        "mean": -0.0011470445715671847,
+        "ci_95": [
+          -0.00421419395828753,
+          0.0016734792330706301
+        ],
+        "positive": 5,
+        "tied": 38,
+        "negative": 5
+      },
+      "core_effect_with_title": {
+        "queries": 48,
+        "mean": -0.0024371582346949736,
+        "ci_95": [
+          -0.01327064663792668,
+          0.005121288857589595
+        ],
+        "positive": 11,
+        "tied": 32,
+        "negative": 5
+      },
+      "core_effect_without_title": {
+        "queries": 48,
+        "mean": -0.0030747731660379037,
+        "ci_95": [
+          -0.0139356442210817,
+          0.004439048163843411
+        ],
+        "positive": 8,
+        "tied": 34,
+        "negative": 6
+      },
+      "title_effect_core_minus_all": {
+        "queries": 48,
+        "mean": 0.0006376149313429303,
+        "ci_95": [
+          -0.0016227416675066839,
+          0.0029724842010727176
+        ],
+        "positive": 8,
+        "tied": 36,
+        "negative": 4
+      }
+    },
+    "TF-IDF Cosine": {
+      "title_effect_all": {
+        "queries": 48,
+        "mean": -0.06454493910945809,
+        "ci_95": [
+          -0.10460510771208484,
+          -0.027791733393020754
+        ],
+        "positive": 12,
+        "tied": 3,
+        "negative": 33
+      },
+      "title_effect_core": {
+        "queries": 48,
+        "mean": -0.07287373362467578,
+        "ci_95": [
+          -0.10477534509480703,
+          -0.03846749138742721
+        ],
+        "positive": 8,
+        "tied": 3,
+        "negative": 37
+      },
+      "core_effect_with_title": {
+        "queries": 48,
+        "mean": 0.02086876783651606,
+        "ci_95": [
+          -0.0016641362670714146,
+          0.04331959584384563
+        ],
+        "positive": 29,
+        "tied": 2,
+        "negative": 17
+      },
+      "core_effect_without_title": {
+        "queries": 48,
+        "mean": 0.02919756235173374,
+        "ci_95": [
+          -0.0015543705941991031,
+          0.06156433629388295
+        ],
+        "positive": 29,
+        "tied": 4,
+        "negative": 15
+      },
+      "title_effect_core_minus_all": {
+        "queries": 48,
+        "mean": -0.008328794515217683,
+        "ci_95": [
+          -0.03859435219192058,
+          0.021455442729760667
+        ],
+        "positive": 20,
+        "tied": 2,
+        "negative": 26
+      }
+    }
+  }
+}
