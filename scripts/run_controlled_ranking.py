@@ -5,6 +5,7 @@ reconstructs the corpus in memory, and writes a new evaluation directory.
 """
 
 import ast
+import csv
 import hashlib
 import json
 import math
@@ -31,6 +32,7 @@ ARCHIVE_FILES = (
     "confirmation/query_manifest.json",
     "confirmation/qrels.json",
     "confirmation/overall_results.json",
+    "confirmation/per_query_results.csv",
 )
 HYBRID = "SisaRasa Hybrid"
 SET_OVERLAP = "Set-Overlap"
@@ -224,8 +226,30 @@ def compare_arms(arms):
     }
 
 
+def validate_archived_replay(summary, rows, archived_summary, archived_csv):
+    if summary.keys() != archived_summary.keys() or any(
+        metrics[key] != archived_summary[model]["confirm"][key]
+        for model, metrics in summary.items() for key in METRICS
+    ):
+        raise ValueError("Metrik replay berbeda dari arsip konfirmasi.")
+
+    archived_rows = list(csv.DictReader(archived_csv.decode("utf-8-sig").splitlines(keepends=True)))
+    expected = {
+        (row["model"], row["query_id"]): (
+            ast.literal_eval(row["retrieved_doc_ids"]), ast.literal_eval(row["retrieved_grades"]),
+        )
+        for row in archived_rows
+    }
+    observed = {
+        (row["model"], row["query_id"]): (row["retrieved_doc_ids"], row["retrieved_grades"])
+        for row in rows
+    }
+    if len(expected) != len(archived_rows) or len(observed) != len(rows) or observed != expected:
+        raise ValueError("Urutan dokumen atau grade replay berbeda dari arsip konfirmasi.")
+
+
 def run(notebook, archive):
-    saved = {name: json.loads(blob) for name, blob in archive.items()}
+    saved = {name: json.loads(blob) for name, blob in archive.items() if name.endswith(".json")}
     baseline = saved["metadata.json"]
     queries = saved["confirmation/query_manifest.json"]
     qrels = saved["confirmation/qrels.json"]
@@ -249,6 +273,9 @@ def run(notebook, archive):
     models = build_models(namespace, corpus, parser, baseline["models"])
     candidates = common_candidates(corpus, queries, parser)
     replay = evaluate_arm("archived_replay", models, evaluator, queries, qrels, doc_ids)
+    validate_archived_replay(
+        *replay, saved["confirmation/overall_results.json"], archive["confirmation/per_query_results.csv"],
+    )
     core_corpus = corpus.assign(ingredients_ir_text=corpus["ingredients_core_set"].map(core_ir_text))
     core_models = build_models(namespace, core_corpus, CoreOnlyParser(parser), baseline["models"])
     measurements = {"archived_replay": replay}
@@ -263,8 +290,6 @@ def run(notebook, archive):
 
     summaries = {arm: measurement[0] for arm, measurement in measurements.items()}
     rows = {arm: measurement[1] for arm, measurement in measurements.items()}
-    old = saved["confirmation/overall_results.json"]
-    replay_matches = all(result[key] == old[model]["confirm"][key] for model, result in replay[0].items() for key in METRICS)
     return {
         "corpus_hash_sha256_full_records": corpus_hash,
         "document_count": len(corpus),
@@ -272,7 +297,8 @@ def run(notebook, archive):
         "normalization_version": parser.NORMALIZATION_VERSION,
         "query_processing_version": parser.QUERY_PROCESSING_VERSION,
         "raw_input_sha256": fingerprints,
-        "replay_matches_archived_metrics": replay_matches,
+        "replay_matches_archived_metrics": True,
+        "replay_matches_archived_rankings": True,
         "candidate_counts": {query["query_id"]: len(candidates[query["query_text"]]) for query in queries},
         "title_enabled_tfidf_weights": baseline["models"][TFIDF]["parameters"],
     }, summaries, compare_arms(rows), [row for group in rows.values() for row in group]
