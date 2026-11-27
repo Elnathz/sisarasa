@@ -1,0 +1,48 @@
+{
+  "hybrid_minus_set_overlap": {
+    "archived_replay": {
+      "queries": 48,
+      "mean": -0.022022777137260103,
+      "ci_95": [
+        -0.03888453923509088,
+        -0.005427568307630431
+      ],
+      "positive": 6,
+      "tied": 21,
+      "negative": 21
+    },
+    "v4_shared_candidates": {
+      "queries": 48,
+      "mean": -0.01683998086396622,
+      "ci_95": [
+        -0.036939566852943716,
+        0.003917285565149787
+      ],
+      "positive": 6,
+      "tied": 22,
+      "negative": 20
+    },
+    "core_shared_candidates": {
+      "queries": 48,
+      "mean": -0.01813009452709401,
+      "ci_95": [
+        -0.03986285635427962,
+        0.0037089836546622067
+      ],
+      "positive": 6,
+      "tied": 23,
+      "negative": 19
+    }
+  },
+  "change_in_hybrid_gap_core_minus_v4": {
+    "queries": 48,
+    "mean": -0.0012901136631277889,
+    "ci_95": [
+      -0.012556618917716032,
+      0.0072347403733132995
+    ],
+    "positive": 10,
+    "tied": 33,
+    "negative": 5
+  }
+}

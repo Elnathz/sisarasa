@@ -1,0 +1,127 @@
+{
+  "run_id": "controlled-ranking-20261127T193114024380Z-d621c60c",
+  "input_commit": "d621c60c63e9c707572485404a6056f62b625c09",
+  "created_utc": "2026-11-27T19:31:14.024380+00:00",
+  "status": "retrospective_proxy_v3",
+  "source_run": "artifacts/evaluation_runs/pseudo-eval-20261107T142228Z-7b205ef7",
+  "protocol": "documents/sisarasa_v4_protokol_evaluasi.md",
+  "query_count": 48,
+  "archive_input_sha256": {
+    "metadata.json": "7a053b8dc4b08bdc3c28c922847c85929ee8811b03a984da1fd5196eca029179",
+    "proxy/assessment_doc_ids.json": "2fc3ae39ff0f4a758d1de80d96dd58b9c461ba7db9f5c8a309dc86d88e6369ad",
+    "confirmation/query_manifest.json": "ce9291901216e48ea09cf0a029611599d0ed632459299eba9f68c9e3500f103d",
+    "confirmation/qrels.json": "22b7f504aa181f5b806de45f6b8096be7be24d188b786a75f701e4101d2ec0b0",
+    "confirmation/overall_results.json": "9bbe7141b0502a0e32a5e617bab5b9e08829818b98a61fd3a5ef868f2c779482",
+    "confirmation/per_query_results.csv": "a863c4799cbab9344e17c48f244dc695b6d79e4b2a7426723d569178596d0761"
+  },
+  "candidate_rule": "At least one matching core ingredient in all four shared-candidate arms.",
+  "output_rule": "Positive scores; ties by ascending doc_id in all four shared-candidate arms.",
+  "shared_candidate_arms": {
+    "v4_shared_candidates": {
+      "ingredient_tokens": "all",
+      "title_enabled": true
+    },
+    "all_no_title_shared_candidates": {
+      "ingredient_tokens": "all",
+      "title_enabled": false
+    },
+    "core_with_title_shared_candidates": {
+      "ingredient_tokens": "core",
+      "title_enabled": true
+    },
+    "core_shared_candidates": {
+      "ingredient_tokens": "core",
+      "title_enabled": false
+    }
+  },
+  "title_disabled_tfidf_weights": {
+    "w_ingr": 1.0,
+    "w_title": 0.0
+  },
+  "title_query": "The notebook title channel tokenizes the ingredient query from the selected representation.",
+  "bootstrap": {
+    "unit": "query family",
+    "resamples": 10000,
+    "seed": 42
+  },
+  "python": "3.10.22",
+  "packages": {
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "scipy": "1.15.3",
+    "scikit-learn": "1.7.2",
+    "pyarrow": "25.0.1"
+  },
+  "corpus_hash_sha256_full_records": "7d3c286510cbfc231b23b8a49c960943292adb2d8993ff785b8706cc1e399d86",
+  "document_count": 68745,
+  "parser_source_sha256": "55bf5dd72dc0b98eb0fac9dcce35dc867c831a99047c92246036bc5c7609c2e5",
+  "normalization_version": "sisarasa_v4_normalization_3",
+  "query_processing_version": "sisarasa_v4_suggestions_2",
+  "raw_input_sha256": {
+    "data/raw/indonesian-food-recipes/dataset-ayam.csv": "f48cc1d95142880dfc033a532d5bf1f391e49fa10b756674b341905b7936308b",
+    "data/raw/indonesian-food-recipes/dataset-ikan.csv": "053dc5c3bfb72a5f2990a38d65d702fa8d3555e7df0b310b29bd70ae7f0b70aa",
+    "data/raw/indonesian-food-recipes/dataset-kambing.csv": "d793f28c0388a4783320efdc651938ad0b7f836d04e0e92c8b9330dea797ad2d",
+    "data/raw/indonesian-food-recipes/dataset-sapi.csv": "445ffe93333cc3f198de5ba78ddbbdcb4176ecd381231802a9143bbc48f0a376",
+    "data/raw/indonesian-food-recipes/dataset-tahu.csv": "c7c5cce662389690919d655ffc6879f338a5d318077d6ff6976dbb6e6c9eae14",
+    "data/raw/indonesian-food-recipes/dataset-telur.csv": "47e6407003ce90e2109b49241090778f44c305e2164e045bf22bdd753487cb63",
+    "data/raw/indonesian-food-recipes/dataset-tempe.csv": "9e59f461965310e416042c94f9ee347d6dcedaa1dfe573ff62588e81f468b270",
+    "data/raw/indonesian-food-recipes/dataset-udang.csv": "11c08d3bf5976171bbb7e691041ac9375d89ea27694c62ca93b17085956324d4",
+    "data/raw/indonesian-recipes/indonesian_recipes.parquet": "acf6d69ade6438018c3c72aefa1a981f5af34cbf5dccf1f2a2cb4f5f79e6a3e4"
+  },
+  "replay_matches_archived_metrics": true,
+  "replay_matches_archived_rankings": true,
+  "candidate_counts": {
+    "CF_A01": 12080,
+    "CF_A02": 53385,
+    "CF_A03": 55837,
+    "CF_A04": 53216,
+    "CF_A05": 33163,
+    "CF_A06": 56500,
+    "CF_A07": 53664,
+    "CF_A08": 41457,
+    "CF_A09": 20738,
+    "CF_A10": 58315,
+    "CF_A11": 52634,
+    "CF_A12": 41260,
+    "CF_B01": 57088,
+    "CF_B02": 55701,
+    "CF_B03": 62525,
+    "CF_B04": 59606,
+    "CF_B05": 44550,
+    "CF_B06": 54564,
+    "CF_B07": 49829,
+    "CF_B08": 58859,
+    "CF_B09": 60879,
+    "CF_B10": 56521,
+    "CF_B11": 47469,
+    "CF_B12": 58021,
+    "CF_C01": 43705,
+    "CF_C02": 57115,
+    "CF_C03": 57828,
+    "CF_C04": 62060,
+    "CF_C05": 58378,
+    "CF_C06": 46568,
+    "CF_C07": 38858,
+    "CF_C08": 57329,
+    "CF_C09": 57967,
+    "CF_C10": 58764,
+    "CF_C11": 59334,
+    "CF_C12": 60610,
+    "CF_D01": 62258,
+    "CF_D02": 43181,
+    "CF_D03": 55345,
+    "CF_D04": 16714,
+    "CF_D05": 43134,
+    "CF_D06": 57799,
+    "CF_D07": 57621,
+    "CF_D08": 56203,
+    "CF_D09": 57389,
+    "CF_D10": 50848,
+    "CF_D11": 56772,
+    "CF_D12": 56044
+  },
+  "title_enabled_tfidf_weights": {
+    "w_ingr": 0.7,
+    "w_title": 0.3
+  }
+}

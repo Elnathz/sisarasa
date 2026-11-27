@@ -1,0 +1,46 @@
+{
+  "version": "sisarasa_v4_parser_typo_fixture_1",
+  "status": "exploratory_synthetic",
+  "scope": "Audit komponen E2 dan E3 pada kasus buatan dengan kosakata simulasi. E2 membandingkan pencocokan literal seluruh baris resep dengan parser v4. E3 mengukur penawaran kandidat dan hasil setelah pilihan simulasi. Label harapan belum dinilai independen.",
+  "known_ingredients": [
+    "air asam jawa", "ayam", "bawang goreng", "bawang putih", "buncis",
+    "cabai rawit", "daging sapi", "daun jeruk", "daun salam", "garam", "jintan", "kecap asin",
+    "minyak wijen", "putih telur", "santan", "serai", "susu cair", "tahu",
+    "tempe", "tepung tapioka"
+  ],
+  "normalization": [
+    {"id": "N01", "input": "2 batang serai (geprek)", "expected": ["serai"]},
+    {"id": "N02", "input": "½ sdt garam halus", "expected": ["garam"]},
+    {"id": "N03", "input": "1/2 kg ayam kampung", "expected": ["ayam"]},
+    {"id": "N04", "input": "1 sachet santan Kara (65 ml)", "expected": ["santan"]},
+    {"id": "N05", "input": "1 lembar daun salam (sobek kasar)", "expected": ["daun salam"]},
+    {"id": "N06", "input": "air asam jawa", "expected": ["air asam jawa"]},
+    {"id": "N07", "input": "tusuk sate secukupnya", "expected": []},
+    {"id": "N08", "input": "daun salam dan daun jeruk", "expected": ["daun jeruk", "daun salam"]},
+    {"id": "N09", "input": "1 kg daging sapi (potong dadu (opsional), cuci bersih)", "expected": ["daging sapi"]},
+    {"id": "N10", "input": "putih telur", "expected": ["putih telur"]},
+    {"id": "N11", "input": "2 sdm minyak wijen", "expected": ["minyak wijen"]},
+    {"id": "N12", "input": "tepung tapioka", "expected": ["tepung tapioka"]}
+  ],
+  "typo": [
+    {"id": "T01", "kind": "typo", "input": "tah", "target": "tahu"},
+    {"id": "T02", "kind": "typo", "input": "tembe", "target": "tempe"},
+    {"id": "T03", "kind": "typo", "input": "temep", "target": "tempe"},
+    {"id": "T04", "kind": "typo", "input": "gahu", "target": "tahu"},
+    {"id": "T05", "kind": "typo", "input": "bunciss", "target": "buncis"},
+    {"id": "T06", "kind": "typo", "input": "kecap asni", "target": "kecap asin"},
+    {"id": "T07", "kind": "typo", "input": "daun slaam", "target": "daun salam"},
+    {"id": "T08", "kind": "typo", "input": "cabe rawti", "target": "cabai rawit"},
+    {"id": "T09", "kind": "typo", "input": "bawang puti", "target": "bawang putih"},
+    {"id": "T10", "kind": "typo", "input": "susu caur", "target": "susu cair"},
+    {"id": "T11", "kind": "typo", "input": "tapika", "target": "tepung tapioka"},
+    {"id": "T12", "kind": "typo", "input": "worte", "target": "wortel"},
+    {"id": "T13", "kind": "typo", "input": "ta", "target": "tahu"},
+    {"id": "T14", "kind": "valid", "input": "buncis", "target": "buncis"},
+    {"id": "T15", "kind": "valid", "input": "kecap asin", "target": "kecap asin"},
+    {"id": "T16", "kind": "valid", "input": "susu cair", "target": "susu cair"},
+    {"id": "T17", "kind": "valid", "input": "bawang goreng", "target": "bawang goreng"},
+    {"id": "T18", "kind": "valid", "input": "jintan", "target": "jintan"},
+    {"id": "T19", "kind": "unknown", "input": "xyzq", "target": null}
+  ]
+}

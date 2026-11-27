@@ -1,0 +1,132 @@
+{
+  "archived_replay": {
+    "Set-Overlap": {
+      "query_count": 48,
+      "nDCG@10": 0.943,
+      "P@5": 0.9292,
+      "MAP@10": 0.9295
+    },
+    "TF-IDF Cosine": {
+      "query_count": 48,
+      "nDCG@10": 0.6258,
+      "P@5": 0.6917,
+      "MAP@10": 0.5838
+    },
+    "BM25": {
+      "query_count": 48,
+      "nDCG@10": 0.5606,
+      "P@5": 0.6708,
+      "MAP@10": 0.5578
+    },
+    "SisaRasa Hybrid": {
+      "query_count": 48,
+      "nDCG@10": 0.9209,
+      "P@5": 0.9333,
+      "MAP@10": 0.9334
+    }
+  },
+  "v4_shared_candidates": {
+    "Set-Overlap": {
+      "query_count": 48,
+      "nDCG@10": 0.9378,
+      "P@5": 0.9292,
+      "MAP@10": 0.9262
+    },
+    "TF-IDF Cosine": {
+      "query_count": 48,
+      "nDCG@10": 0.6258,
+      "P@5": 0.6917,
+      "MAP@10": 0.5838
+    },
+    "BM25": {
+      "query_count": 48,
+      "nDCG@10": 0.5544,
+      "P@5": 0.6625,
+      "MAP@10": 0.5556
+    },
+    "SisaRasa Hybrid": {
+      "query_count": 48,
+      "nDCG@10": 0.9209,
+      "P@5": 0.9333,
+      "MAP@10": 0.9334
+    }
+  },
+  "all_no_title_shared_candidates": {
+    "Set-Overlap": {
+      "query_count": 48,
+      "nDCG@10": 0.9378,
+      "P@5": 0.9292,
+      "MAP@10": 0.9262
+    },
+    "TF-IDF Cosine": {
+      "query_count": 48,
+      "nDCG@10": 0.6904,
+      "P@5": 0.725,
+      "MAP@10": 0.632
+    },
+    "BM25": {
+      "query_count": 48,
+      "nDCG@10": 0.5544,
+      "P@5": 0.6625,
+      "MAP@10": 0.5556
+    },
+    "SisaRasa Hybrid": {
+      "query_count": 48,
+      "nDCG@10": 0.9227,
+      "P@5": 0.9375,
+      "MAP@10": 0.9345
+    }
+  },
+  "core_with_title_shared_candidates": {
+    "Set-Overlap": {
+      "query_count": 48,
+      "nDCG@10": 0.9378,
+      "P@5": 0.9292,
+      "MAP@10": 0.9262
+    },
+    "TF-IDF Cosine": {
+      "query_count": 48,
+      "nDCG@10": 0.6467,
+      "P@5": 0.7125,
+      "MAP@10": 0.5997
+    },
+    "BM25": {
+      "query_count": 48,
+      "nDCG@10": 0.6753,
+      "P@5": 0.7667,
+      "MAP@10": 0.703
+    },
+    "SisaRasa Hybrid": {
+      "query_count": 48,
+      "nDCG@10": 0.9185,
+      "P@5": 0.9333,
+      "MAP@10": 0.9257
+    }
+  },
+  "core_shared_candidates": {
+    "Set-Overlap": {
+      "query_count": 48,
+      "nDCG@10": 0.9378,
+      "P@5": 0.9292,
+      "MAP@10": 0.9262
+    },
+    "TF-IDF Cosine": {
+      "query_count": 48,
+      "nDCG@10": 0.7196,
+      "P@5": 0.7667,
+      "MAP@10": 0.6712
+    },
+    "BM25": {
+      "query_count": 48,
+      "nDCG@10": 0.6753,
+      "P@5": 0.7667,
+      "MAP@10": 0.703
+    },
+    "SisaRasa Hybrid": {
+      "query_count": 48,
+      "nDCG@10": 0.9196,
+      "P@5": 0.9333,
+      "MAP@10": 0.9253
+    }
+  }
+}

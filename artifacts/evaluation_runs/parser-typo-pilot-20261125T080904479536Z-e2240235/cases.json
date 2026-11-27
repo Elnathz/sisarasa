@@ -1,0 +1,519 @@
+{
+  "normalization": [
+    {
+      "id": "N01",
+      "input": "2 batang serai (geprek)",
+      "expected": [
+        "serai"
+      ],
+      "literal": [],
+      "parsed": [
+        "serai"
+      ]
+    },
+    {
+      "id": "N02",
+      "input": "½ sdt garam halus",
+      "expected": [
+        "garam"
+      ],
+      "literal": [],
+      "parsed": [
+        "garam"
+      ]
+    },
+    {
+      "id": "N03",
+      "input": "1/2 kg ayam kampung",
+      "expected": [
+        "ayam"
+      ],
+      "literal": [],
+      "parsed": [
+        "ayam"
+      ]
+    },
+    {
+      "id": "N04",
+      "input": "1 sachet santan Kara (65 ml)",
+      "expected": [
+        "santan"
+      ],
+      "literal": [],
+      "parsed": [
+        "santan"
+      ]
+    },
+    {
+      "id": "N05",
+      "input": "1 lembar daun salam (sobek kasar)",
+      "expected": [
+        "daun salam"
+      ],
+      "literal": [],
+      "parsed": [
+        "daun salam"
+      ]
+    },
+    {
+      "id": "N06",
+      "input": "air asam jawa",
+      "expected": [
+        "air asam jawa"
+      ],
+      "literal": [
+        "air asam jawa"
+      ],
+      "parsed": [
+        "air asam jawa"
+      ]
+    },
+    {
+      "id": "N07",
+      "input": "tusuk sate secukupnya",
+      "expected": [],
+      "literal": [],
+      "parsed": []
+    },
+    {
+      "id": "N08",
+      "input": "daun salam dan daun jeruk",
+      "expected": [
+        "daun jeruk",
+        "daun salam"
+      ],
+      "literal": [],
+      "parsed": [
+        "daun jeruk",
+        "daun salam"
+      ]
+    },
+    {
+      "id": "N09",
+      "input": "1 kg daging sapi (potong dadu (opsional), cuci bersih)",
+      "expected": [
+        "daging sapi"
+      ],
+      "literal": [],
+      "parsed": [
+        "daging sapi"
+      ]
+    },
+    {
+      "id": "N10",
+      "input": "putih telur",
+      "expected": [
+        "putih telur"
+      ],
+      "literal": [
+        "putih telur"
+      ],
+      "parsed": [
+        "putih telur"
+      ]
+    },
+    {
+      "id": "N11",
+      "input": "2 sdm minyak wijen",
+      "expected": [
+        "minyak wijen"
+      ],
+      "literal": [],
+      "parsed": [
+        "minyak wijen"
+      ]
+    },
+    {
+      "id": "N12",
+      "input": "tepung tapioka",
+      "expected": [
+        "tepung tapioka"
+      ],
+      "literal": [
+        "tepung tapioka"
+      ],
+      "parsed": [
+        "tepung tapioka"
+      ]
+    }
+  ],
+  "typo": [
+    {
+      "id": "T01",
+      "kind": "typo",
+      "input": "tah",
+      "target": "tahu",
+      "target_available": true,
+      "offered": [
+        "tahu"
+      ],
+      "target_rank": 1,
+      "resolved_before": "tah",
+      "resolved_after_oracle": "tahu",
+      "parsed_before": [
+        "tah"
+      ],
+      "parsed_after_oracle": [
+        "tahu"
+      ],
+      "before_exact": false,
+      "oracle_exact": true
+    },
+    {
+      "id": "T02",
+      "kind": "typo",
+      "input": "tembe",
+      "target": "tempe",
+      "target_available": true,
+      "offered": [
+        "tempe"
+      ],
+      "target_rank": 1,
+      "resolved_before": "tembe",
+      "resolved_after_oracle": "tempe",
+      "parsed_before": [
+        "tembe"
+      ],
+      "parsed_after_oracle": [
+        "tempe"
+      ],
+      "before_exact": false,
+      "oracle_exact": true
+    },
+    {
+      "id": "T03",
+      "kind": "typo",
+      "input": "temep",
+      "target": "tempe",
+      "target_available": true,
+      "offered": [
+        "tempe"
+      ],
+      "target_rank": 1,
+      "resolved_before": "temep",
+      "resolved_after_oracle": "tempe",
+      "parsed_before": [
+        "temep"
+      ],
+      "parsed_after_oracle": [
+        "tempe"
+      ],
+      "before_exact": false,
+      "oracle_exact": true
+    },
+    {
+      "id": "T04",
+      "kind": "typo",
+      "input": "gahu",
+      "target": "tahu",
+      "target_available": true,
+      "offered": [
+        "tahu"
+      ],
+      "target_rank": 1,
+      "resolved_before": "gahu",
+      "resolved_after_oracle": "tahu",
+      "parsed_before": [
+        "gahu"
+      ],
+      "parsed_after_oracle": [
+        "tahu"
+      ],
+      "before_exact": false,
+      "oracle_exact": true
+    },
+    {
+      "id": "T05",
+      "kind": "typo",
+      "input": "bunciss",
+      "target": "buncis",
+      "target_available": true,
+      "offered": [
+        "buncis"
+      ],
+      "target_rank": 1,
+      "resolved_before": "bunciss",
+      "resolved_after_oracle": "buncis",
+      "parsed_before": [
+        "bunciss"
+      ],
+      "parsed_after_oracle": [
+        "buncis"
+      ],
+      "before_exact": false,
+      "oracle_exact": true
+    },
+    {
+      "id": "T06",
+      "kind": "typo",
+      "input": "kecap asni",
+      "target": "kecap asin",
+      "target_available": true,
+      "offered": [
+        "kecap asin"
+      ],
+      "target_rank": 1,
+      "resolved_before": "kecap asni",
+      "resolved_after_oracle": "kecap asin",
+      "parsed_before": [
+        "kecap asni"
+      ],
+      "parsed_after_oracle": [
+        "kecap asin"
+      ],
+      "before_exact": false,
+      "oracle_exact": true
+    },
+    {
+      "id": "T07",
+      "kind": "typo",
+      "input": "daun slaam",
+      "target": "daun salam",
+      "target_available": true,
+      "offered": [],
+      "target_rank": null,
+      "resolved_before": "daun slaam",
+      "resolved_after_oracle": "daun slaam",
+      "parsed_before": [
+        "daun slaam"
+      ],
+      "parsed_after_oracle": [
+        "daun slaam"
+      ],
+      "before_exact": false,
+      "oracle_exact": false
+    },
+    {
+      "id": "T08",
+      "kind": "typo",
+      "input": "cabe rawti",
+      "target": "cabai rawit",
+      "target_available": true,
+      "offered": [
+        "cabai rawit"
+      ],
+      "target_rank": 1,
+      "resolved_before": "cabe rawti",
+      "resolved_after_oracle": "cabai rawit",
+      "parsed_before": [
+        "cabai rawti"
+      ],
+      "parsed_after_oracle": [
+        "cabai rawit"
+      ],
+      "before_exact": false,
+      "oracle_exact": true
+    },
+    {
+      "id": "T09",
+      "kind": "typo",
+      "input": "bawang puti",
+      "target": "bawang putih",
+      "target_available": true,
+      "offered": [
+        "bawang putih"
+      ],
+      "target_rank": 1,
+      "resolved_before": "bawang puti",
+      "resolved_after_oracle": "bawang putih",
+      "parsed_before": [
+        "bawang puti"
+      ],
+      "parsed_after_oracle": [
+        "bawang putih"
+      ],
+      "before_exact": false,
+      "oracle_exact": true
+    },
+    {
+      "id": "T10",
+      "kind": "typo",
+      "input": "susu caur",
+      "target": "susu cair",
+      "target_available": true,
+      "offered": [
+        "susu cair"
+      ],
+      "target_rank": 1,
+      "resolved_before": "susu caur",
+      "resolved_after_oracle": "susu cair",
+      "parsed_before": [
+        "susu caur"
+      ],
+      "parsed_after_oracle": [
+        "susu cair"
+      ],
+      "before_exact": false,
+      "oracle_exact": true
+    },
+    {
+      "id": "T11",
+      "kind": "typo",
+      "input": "tapika",
+      "target": "tepung tapioka",
+      "target_available": true,
+      "offered": [
+        "tepung tapioka"
+      ],
+      "target_rank": 1,
+      "resolved_before": "tapika",
+      "resolved_after_oracle": "tepung tapioka",
+      "parsed_before": [
+        "tapika"
+      ],
+      "parsed_after_oracle": [
+        "tepung tapioka"
+      ],
+      "before_exact": false,
+      "oracle_exact": true
+    },
+    {
+      "id": "T12",
+      "kind": "typo",
+      "input": "worte",
+      "target": "wortel",
+      "target_available": false,
+      "offered": [],
+      "target_rank": null,
+      "resolved_before": "worte",
+      "resolved_after_oracle": "worte",
+      "parsed_before": [
+        "worte"
+      ],
+      "parsed_after_oracle": [
+        "worte"
+      ],
+      "before_exact": false,
+      "oracle_exact": false
+    },
+    {
+      "id": "T13",
+      "kind": "typo",
+      "input": "ta",
+      "target": "tahu",
+      "target_available": true,
+      "offered": [],
+      "target_rank": null,
+      "resolved_before": "ta",
+      "resolved_after_oracle": "ta",
+      "parsed_before": [],
+      "parsed_after_oracle": [],
+      "before_exact": false,
+      "oracle_exact": false
+    },
+    {
+      "id": "T14",
+      "kind": "valid",
+      "input": "buncis",
+      "target": "buncis",
+      "target_available": true,
+      "offered": [],
+      "target_rank": null,
+      "resolved_before": "buncis",
+      "resolved_after_oracle": "buncis",
+      "parsed_before": [
+        "buncis"
+      ],
+      "parsed_after_oracle": [
+        "buncis"
+      ],
+      "before_exact": true,
+      "oracle_exact": true
+    },
+    {
+      "id": "T15",
+      "kind": "valid",
+      "input": "kecap asin",
+      "target": "kecap asin",
+      "target_available": true,
+      "offered": [],
+      "target_rank": null,
+      "resolved_before": "kecap asin",
+      "resolved_after_oracle": "kecap asin",
+      "parsed_before": [
+        "kecap asin"
+      ],
+      "parsed_after_oracle": [
+        "kecap asin"
+      ],
+      "before_exact": true,
+      "oracle_exact": true
+    },
+    {
+      "id": "T16",
+      "kind": "valid",
+      "input": "susu cair",
+      "target": "susu cair",
+      "target_available": true,
+      "offered": [],
+      "target_rank": null,
+      "resolved_before": "susu cair",
+      "resolved_after_oracle": "susu cair",
+      "parsed_before": [
+        "susu cair"
+      ],
+      "parsed_after_oracle": [
+        "susu cair"
+      ],
+      "before_exact": true,
+      "oracle_exact": true
+    },
+    {
+      "id": "T17",
+      "kind": "valid",
+      "input": "bawang goreng",
+      "target": "bawang goreng",
+      "target_available": true,
+      "offered": [],
+      "target_rank": null,
+      "resolved_before": "bawang goreng",
+      "resolved_after_oracle": "bawang goreng",
+      "parsed_before": [
+        "bawang goreng"
+      ],
+      "parsed_after_oracle": [
+        "bawang goreng"
+      ],
+      "before_exact": true,
+      "oracle_exact": true
+    },
+    {
+      "id": "T18",
+      "kind": "valid",
+      "input": "jintan",
+      "target": "jintan",
+      "target_available": true,
+      "offered": [],
+      "target_rank": null,
+      "resolved_before": "jintan",
+      "resolved_after_oracle": "jintan",
+      "parsed_before": [
+        "jintan"
+      ],
+      "parsed_after_oracle": [
+        "jintan"
+      ],
+      "before_exact": true,
+      "oracle_exact": true
+    },
+    {
+      "id": "T19",
+      "kind": "unknown",
+      "input": "xyzq",
+      "target": null,
+      "target_available": false,
+      "offered": [],
+      "target_rank": null,
+      "resolved_before": "xyzq",
+      "resolved_after_oracle": "xyzq",
+      "parsed_before": [
+        "xyzq"
+      ],
+      "parsed_after_oracle": [
+        "xyzq"
+      ],
+      "before_exact": false,
+      "oracle_exact": false
+    }
+  ]
+}
