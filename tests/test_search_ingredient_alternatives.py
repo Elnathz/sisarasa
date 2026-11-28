@@ -39,7 +39,7 @@ class SearchIngredientAlternativesTest(unittest.TestCase):
             exec(compile(ast.Module(nodes, []), cell["id"], "exec"), cls.namespace)
         cls.parser = parser
 
-    def search(self, raw, query):
+    def search_frame(self, raw, query, **kwargs):
         fields = self.parser.extract_ingredients_from_recipe(raw)
         corpus = pd.DataFrame([{**fields, "doc_id": "recipe", "title_clean": "Resep uji",
                                 "main_category": "other", "ingredients_raw_list": raw,
@@ -51,8 +51,12 @@ class SearchIngredientAlternativesTest(unittest.TestCase):
         for key in ("model_setoverlap", "model_tfidf", "model_bm25", "model_hybrid"):
             self.namespace[key] = ranker
         with redirect_stdout(io.StringIO()) as printed:
-            result = self.namespace["search_sisarasa"](query, model_name="setoverlap").iloc[0]
+            result = self.namespace["search_sisarasa"](query, model_name="setoverlap", **kwargs)
         return result, printed.getvalue()
+
+    def search(self, raw, query, **kwargs):
+        result, printed = self.search_frame(raw, query, **kwargs)
+        return result.iloc[0], printed
 
     def test_one_or_both_options_satisfy_one_requirement(self):
         raw = ["2 sdm mentega atau margarin", "pisang"]
@@ -139,3 +143,45 @@ class SearchIngredientAlternativesTest(unittest.TestCase):
         self.assertEqual(result["Match%"], 100.0)
         self.assertIn("Kecocokan nama bahan inti", printed)
         self.assertIn("Takaran belum diperiksa", printed)
+
+    def test_typo_choice_matches_the_clean_ingredient_query(self):
+        for typo, target in (("dagng sapi", "daging sapi"), ("daun slaam", "daun salam")):
+            with self.subTest(typo=typo):
+                raw = ["pisang", target]
+                unconfirmed, _ = self.search_frame(raw, f"pisang, {typo}")
+                offered = {note["original"]: note["candidates"]
+                           for note in unconfirmed.attrs["suggestions"]}
+                self.assertIn(target, offered.get(typo, [])[:3])
+                self.assertEqual(unconfirmed.attrs["resolved_query"], f"pisang, {typo}")
+                self.assertEqual(unconfirmed.iloc[0]["Match%"], 50.0)
+                corrected, _ = self.search_frame(raw, f"pisang, {typo}",
+                                                 ingredient_choices={typo: target})
+                clean, _ = self.search_frame(raw, f"pisang, {target}")
+                self.assertTrue(corrected.equals(clean))
+                self.assertEqual(corrected.iloc[0]["Match%"], 100.0)
+                self.assertEqual(corrected.attrs["corrections"][0]["source"], "user_confirmed")
+                self.assertEqual(clean.attrs["suggestions"], [])
+                absent, _ = self.search_frame(["pisang"], f"pisang, {typo}")
+                self.assertNotIn(target, [term for note in absent.attrs["suggestions"]
+                                          for term in note["candidates"]])
+
+    def test_oil_alone_asks_for_a_core_ingredient_after_correction(self):
+        raw = ["ayam", "minyak goreng"]
+        result, printed = self.search_frame(raw, "minyk",
+                                            ingredient_choices={"minyk": "minyak goreng"})
+        self.assertTrue(result.empty)
+        self.assertEqual(result.attrs["resolved_query"], "minyak goreng")
+        self.assertEqual(result.attrs["corrections"][0]["source"], "user_confirmed")
+        self.assertIn("Tambahkan minimal satu bahan inti", printed)
+        clean, clean_printed = self.search_frame(raw, "minyak goreng")
+        self.assertTrue(clean.empty)
+        self.assertIn("Tambahkan minimal satu bahan inti", clean_printed)
+
+    def test_oil_choice_preserves_name_coverage_for_a_mixed_query(self):
+        raw = ["ayam", "minyak goreng"]
+        corrected, _ = self.search_frame(raw, "ayam, minyk",
+                                         ingredient_choices={"minyk": "minyak goreng"})
+        clean, _ = self.search_frame(raw, "ayam, minyak goreng")
+        self.assertTrue(corrected.equals(clean))
+        self.assertEqual(corrected.iloc[0]["Match%"], 100.0)
+        self.assertEqual(corrected.iloc[0]["Pantry"], "minyak goreng")
