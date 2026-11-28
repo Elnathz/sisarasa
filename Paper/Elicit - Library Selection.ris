@@ -115,32 +115,6 @@ DO  - 10.1051/itmconf/20224402006
 UR  - https://www.itm-conferences.org/articles/itmconf/pdf/2022/04/itmconf_icacc2022_02006.pdf
 ER  - 
 TY  - JOUR
-TI  - FOOD RECIPE RECOMMENDATION SYSTEM WITH SUFFIX TREE ALGORITHM BASED ON
-THE AVAILABLE TOOLS AND INGREDIENTS
-AU  - Lidiawati Lidiawati
-AU  - H. Saputra
-AU  - Halim Agung
-PY  - 2018
-AB  - Food recipes are an important thing when we want to cook something in
-order to know the ingredients and tools needed. Food recipes can
-become unusable if ingredients and tools are not available. Therefore,
-an application that can recommend food recipes based on available
-ingredients and tools is necessary. This application was created using
-the Suffix Tree algorithm. This application can perform the process of
-finding recipes that match the tools and ingredients available. The
-Suffix Tree algorithm can search for string data types within its
-string of large numbers. The process of selecting recipes starts with
-the user entering the word to search for the recipes that have been
-entered. The suffix tree will be called and used to create trees from
-existing recipes. To find the appropriate preset keyword (string)
-begins with searching for its tree, if Try falling from the tree (not
-found) then nothing matches. Suffix Tree's algorithm can be applied in
-recipe recommendation system applications based on available tools and
-ingredients.
-DO  - 10.20961/itsmart.v7i1.18756
-UR  - https://www.semanticscholar.org/paper/47fb65a55114654e1e50f0a93a440441790ed833
-ER  - 
-TY  - JOUR
 TI  - An Implementation of Recipe Recommendation System Based on Ingredients
 Availability Using Content-based and Collaborative Filtering
 AU  - Y. Syaifudin
