@@ -90,3 +90,49 @@ class SearchIngredientAlternativesTest(unittest.TestCase):
         result, _ = self.search(["mentega (atau margarin)", "pisang"], "margarin, pisang")
         self.assertEqual(result["Match%"], 50.0)
         self.assertEqual(result["Missing Core"], "mentega")
+
+    def test_explicit_optional_items_are_not_required(self):
+        for line in (
+            "keju opsional", "keju (opsional untuk taburan)", "keju boleh diskip",
+            "keju opsional untuk taburan",
+        ):
+            with self.subTest(line=line):
+                result, _ = self.search(["pisang", line], "pisang")
+                self.assertEqual(result["Match%"], 100.0)
+                self.assertEqual(result["Missing Core"], "-")
+                self.assertEqual(result["Score"], 0.5)
+        required, _ = self.search(["pisang", "keju"], "pisang")
+        self.assertEqual(required["Match%"], 50.0)
+        self.assertEqual(required["Missing Core"], "keju")
+        unspecified_amount, _ = self.search(["pisang", "keju secukupnya"], "pisang")
+        self.assertEqual(unspecified_amount["Missing Core"], "keju")
+        negated_note, _ = self.search(["pisang", "keju tidak  opsional"], "pisang")
+        self.assertEqual(negated_note["Match%"], 50.0)
+        self.assertNotEqual(negated_note["Missing Core"], "-")
+
+    def test_optional_notes_keep_other_requirements(self):
+        result, _ = self.search(["keju opsional dan telur", "pisang"], "pisang")
+        self.assertEqual(result["Match%"], 50.0)
+        self.assertEqual(result["Missing Core"], "telur")
+        alternative, _ = self.search(
+            ["mentega atau margarin", "keju opsional", "pisang"], "margarin, pisang",
+        )
+        self.assertEqual(alternative["Match%"], 100.0)
+        self.assertEqual(alternative["Missing Core"], "-")
+        mixed, _ = self.search(["pisang", "mentega opsional atau margarin"], "pisang")
+        self.assertEqual(mixed["Match%"], 50.0)
+        self.assertEqual(mixed["Missing Core"], "margarin atau mentega")
+        note, _ = self.search(["pisang", "tahu (tambahkan keju opsional)"], "pisang")
+        self.assertEqual(note["Missing Core"], "tahu")
+
+    def test_all_optional_recipe_does_not_display_a_percentage(self):
+        result, printed = self.search(["keju optional atau mentega tidak wajib"], "keju")
+        self.assertTrue(pd.isna(result["Match%"]))
+        self.assertEqual(result["Missing Core"], "-")
+        self.assertIn("tidak ada bahan inti wajib", printed)
+
+    def test_coverage_label_explains_that_quantities_were_not_checked(self):
+        result, printed = self.search(["200 g pisang"], "10 g pisang")
+        self.assertEqual(result["Match%"], 100.0)
+        self.assertIn("Kecocokan nama bahan inti", printed)
+        self.assertIn("Takaran belum diperiksa", printed)
