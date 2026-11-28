@@ -83,15 +83,16 @@ Riset berada di [notebooks/sisarasa_v4.ipynb](notebooks/sisarasa_v4.ipynb). Note
 | RQ2 | Apa pengaruh komponen kecocokan protein dan penalti bahan kurang? | Perubahan metrik saat satu bobot dinolkan (ablation) |
 | RQ3 | Seberapa baik saran bahan menangani salah eja? | Kandidat benar ditawarkan, saran keliru pada input valid |
 
-Evaluasi memakai penilaian relevansi otomatis berbasis aturan bahan (pseudo-qrels `proxy_v3`), pemulihan resep sumber, ablation, uji sensitivitas rubric, interval bootstrap, dan diagnostik ejaan. Ambang keberhasilan ditetapkan di `CONFIRMATION_PROTOCOL` sebelum set konfirmasi dibangkitkan, lalu set itu dijalankan satu kali dengan seed dan keluarga query baru.
+Evaluasi memakai pseudo-qrels berdasarkan irisan bahan (`proxy_v3`), pemulihan resep sumber, ablation, sensitivitas rubric, bootstrap, dan uji ejaan. [Set konfirmasi historis](artifacts/evaluation_runs/pseudo-eval-20261107T142228Z-7b205ef7/confirmation/protocol.json) memakai protokol yang dibekukan sebelum data konfirmasi dibuat.
 
-Hasil protokol `sisarasa_v4_research_2` belum tersedia karena notebook versi ini belum dijalankan pada korpus penuh. Run lama di `artifacts/evaluation_runs/` berasal dari protokol sebelumnya dan korpus sebelum quality gate pasca-parsing, jadi angkanya tidak bisa dibandingkan langsung.
+Run All terbaru memakai 68.745 resep dan protokol regresi parser eksploratif. [Metadata run](artifacts/evaluation_runs/pseudo-eval-20261128T055651Z-7b205ef7/metadata.json)
 
 ### Batasan
 
 - Relevansi dinilai oleh rubric otomatis berbasis irisan bahan, bukan oleh manusia. Rubric dan Hybrid berbagi sinyal yang sama.
 - Query evaluasi dibangkitkan dari korpus dan tidak mewakili semua kosakata pengguna.
-- Split dev dan test sudah diperiksa saat analisis, sehingga bersifat eksploratif. Set konfirmasi mengurangi masalah ini, tetapi tetap dinilai dengan pseudo-qrels.
+- Split dev, test, dan run regresi parser bersifat eksploratif.
+- `Match%` menilai kecocokan nama kebutuhan bahan inti wajib. Satu pilihan memenuhi kebutuhan bertanda `atau`. Bahan opsional tidak masuk daftar belanja. Takaran belum diperiksa.
 - Kepuasan pengguna, pengurangan limbah makanan, gizi, dan alergi tidak diukur.
 
 ## Data
@@ -124,7 +125,7 @@ python -m pip install pandas numpy matplotlib seaborn tqdm scikit-learn rank_bm2
 jupyter lab notebooks/sisarasa_v4.ipynb
 ```
 
-Jalankan dari kernel baru dengan Restart Kernel and Run All. Set konfirmasi hanya sah jika dijalankan satu kali tanpa mengubah parser, bobot, rubric, ambang, atau seed setelah hasilnya terlihat.
+Untuk mengulang evaluasi, pilih Python (SisaRasa) dan gunakan **Restart Kernel and Run All** dari checkpoint Git.
 
 Efek samping: Cell 1 memasang paket yang belum ada, notebook membaca `.env`, dapat mengunduh dataset, dan menulis run baru ke `artifacts/evaluation_runs/`. Run lama tidak ditimpa.
 
