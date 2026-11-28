@@ -94,7 +94,8 @@ class SearchIngredientAlternativesTest(unittest.TestCase):
     def test_explicit_optional_items_are_not_required(self):
         for line in (
             "keju opsional", "keju (opsional untuk taburan)", "keju boleh diskip",
-            "keju opsional untuk taburan",
+            "keju opsional untuk taburan", "keju [opsional]",
+            "keju opsional (untuk taburan)", "keju opsional, kalau suka",
         ):
             with self.subTest(line=line):
                 result, _ = self.search(["pisang", line], "pisang")
@@ -123,6 +124,8 @@ class SearchIngredientAlternativesTest(unittest.TestCase):
         self.assertEqual(mixed["Match%"], 50.0)
         self.assertEqual(mixed["Missing Core"], "margarin atau mentega")
         note, _ = self.search(["pisang", "tahu (tambahkan keju opsional)"], "pisang")
+        self.assertEqual(note["Missing Core"], "tahu")
+        note, _ = self.search(["pisang", "tahu (tambahkan keju opsional) (untuk taburan)"], "pisang")
         self.assertEqual(note["Missing Core"], "tahu")
 
     def test_all_optional_recipe_does_not_display_a_percentage(self):
