@@ -26,7 +26,10 @@ class ParserNonFoodTest(unittest.TestCase):
                 self.assertEqual(query["ingredients_core_set"], {expected})
 
     def test_standalone_tools_remain_excluded(self):
-        for raw in ("tusuk sate", "2 Tusuk Sate", "1 batang lidi", "tali (untuk mengikat)"):
+        for raw in (
+            "tusuk sate", "2 Tusuk Sate", "2tusuk sate", "tusuk   sate",
+            "1 batang lidi", "tali (untuk mengikat)", "1tali", "tali2",
+        ):
             with self.subTest(raw=raw):
                 self.assertEqual(self.parser.parse_ingredient_line(raw), "")
                 self.assertEqual(self.parser.parse_query(raw)["ingredients_core_set"], set())
