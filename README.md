@@ -154,15 +154,15 @@ sisarasa/
 
 ## Referensi
 
-Rujukan aktif memakai sumber primer terbit 2021?2025. Daftar untuk impor tersedia di [RIS rujukan primer](Paper/Referensi%20primer%20SisaRasa.ris).
+Rujukan aktif memakai sumber primer terbit 2021–2025. Daftar untuk impor tersedia di [RIS rujukan primer](Paper/Referensi%20primer%20SisaRasa.ris).
 
 1. Chhipa, S., Berwal, V., Hirapure, T., & Banerjee, S. (2022). Recipe Recommendation System Using TF-IDF. *ITM Web of Conferences, 44, 02006*. [Teks sumber](https://pdfs.semanticscholar.org/0147/673758991cd5f458bd379bb9615b056f6f8d.pdf). DOI 10.1051/itmconf/20224402006.
-2. Thakur, N., Reimers, N., R?ckl?, A., Srivastava, A., & Gurevych, I. (2021). BEIR: A Heterogeneous Benchmark for Zero-shot Evaluation of Information Retrieval Models. *NeurIPS Datasets and Benchmarks*. [Teks sumber](https://datasets-benchmarks-proceedings.neurips.cc/paper_files/paper/2021/hash/65b9eea6e1cc6bb9f0cd2a47751a186f-Abstract-round2.html).
-3. Goel, M., Agarwal, A., Agrawal, S., Kapuriya, J., Konam, A. V., Gupta, R., Rastogi, S., Niharika, & Bagler, G. (2024). Deep Learning Based Named Entity Recognition Models for Recipes. *LREC-COLING 2024, 4542?4554*. [Teks sumber](https://aclanthology.org/2024.lrec-main.406/).
-4. Kakkar, V., Sharma, C., Pande, M., & Kumar, S. (2023). Search Query Spell Correction with Weak Supervision in E-commerce. *ACL 2023, Industry Track, 687?694*. [Teks sumber](https://aclanthology.org/2023.acl-industry.66/). DOI 10.18653/v1/2023.acl-industry.66.
+2. Thakur, N., Reimers, N., Rücklé, A., Srivastava, A., & Gurevych, I. (2021). BEIR: A Heterogeneous Benchmark for Zero-shot Evaluation of Information Retrieval Models. *NeurIPS Datasets and Benchmarks*. [Teks sumber](https://datasets-benchmarks-proceedings.neurips.cc/paper_files/paper/2021/hash/65b9eea6e1cc6bb9f0cd2a47751a186f-Abstract-round2.html).
+3. Goel, M., Agarwal, A., Agrawal, S., Kapuriya, J., Konam, A. V., Gupta, R., Rastogi, S., Niharika, & Bagler, G. (2024). Deep Learning Based Named Entity Recognition Models for Recipes. *LREC-COLING 2024, 4542–4554*. [Teks sumber](https://aclanthology.org/2024.lrec-main.406/).
+4. Kakkar, V., Sharma, C., Pande, M., & Kumar, S. (2023). Search Query Spell Correction with Weak Supervision in E-commerce. *ACL 2023, Industry Track, 687–694*. [Teks sumber](https://aclanthology.org/2023.acl-industry.66/). DOI 10.18653/v1/2023.acl-industry.66.
 5. Craswell, N., Mitra, B., Yilmaz, E., Campos, D., & Lin, J. (2022). Overview of the TREC 2021 Deep Learning Track. *TREC 2021 Proceedings, NIST SP 500-335*. [Teks sumber](https://trec.nist.gov/pubs/trec30/papers/Overview-DL.pdf). DOI 10.6028/NIST.SP.500-335.deep-overview.
-6. Ortiz, K. J. P., Bautista, P. N. P., Dimailig, M. V. D., & Llamzon, A. C. D. (2023). Recipe Recommendation System Using IoT-Based Food Inventory Management of Perishables for Household Food Waste Reduction. *Chemical Engineering Transactions, 106, 361?366*. [Teks sumber](https://www.cetjournal.it/cet/23/106/061.pdf). DOI 10.3303/CET23106061.
-7. Ashraf, M. M., & Maduranga, M. W. P. (2025). Ingredient-Only Recipe Recommendation via Self-Supervised Contrastive Learning for Sustainable Cooking. *Journal of Future Artificial Intelligence and Technologies, 2(2), 215?226*. [Teks sumber](https://faith.futuretechsci.org/index.php/FAITH/article/view/98). DOI 10.62411/faith.3048-3719-98.
+6. Ortiz, K. J. P., Bautista, P. N. P., Dimailig, M. V. D., & Llamzon, A. C. D. (2023). Recipe Recommendation System Using IoT-Based Food Inventory Management of Perishables for Household Food Waste Reduction. *Chemical Engineering Transactions, 106, 361–366*. [Teks sumber](https://www.cetjournal.it/cet/23/106/061.pdf). DOI 10.3303/CET23106061.
+7. Ashraf, M. M., & Maduranga, M. W. P. (2025). Ingredient-Only Recipe Recommendation via Self-Supervised Contrastive Learning for Sustainable Cooking. *Journal of Future Artificial Intelligence and Technologies, 2(2), 215–226*. [Teks sumber](https://faith.futuretechsci.org/index.php/FAITH/article/view/98). DOI 10.62411/faith.3048-3719-98.
 
 ## Pengembang
 
