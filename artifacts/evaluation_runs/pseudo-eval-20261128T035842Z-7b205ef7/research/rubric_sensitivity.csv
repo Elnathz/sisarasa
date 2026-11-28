@@ -1,0 +1,33 @@
+rubric_variant,split,model,nDCG@10,MAP@10,P@5,query_count,zero_relevant_queries,mean_binary_relevant_per_query,nDCG@10_rank
+proxy_v3,dev,Set-Overlap,0.8815,0.8473,0.8389,36,2,781.8888888888889,1
+proxy_v3,test,Set-Overlap,0.911,0.9525,0.9167,12,0,478.6666666666667,1
+proxy_v3,dev,TF-IDF Cosine,0.5791,0.5465,0.6167,36,2,781.8888888888889,3
+proxy_v3,test,TF-IDF Cosine,0.5679,0.5839,0.7333,12,0,478.6666666666667,3
+proxy_v3,dev,BM25,0.5721,0.6337,0.6889,36,2,781.8888888888889,4
+proxy_v3,test,BM25,0.4991,0.6223,0.7167,12,0,478.6666666666667,4
+proxy_v3,dev,SisaRasa Hybrid,0.8694,0.8716,0.8611,36,2,781.8888888888889,2
+proxy_v3,test,SisaRasa Hybrid,0.8767,0.9424,0.9,12,0,478.6666666666667,2
+strict_plus_0.10,dev,Set-Overlap,0.8872,0.7272,0.75,36,5,200.5,1
+strict_plus_0.10,test,Set-Overlap,0.9281,0.8729,0.8667,12,1,84.58333333333333,1
+strict_plus_0.10,dev,TF-IDF Cosine,0.523,0.361,0.4556,36,5,200.5,3
+strict_plus_0.10,test,TF-IDF Cosine,0.5196,0.4503,0.6,12,1,84.58333333333333,3
+strict_plus_0.10,dev,BM25,0.4914,0.3536,0.4556,36,5,200.5,4
+strict_plus_0.10,test,BM25,0.4605,0.2997,0.4333,12,1,84.58333333333333,4
+strict_plus_0.10,dev,SisaRasa Hybrid,0.8477,0.683,0.7333,36,5,200.5,2
+strict_plus_0.10,test,SisaRasa Hybrid,0.8419,0.8051,0.8333,12,1,84.58333333333333,2
+loose_minus_0.10,dev,Set-Overlap,0.9315,0.9439,0.9333,36,0,2629.722222222222,2
+loose_minus_0.10,test,Set-Overlap,0.9583,0.9899,0.9667,12,0,1705.1666666666667,1
+loose_minus_0.10,dev,TF-IDF Cosine,0.7316,0.7365,0.7667,36,0,2629.722222222222,4
+loose_minus_0.10,test,TF-IDF Cosine,0.7141,0.6982,0.8,12,0,1705.1666666666667,3
+loose_minus_0.10,dev,BM25,0.7362,0.8621,0.8889,36,0,2629.722222222222,3
+loose_minus_0.10,test,BM25,0.665,0.8481,0.8833,12,0,1705.1666666666667,4
+loose_minus_0.10,dev,SisaRasa Hybrid,0.9341,0.9792,0.9611,36,0,2629.722222222222,1
+loose_minus_0.10,test,SisaRasa Hybrid,0.9411,0.9824,0.9667,12,0,1705.1666666666667,2
+without_protein_rule,dev,Set-Overlap,0.8992,0.8895,0.8667,36,2,1029.1666666666667,1
+without_protein_rule,test,Set-Overlap,0.916,0.9626,0.9167,12,0,721.1666666666666,1
+without_protein_rule,dev,TF-IDF Cosine,0.6091,0.6021,0.6722,36,2,1029.1666666666667,3
+without_protein_rule,test,TF-IDF Cosine,0.5717,0.5991,0.75,12,0,721.1666666666666,3
+without_protein_rule,dev,BM25,0.5703,0.6408,0.7,36,2,1029.1666666666667,4
+without_protein_rule,test,BM25,0.5038,0.6305,0.7167,12,0,721.1666666666666,4
+without_protein_rule,dev,SisaRasa Hybrid,0.8618,0.8716,0.8611,36,2,1029.1666666666667,2
+without_protein_rule,test,SisaRasa Hybrid,0.8767,0.9424,0.9,12,0,721.1666666666666,2
