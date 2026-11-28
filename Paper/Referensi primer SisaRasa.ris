@@ -1,0 +1,86 @@
+TY  - CONF
+TI  - Recipe Recommendation System Using TF-IDF
+AU  - Chhipa, Shubham
+AU  - Berwal, Vishal
+AU  - Hirapure, Tushar
+AU  - Banerjee, Soumi
+PY  - 2022
+T2  - ITM Web of Conferences, 44, 02006
+DO  - 10.1051/itmconf/20224402006
+UR  - https://pdfs.semanticscholar.org/0147/673758991cd5f458bd379bb9615b056f6f8d.pdf
+ER  -
+
+TY  - CONF
+TI  - BEIR: A Heterogeneous Benchmark for Zero-shot Evaluation of Information Retrieval Models
+AU  - Thakur, Nandan
+AU  - Reimers, Nils
+AU  - Rücklé, Andreas
+AU  - Srivastava, Abhishek
+AU  - Gurevych, Iryna
+PY  - 2021
+T2  - NeurIPS Datasets and Benchmarks
+UR  - https://datasets-benchmarks-proceedings.neurips.cc/paper_files/paper/2021/hash/65b9eea6e1cc6bb9f0cd2a47751a186f-Abstract-round2.html
+ER  -
+
+TY  - CONF
+TI  - Deep Learning Based Named Entity Recognition Models for Recipes
+AU  - Goel, Mansi
+AU  - Agarwal, Ayush
+AU  - Agrawal, Shubham
+AU  - Kapuriya, Janak
+AU  - Konam, Akhil Vamshi
+AU  - Gupta, Rishabh
+AU  - Rastogi, Shrey
+AU  - Niharika
+AU  - Bagler, Ganesh
+PY  - 2024
+T2  - LREC-COLING 2024, 4542–4554
+UR  - https://aclanthology.org/2024.lrec-main.406/
+ER  -
+
+TY  - CONF
+TI  - Search Query Spell Correction with Weak Supervision in E-commerce
+AU  - Kakkar, Vishal
+AU  - Sharma, Chinmay
+AU  - Pande, Madhura
+AU  - Kumar, Surender
+PY  - 2023
+T2  - ACL 2023, Industry Track, 687–694
+DO  - 10.18653/v1/2023.acl-industry.66
+UR  - https://aclanthology.org/2023.acl-industry.66/
+ER  -
+
+TY  - CONF
+TI  - Overview of the TREC 2021 Deep Learning Track
+AU  - Craswell, Nick
+AU  - Mitra, Bhaskar
+AU  - Yilmaz, Emine
+AU  - Campos, Daniel
+AU  - Lin, Jimmy
+PY  - 2022
+T2  - TREC 2021 Proceedings, NIST SP 500-335
+DO  - 10.6028/NIST.SP.500-335.deep-overview
+UR  - https://trec.nist.gov/pubs/trec30/papers/Overview-DL.pdf
+ER  -
+
+TY  - JOUR
+TI  - Recipe Recommendation System Using IoT-Based Food Inventory Management of Perishables for Household Food Waste Reduction
+AU  - Ortiz, Kristine Joyce P.
+AU  - Bautista, Pocholo Nico P.
+AU  - Dimailig, Mark Vincent D.
+AU  - Llamzon, Andrew Christian D.
+PY  - 2023
+JO  - Chemical Engineering Transactions, 106, 361–366
+DO  - 10.3303/CET23106061
+UR  - https://www.cetjournal.it/cet/23/106/061.pdf
+ER  -
+
+TY  - JOUR
+TI  - Ingredient-Only Recipe Recommendation via Self-Supervised Contrastive Learning for Sustainable Cooking
+AU  - Ashraf, Mariyam Mohammed
+AU  - Maduranga, M. W. P.
+PY  - 2025
+JO  - Journal of Future Artificial Intelligence and Technologies, 2(2), 215–226
+DO  - 10.62411/faith.3048-3719-98
+UR  - https://faith.futuretechsci.org/index.php/FAITH/article/view/98
+ER  -

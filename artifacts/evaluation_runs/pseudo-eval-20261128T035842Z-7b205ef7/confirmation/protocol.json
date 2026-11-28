@@ -1,0 +1,76 @@
+{
+  "bootstrap": {
+    "confidence": 0.95,
+    "n_resamples": 10000,
+    "role": "uncertainty only; not a pass criterion",
+    "seed": 42
+  },
+  "criteria": {
+    "RQ1": {
+      "comparisons": [
+        "Set-Overlap",
+        "TF-IDF Cosine",
+        "BM25"
+      ],
+      "metric": "nDCG@10",
+      "min_mean_delta": 0.02,
+      "require_wins_gt_losses": true
+    },
+    "RQ2": {
+      "metric": "nDCG@10",
+      "min_mean_delta_exclusive": 0.0,
+      "require_wins_gt_losses": true,
+      "variants": [
+        "without_protein",
+        "without_missing_penalty"
+      ]
+    },
+    "RQ3": {
+      "first_letter_kept": true,
+      "kinds": [
+        "deletion",
+        "substitution",
+        "transposition"
+      ],
+      "max_false_suggestion_valid": 0,
+      "min_candidate_offer_recall": 0.8,
+      "per_kind": 10,
+      "valid_controls": 10
+    }
+  },
+  "declared_date": "2026-11-28",
+  "frozen": {
+    "normalization_version": "sisarasa_v4_normalization_4",
+    "parameters": {
+      "BM25": {
+        "b": 0.4,
+        "k1": 1.2
+      },
+      "Set-Overlap": {},
+      "SisaRasa Hybrid": {
+        "epsilon": 1e-09,
+        "w1": 0.1,
+        "w2": 0.05,
+        "w3": 0.2,
+        "w4": 0.2,
+        "w5": 0.1,
+        "w_jaccard": 0.35,
+        "w_prot": 0.25
+      },
+      "TF-IDF Cosine": {
+        "w_ingr": 0.7,
+        "w_title": 0.3
+      }
+    },
+    "query_processing_version": "sisarasa_v4_suggestions_2"
+  },
+  "historical_baseline": "pseudo-eval-20261127T201904Z-7b205ef7",
+  "n_per_scenario": 12,
+  "qrel_version": "proxy_v3",
+  "query_policy": "corpus-sampled reference queries; one query per canonical family; scenario range must hold; legacy, proxy and known-item families excluded",
+  "run_policy": "rebuild from a fresh kernel; regenerated queries and qrels are exploratory",
+  "seed": 20261107,
+  "status": "exploratory_parser_regression",
+  "threshold_origin": "unchanged from sisarasa_v4_confirm_1 for retrospective comparison",
+  "version": "sisarasa_v4_parser_regression_1"
+}

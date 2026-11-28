@@ -27,7 +27,7 @@ Run lama adalah pembanding historis yang memakai label otomatis. Pada 48 query k
 4. **Pool.** Untuk setiap query, gabungkan top-10 semua konfigurasi yang akan dibandingkan dalam analisis utama. Deduplikasi dengan `recipe_id`, lalu acak urutan dengan seed yang dicatat. Simpan pemetaan model, rank, skor, dan seed pada lembar fasilitator. Beri penilai teks resep, maksud query, dan stok. Gunakan ID kandidat netral dan sembunyikan model, rank, skor, serta hasil parser. Laporkan ukuran pool sebenarnya. Untuk 20 query dan empat model, batas atas awalnya 800 pasangan sebelum deduplikasi.
 5. **Penilaian.** Beri kedua penilai pool yang sama. Simpan label mentah secara terpisah. Catat kesepakatan persis untuk relevansi dan kelayakan sebelum diskusi. Fasilitator menyelesaikan konflik dengan alasan tertulis. Label kosong berarti belum dinilai. Jika seluruh top-10 belum mendapat label final, tandai query dan selesaikan penilaian sebelum menghitung perbandingan utama. Laporkan cakupan penilaian dan daftar query tertunda.
 
-Prosedur pooling dan pelaporan cakupan mengadaptasi [panduan TREC](https://trec.nist.gov/howto.html). Panduan tersebut menjadi rujukan metode tambahan di luar `Paper/`.
+Prosedur pooling dan penilaian bertingkat mengadaptasi [Craswell dkk. (2022)](https://trec.nist.gov/pubs/trec30/papers/Overview-DL.pdf). Pengacakan dan pembutaan identitas model mengikuti rancangan SisaRasa.
 
 ## Rubric penilai
 
@@ -67,12 +67,18 @@ Jika ada kekurangan yang sudah pasti sekaligus informasi lain yang belum lengkap
 
 ## Rujukan eksperimen
 
-Kedua ekspor di `Paper/` menjadi daftar penelusuran. RIS memuat sitasi dan abstrak. CSV memuat metadata. Keputusan eksperimen di atas memakai sumber primer berikut. Angka sampel, ambang, kasus bahan, dan aturan lulus merupakan adaptasi SisaRasa. [Ekspor Elicit](../Paper/Elicit%20-%20Library%20Selection.ris) · [Ekspor Consensus](../Paper/STKI%20-%20Nov%2007%2C%202026.csv)
+Gunakan [RIS rujukan primer](../Paper/Referensi%20primer%20SisaRasa.ris) untuk daftar aktif. Dua ekspor pencarian di `Paper/` menyimpan kandidat bacaan terbit 2021 ke atas. Jumlah sampel, ambang, kasus Indonesia, dan aturan lulus ditetapkan dalam rancangan SisaRasa.
 
-- **E1.** Chhipa memakai TF-IDF cosine pada bahan resep. Ghimire membandingkan TF-IDF, BM25, dan fusion pada koleksi kecil berlabel. Gunakan keduanya untuk memilih baseline dan desain pembandingan, dengan hasil diukur pada resep SisaRasa. [Chhipa et al.](https://doi.org/10.1051/itmconf/20224402006) · [Ghimire](https://journal.ncit.edu.np/index.php/icicset/article/view/100)
-- **E2.** Müller membandingkan pencocokan bahan dengan dan tanpa aturan. Twomey memakai penutur asli untuk menilai normalisasi, termasuk pada data Indonesia. [Müller et al.](https://epub.uni-regensburg.de/23901/1/pervasivehealth.pdf) · [Twomey et al.](https://arxiv.org/abs/2007.13440)
-- **E3.** Li mengukur koreksi dengan anotasi manusia. Preprint Singh membandingkan kondisi koreksi query dan korpus. SisaRasa memakai indeks tetap untuk mengisolasi perubahan query. [Li et al.](https://aclanthology.org/P06-1129/) · [Singh](https://arxiv.org/html/2603.19249v1)
-- **E4.** Ortiz menguji kecukupan stok dan penggunaan inventori. Pengukuran limbah dilakukan terpisah. SisaRasa mengukur kelayakan berdasarkan stok yang dilaporkan. [Ortiz et al.](https://www.cetjournal.it/cet/23/106/061.pdf)
+- **E1. Ranking.** Gunakan TF-IDF cosine pada representasi bahan sebagaimana pada Chhipa dkk. Pertahankan BM25 sebagai pembanding dan gunakan satu set kueri serta qrels untuk semua konfigurasi, mengikuti desain benchmark seperti BEIR. [Chhipa dkk. (2022)](https://pdfs.semanticscholar.org/0147/673758991cd5f458bd379bb9615b056f6f8d.pdf) · [Thakur dkk. (2021)](https://datasets-benchmarks-proceedings.neurips.cc/paper_files/paper/2021/hash/65b9eea6e1cc6bb9f0cd2a47751a186f-Abstract-round2.html)
+- **E2. Parser.** Adaptasi anotasi nama, jumlah, satuan, dan kondisi bahan. Tambahkan status opsional dan ID kelompok alternatif untuk skenario belanja SisaRasa. Bandingkan parser lama dan baru pada baris berlabel yang sama. [Goel dkk. (2024)](https://aclanthology.org/2024.lrec-main.406/)
+- **E3. Typo.** Uji jenis kesalahan terpisah, termasuk huruf tertukar, pemisahan kata, dan kueri benar. SisaRasa memakai indeks tetap dan menilai saran teratas serta hasil retrieval setelah pilihan eksplisit. [Kakkar dkk. (2023)](https://aclanthology.org/2023.acl-industry.66/)
+- **E4. Kelayakan.** Pisahkan daftar nama yang cocok dari kecukupan stok berdasarkan jumlah yang diketahui. Laporkan status `tidak_pasti` jika jumlah diperlukan tetapi datanya kurang. Persentase bahan kueri dalam Ashraf dan Maduranga memakai denominator kueri. SisaRasa mendefinisikan cakupan kebutuhan inti resep untuk penjelasan belanja. [Ortiz dkk. (2023)](https://www.cetjournal.it/cet/23/106/061.pdf) · [Ashraf dan Maduranga (2025)](https://faith.futuretechsci.org/index.php/FAITH/article/view/98)
+
+### Urutan perbaikan setelah audit
+
+1. **Kelayakan demo.** Simpan penanda opsional sebelum pembersihan catatan. Uji `keju opsional` dan `keju` pada resep dengan stok yang sama. Keju opsional tidak masuk daftar belanja atau denominator kebutuhan inti. Uji juga alternatif dan konjungsi. Di demo, beri label persentase sebagai kecocokan nama bahan dan tampilkan bahwa takaran belum diperiksa.
+2. **Normalisasi dan saran.** Tambah fixture `mie lidi`, `- bumbu taliwang`, kurung bertingkat, `dagng sapi`, `daun slaam`, dan `minyk`. Ukur ketepatan entitas, posisi target di daftar saran, serta hasil top-5 sebelum dan setelah pilihan. Pisahkan kasus tanpa target di korpus. Bekukan indeks ketika menguji perubahan saran.
+3. **Pemeriksaan sebelum presentasi.** Commit input eksperimen sebelum Run All. Catat hash korpus, manifest, dan qrels saat membandingkan hasil. Jika hanya penjelasan demo berubah, cocokkan hasil ranking dengan baseline. Setelah parser atau label berubah, laporkan hasil sebagai eksploratif dan gunakan set uji baru untuk konfirmasi.
 
 ## Kunci fasilitator untuk kalibrasi
 

@@ -1,0 +1,1186 @@
+[
+  {
+    "expected_core_ingredients": [
+      "bawang merah",
+      "daun jeruk",
+      "serai"
+    ],
+    "family_id": "[\"bawang merah\",\"daun jeruk\",\"serai\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang merah",
+      "daun jeruk",
+      "serai"
+    ],
+    "query_id": "KI001",
+    "query_text": "bawang merah, daun jeruk, serai",
+    "reference_query_text": "bawang merah, daun jeruk, serai",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "dev",
+    "target_doc_id": "SR_047076",
+    "target_family_ids": [
+      "SR_047076"
+    ],
+    "target_family_key": "SR_047076:[\"bawang merah\",\"daun jeruk\",\"serai\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "tepung terigu",
+      "udang"
+    ],
+    "family_id": "[\"tepung terigu\",\"udang\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "tepung terigu",
+      "udang"
+    ],
+    "query_id": "KI002",
+    "query_text": "tepung terigu, udang",
+    "reference_query_text": "tepung terigu, udang",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "dev",
+    "target_doc_id": "SR_013509",
+    "target_family_ids": [
+      "SR_013509"
+    ],
+    "target_family_key": "SR_013509:[\"tepung terigu\",\"udang\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang merah",
+      "ikan",
+      "kecap manis"
+    ],
+    "family_id": "[\"bawang merah\",\"ikan\",\"kecap manis\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang merah",
+      "ikan",
+      "kecap manis"
+    ],
+    "query_id": "KI003",
+    "query_text": "bawang merah, ikan, kecap manis",
+    "reference_query_text": "bawang merah, ikan, kecap manis",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "dev",
+    "target_doc_id": "SR_003242",
+    "target_family_ids": [
+      "SR_003242"
+    ],
+    "target_family_key": "SR_003242:[\"bawang merah\",\"ikan\",\"kecap manis\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "telur",
+      "tepung roti"
+    ],
+    "family_id": "[\"telur\",\"tepung roti\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "telur",
+      "tepung roti"
+    ],
+    "query_id": "KI004",
+    "query_text": "telur, tepung roti",
+    "reference_query_text": "telur, tepung roti",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "dev",
+    "target_doc_id": "SR_007928",
+    "target_family_ids": [
+      "SR_007928"
+    ],
+    "target_family_key": "SR_007928:[\"telur\",\"tepung roti\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "tepung maizena",
+      "tepung terigu"
+    ],
+    "family_id": "[\"tepung maizena\",\"tepung terigu\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "tepung maizena",
+      "tepung terigu"
+    ],
+    "query_id": "KI005",
+    "query_text": "tepung maizena, tepung terigu",
+    "reference_query_text": "tepung maizena, tepung terigu",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "dev",
+    "target_doc_id": "SR_031855",
+    "target_family_ids": [
+      "SR_031855"
+    ],
+    "target_family_key": "SR_031855:[\"tepung maizena\",\"tepung terigu\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "daging sapi",
+      "kecap manis",
+      "minyak wijen"
+    ],
+    "family_id": "[\"daging sapi\",\"kecap manis\",\"minyak wijen\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "daging sapi",
+      "kecap manis",
+      "minyak wijen"
+    ],
+    "query_id": "KI006",
+    "query_text": "daging sapi, kecap manis, minyak wijen",
+    "reference_query_text": "daging sapi, kecap manis, minyak wijen",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "dev",
+    "target_doc_id": "SR_049008",
+    "target_family_ids": [
+      "SR_049008"
+    ],
+    "target_family_key": "SR_049008:[\"daging sapi\",\"kecap manis\",\"minyak wijen\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang putih",
+      "telur",
+      "tepung terigu"
+    ],
+    "family_id": "[\"bawang putih\",\"telur\",\"tepung terigu\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang putih",
+      "telur",
+      "tepung terigu"
+    ],
+    "query_id": "KI007",
+    "query_text": "bawang putih, telur, tepung terigu",
+    "reference_query_text": "bawang putih, telur, tepung terigu",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "test",
+    "target_doc_id": "SR_001370",
+    "target_family_ids": [
+      "SR_001370"
+    ],
+    "target_family_key": "SR_001370:[\"bawang putih\",\"telur\",\"tepung terigu\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "asam jawa",
+      "daun jeruk",
+      "kecap manis"
+    ],
+    "family_id": "[\"asam jawa\",\"daun jeruk\",\"kecap manis\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "asam jawa",
+      "daun jeruk",
+      "kecap manis"
+    ],
+    "query_id": "KI008",
+    "query_text": "asam jawa, daun jeruk, kecap manis",
+    "reference_query_text": "asam jawa, daun jeruk, kecap manis",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "dev",
+    "target_doc_id": "SR_055124",
+    "target_family_ids": [
+      "SR_055124"
+    ],
+    "target_family_key": "SR_055124:[\"asam jawa\",\"daun jeruk\",\"kecap manis\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang bombay",
+      "bawang merah",
+      "bawang putih"
+    ],
+    "family_id": "[\"bawang bombay\",\"bawang merah\",\"bawang putih\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang bombay",
+      "bawang merah",
+      "bawang putih"
+    ],
+    "query_id": "KI009",
+    "query_text": "bawang bombay, bawang merah, bawang putih",
+    "reference_query_text": "bawang bombay, bawang merah, bawang putih",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "dev",
+    "target_doc_id": "SR_055297",
+    "target_family_ids": [
+      "SR_055297"
+    ],
+    "target_family_key": "SR_055297:[\"bawang bombay\",\"bawang merah\",\"bawang putih\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang merah",
+      "bawang putih",
+      "kemiri"
+    ],
+    "family_id": "[\"bawang merah\",\"bawang putih\",\"kemiri\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang merah",
+      "bawang putih",
+      "kemiri"
+    ],
+    "query_id": "KI010",
+    "query_text": "bawang merah, bawang putih, kemiri",
+    "reference_query_text": "bawang merah, bawang putih, kemiri",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "dev",
+    "target_doc_id": "SR_027427",
+    "target_family_ids": [
+      "SR_027427"
+    ],
+    "target_family_key": "SR_027427:[\"bawang merah\",\"bawang putih\",\"kemiri\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang putih",
+      "jintan",
+      "ketumbar"
+    ],
+    "family_id": "[\"bawang putih\",\"jintan\",\"ketumbar\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang putih",
+      "jintan",
+      "ketumbar"
+    ],
+    "query_id": "KI011",
+    "query_text": "bawang putih, jintan, ketumbar",
+    "reference_query_text": "bawang putih, jintan, ketumbar",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "dev",
+    "target_doc_id": "SR_036467",
+    "target_family_ids": [
+      "SR_036467"
+    ],
+    "target_family_key": "SR_036467:[\"bawang putih\",\"jintan\",\"ketumbar\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang putih",
+      "ketumbar",
+      "tahu"
+    ],
+    "family_id": "[\"bawang putih\",\"ketumbar\",\"tahu\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang putih",
+      "ketumbar",
+      "tahu"
+    ],
+    "query_id": "KI012",
+    "query_text": "bawang putih, ketumbar, tahu",
+    "reference_query_text": "bawang putih, ketumbar, tahu",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "dev",
+    "target_doc_id": "SR_029443",
+    "target_family_ids": [
+      "SR_029443"
+    ],
+    "target_family_key": "SR_029443:[\"bawang putih\",\"ketumbar\",\"tahu\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang putih",
+      "daun jeruk",
+      "kunyit"
+    ],
+    "family_id": "[\"bawang putih\",\"daun jeruk\",\"kunyit\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang putih",
+      "daun jeruk",
+      "kunyit"
+    ],
+    "query_id": "KI013",
+    "query_text": "bawang putih, daun jeruk, kunyit",
+    "reference_query_text": "bawang putih, daun jeruk, kunyit",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "dev",
+    "target_doc_id": "SR_056457",
+    "target_family_ids": [
+      "SR_056457"
+    ],
+    "target_family_key": "SR_056457:[\"bawang putih\",\"daun jeruk\",\"kunyit\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang merah",
+      "daun jeruk",
+      "serai"
+    ],
+    "family_id": "[\"bawang merah\",\"daun jeruk\",\"serai\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang merah",
+      "daun jeruk",
+      "serai"
+    ],
+    "query_id": "KI014",
+    "query_text": "bawang merah, daun jeruk, serai",
+    "reference_query_text": "bawang merah, daun jeruk, serai",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "dev",
+    "target_doc_id": "SR_014826",
+    "target_family_ids": [
+      "SR_014826"
+    ],
+    "target_family_key": "SR_014826:[\"bawang merah\",\"daun jeruk\",\"serai\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "ayam",
+      "bawang putih",
+      "tepung maizena"
+    ],
+    "family_id": "[\"ayam\",\"bawang putih\",\"tepung maizena\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "ayam",
+      "bawang putih",
+      "tepung maizena"
+    ],
+    "query_id": "KI015",
+    "query_text": "ayam, bawang putih, tepung maizena",
+    "reference_query_text": "ayam, bawang putih, tepung maizena",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "dev",
+    "target_doc_id": "SR_044733",
+    "target_family_ids": [
+      "SR_044733"
+    ],
+    "target_family_key": "SR_044733:[\"ayam\",\"bawang putih\",\"tepung maizena\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang putih",
+      "kemiri",
+      "kunyit"
+    ],
+    "family_id": "[\"bawang putih\",\"kemiri\",\"kunyit\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang putih",
+      "kemiri",
+      "kunyit"
+    ],
+    "query_id": "KI016",
+    "query_text": "bawang putih, kemiri, kunyit",
+    "reference_query_text": "bawang putih, kemiri, kunyit",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "dev",
+    "target_doc_id": "SR_023719",
+    "target_family_ids": [
+      "SR_023719"
+    ],
+    "target_family_key": "SR_023719:[\"bawang putih\",\"kemiri\",\"kunyit\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "daun jeruk",
+      "kemiri",
+      "lengkuas"
+    ],
+    "family_id": "[\"daun jeruk\",\"kemiri\",\"lengkuas\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "daun jeruk",
+      "kemiri",
+      "lengkuas"
+    ],
+    "query_id": "KI017",
+    "query_text": "daun jeruk, kemiri, lengkuas",
+    "reference_query_text": "daun jeruk, kemiri, lengkuas",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "dev",
+    "target_doc_id": "SR_022324",
+    "target_family_ids": [
+      "SR_022324"
+    ],
+    "target_family_key": "SR_022324:[\"daun jeruk\",\"kemiri\",\"lengkuas\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang putih",
+      "tahu",
+      "telur"
+    ],
+    "family_id": "[\"bawang putih\",\"tahu\",\"telur\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang putih",
+      "tahu",
+      "telur"
+    ],
+    "query_id": "KI018",
+    "query_text": "bawang putih, tahu, telur",
+    "reference_query_text": "bawang putih, tahu, telur",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "dev",
+    "target_doc_id": "SR_008898",
+    "target_family_ids": [
+      "SR_008898"
+    ],
+    "target_family_key": "SR_008898:[\"bawang putih\",\"tahu\",\"telur\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang putih",
+      "tepung maizena",
+      "tepung terigu"
+    ],
+    "family_id": "[\"bawang putih\",\"tepung maizena\",\"tepung terigu\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang putih",
+      "tepung maizena",
+      "tepung terigu"
+    ],
+    "query_id": "KI019",
+    "query_text": "bawang putih, tepung maizena, tepung terigu",
+    "reference_query_text": "bawang putih, tepung maizena, tepung terigu",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "dev",
+    "target_doc_id": "SR_052063",
+    "target_family_ids": [
+      "SR_052063"
+    ],
+    "target_family_key": "SR_052063:[\"bawang putih\",\"tepung maizena\",\"tepung terigu\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang goreng",
+      "bawang putih",
+      "gula merah"
+    ],
+    "family_id": "[\"bawang goreng\",\"bawang putih\",\"gula merah\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang goreng",
+      "bawang putih",
+      "gula merah"
+    ],
+    "query_id": "KI020",
+    "query_text": "bawang goreng, bawang putih, gula merah",
+    "reference_query_text": "bawang goreng, bawang putih, gula merah",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "dev",
+    "target_doc_id": "SR_058409",
+    "target_family_ids": [
+      "SR_058409"
+    ],
+    "target_family_key": "SR_058409:[\"bawang goreng\",\"bawang putih\",\"gula merah\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "margarin",
+      "telur"
+    ],
+    "family_id": "[\"margarin\",\"telur\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "margarin",
+      "telur"
+    ],
+    "query_id": "KI021",
+    "query_text": "margarin, telur",
+    "reference_query_text": "margarin, telur",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "dev",
+    "target_doc_id": "SR_022375",
+    "target_family_ids": [
+      "SR_022375"
+    ],
+    "target_family_key": "SR_022375:[\"margarin\",\"telur\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "ayam",
+      "bawang putih",
+      "daun bawang"
+    ],
+    "family_id": "[\"ayam\",\"bawang putih\",\"daun bawang\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "ayam",
+      "bawang putih",
+      "daun bawang"
+    ],
+    "query_id": "KI022",
+    "query_text": "ayam, bawang putih, daun bawang",
+    "reference_query_text": "ayam, bawang putih, daun bawang",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "test",
+    "target_doc_id": "SR_038816",
+    "target_family_ids": [
+      "SR_038816"
+    ],
+    "target_family_key": "SR_038816:[\"ayam\",\"bawang putih\",\"daun bawang\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "tahu",
+      "tauge",
+      "tempe"
+    ],
+    "family_id": "[\"tahu\",\"tauge\",\"tempe\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "tahu",
+      "tauge",
+      "tempe"
+    ],
+    "query_id": "KI023",
+    "query_text": "tahu, tauge, tempe",
+    "reference_query_text": "tahu, tauge, tempe",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "dev",
+    "target_doc_id": "SR_012863",
+    "target_family_ids": [
+      "SR_012863"
+    ],
+    "target_family_key": "SR_012863:[\"tahu\",\"tauge\",\"tempe\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "tepung tapioka",
+      "tepung terigu",
+      "udang"
+    ],
+    "family_id": "[\"tepung tapioka\",\"tepung terigu\",\"udang\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "tepung tapioka",
+      "tepung terigu",
+      "udang"
+    ],
+    "query_id": "KI024",
+    "query_text": "tepung tapioka, tepung terigu, udang",
+    "reference_query_text": "tepung tapioka, tepung terigu, udang",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "test",
+    "target_doc_id": "SR_014141",
+    "target_family_ids": [
+      "SR_014141"
+    ],
+    "target_family_key": "SR_014141:[\"tepung tapioka\",\"tepung terigu\",\"udang\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "daun bawang",
+      "seledri",
+      "tahu"
+    ],
+    "family_id": "[\"daun bawang\",\"seledri\",\"tahu\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "daun bawang",
+      "seledri",
+      "tahu"
+    ],
+    "query_id": "KI025",
+    "query_text": "daun bawang, seledri, tahu",
+    "reference_query_text": "daun bawang, seledri, tahu",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "dev",
+    "target_doc_id": "SR_037295",
+    "target_family_ids": [
+      "SR_037295"
+    ],
+    "target_family_key": "SR_037295:[\"daun bawang\",\"seledri\",\"tahu\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "kecap asin",
+      "kecap manis",
+      "minyak wijen"
+    ],
+    "family_id": "[\"kecap asin\",\"kecap manis\",\"minyak wijen\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "kecap asin",
+      "kecap manis",
+      "minyak wijen"
+    ],
+    "query_id": "KI026",
+    "query_text": "kecap asin, kecap manis, minyak wijen",
+    "reference_query_text": "kecap asin, kecap manis, minyak wijen",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "test",
+    "target_doc_id": "SR_023195",
+    "target_family_ids": [
+      "SR_023195"
+    ],
+    "target_family_key": "SR_023195:[\"kecap asin\",\"kecap manis\",\"minyak wijen\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang merah",
+      "jintan",
+      "tomat"
+    ],
+    "family_id": "[\"bawang merah\",\"jintan\",\"tomat\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang merah",
+      "jintan",
+      "tomat"
+    ],
+    "query_id": "KI027",
+    "query_text": "bawang merah, jintan, tomat",
+    "reference_query_text": "bawang merah, jintan, tomat",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "dev",
+    "target_doc_id": "SR_026294",
+    "target_family_ids": [
+      "SR_026294"
+    ],
+    "target_family_key": "SR_026294:[\"bawang merah\",\"jintan\",\"tomat\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "margarin",
+      "telur"
+    ],
+    "family_id": "[\"margarin\",\"telur\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "margarin",
+      "telur"
+    ],
+    "query_id": "KI028",
+    "query_text": "margarin, telur",
+    "reference_query_text": "margarin, telur",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "dev",
+    "target_doc_id": "SR_021016",
+    "target_family_ids": [
+      "SR_021016"
+    ],
+    "target_family_key": "SR_021016:[\"margarin\",\"telur\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "cabai merah",
+      "kemiri",
+      "serai"
+    ],
+    "family_id": "[\"cabai merah\",\"kemiri\",\"serai\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "cabai merah",
+      "kemiri",
+      "serai"
+    ],
+    "query_id": "KI029",
+    "query_text": "cabai merah, kemiri, serai",
+    "reference_query_text": "cabai merah, kemiri, serai",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "test",
+    "target_doc_id": "SR_066428",
+    "target_family_ids": [
+      "SR_066428"
+    ],
+    "target_family_key": "SR_066428:[\"cabai merah\",\"kemiri\",\"serai\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang merah",
+      "bawang putih"
+    ],
+    "family_id": "[\"bawang merah\",\"bawang putih\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang merah",
+      "bawang putih"
+    ],
+    "query_id": "KI030",
+    "query_text": "bawang merah, bawang putih",
+    "reference_query_text": "bawang merah, bawang putih",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "dev",
+    "target_doc_id": "SR_011549",
+    "target_family_ids": [
+      "SR_011549"
+    ],
+    "target_family_key": "SR_011549:[\"bawang merah\",\"bawang putih\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "air asam jawa",
+      "bawang merah",
+      "kunyit"
+    ],
+    "family_id": "[\"air asam jawa\",\"bawang merah\",\"kunyit\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "air asam jawa",
+      "bawang merah",
+      "kunyit"
+    ],
+    "query_id": "KI031",
+    "query_text": "air asam jawa, bawang merah, kunyit",
+    "reference_query_text": "air asam jawa, bawang merah, kunyit",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "test",
+    "target_doc_id": "SR_045698",
+    "target_family_ids": [
+      "SR_045698"
+    ],
+    "target_family_key": "SR_045698:[\"air asam jawa\",\"bawang merah\",\"kunyit\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "daging kambing",
+      "kemiri",
+      "seledri"
+    ],
+    "family_id": "[\"daging kambing\",\"kemiri\",\"seledri\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "daging kambing",
+      "kemiri",
+      "seledri"
+    ],
+    "query_id": "KI032",
+    "query_text": "daging kambing, kemiri, seledri",
+    "reference_query_text": "daging kambing, kemiri, seledri",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "test",
+    "target_doc_id": "SR_024498",
+    "target_family_ids": [
+      "SR_024498"
+    ],
+    "target_family_key": "SR_024498:[\"daging kambing\",\"kemiri\",\"seledri\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "asam jawa",
+      "bawang putih",
+      "ikan"
+    ],
+    "family_id": "[\"asam jawa\",\"bawang putih\",\"ikan\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "asam jawa",
+      "bawang putih",
+      "ikan"
+    ],
+    "query_id": "KI033",
+    "query_text": "asam jawa, bawang putih, ikan",
+    "reference_query_text": "asam jawa, bawang putih, ikan",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "dev",
+    "target_doc_id": "SR_059635",
+    "target_family_ids": [
+      "SR_059635"
+    ],
+    "target_family_key": "SR_059635:[\"asam jawa\",\"bawang putih\",\"ikan\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang merah",
+      "bawang putih",
+      "daun jeruk"
+    ],
+    "family_id": "[\"bawang merah\",\"bawang putih\",\"daun jeruk\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang merah",
+      "bawang putih",
+      "daun jeruk"
+    ],
+    "query_id": "KI034",
+    "query_text": "bawang merah, bawang putih, daun jeruk",
+    "reference_query_text": "bawang merah, bawang putih, daun jeruk",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "dev",
+    "target_doc_id": "SR_065339",
+    "target_family_ids": [
+      "SR_065339"
+    ],
+    "target_family_key": "SR_065339:[\"bawang merah\",\"bawang putih\",\"daun jeruk\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang merah",
+      "daging kambing",
+      "kemiri"
+    ],
+    "family_id": "[\"bawang merah\",\"daging kambing\",\"kemiri\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang merah",
+      "daging kambing",
+      "kemiri"
+    ],
+    "query_id": "KI035",
+    "query_text": "bawang merah, daging kambing, kemiri",
+    "reference_query_text": "bawang merah, daging kambing, kemiri",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "dev",
+    "target_doc_id": "SR_045254",
+    "target_family_ids": [
+      "SR_045254"
+    ],
+    "target_family_key": "SR_045254:[\"bawang merah\",\"daging kambing\",\"kemiri\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang merah",
+      "cabai merah",
+      "tomat"
+    ],
+    "family_id": "[\"bawang merah\",\"cabai merah\",\"tomat\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang merah",
+      "cabai merah",
+      "tomat"
+    ],
+    "query_id": "KI036",
+    "query_text": "bawang merah, cabai merah, tomat",
+    "reference_query_text": "bawang merah, cabai merah, tomat",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "dev",
+    "target_doc_id": "SR_055918",
+    "target_family_ids": [
+      "SR_055918"
+    ],
+    "target_family_key": "SR_055918:[\"bawang merah\",\"cabai merah\",\"tomat\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang merah",
+      "bawang putih",
+      "daging sapi"
+    ],
+    "family_id": "[\"bawang merah\",\"bawang putih\",\"daging sapi\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang merah",
+      "bawang putih",
+      "daging sapi"
+    ],
+    "query_id": "KI037",
+    "query_text": "bawang merah, bawang putih, daging sapi",
+    "reference_query_text": "bawang merah, bawang putih, daging sapi",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "dev",
+    "target_doc_id": "SR_067479",
+    "target_family_ids": [
+      "SR_067479"
+    ],
+    "target_family_key": "SR_067479:[\"bawang merah\",\"bawang putih\",\"daging sapi\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang putih",
+      "kemiri",
+      "kunyit"
+    ],
+    "family_id": "[\"bawang putih\",\"kemiri\",\"kunyit\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang putih",
+      "kemiri",
+      "kunyit"
+    ],
+    "query_id": "KI038",
+    "query_text": "bawang putih, kemiri, kunyit",
+    "reference_query_text": "bawang putih, kemiri, kunyit",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "dev",
+    "target_doc_id": "SR_003748",
+    "target_family_ids": [
+      "SR_003748"
+    ],
+    "target_family_key": "SR_003748:[\"bawang putih\",\"kemiri\",\"kunyit\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang merah",
+      "cabai rawit",
+      "ikan"
+    ],
+    "family_id": "[\"bawang merah\",\"cabai rawit\",\"ikan\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang merah",
+      "cabai rawit",
+      "ikan"
+    ],
+    "query_id": "KI039",
+    "query_text": "bawang merah, cabai rawit, ikan",
+    "reference_query_text": "bawang merah, cabai rawit, ikan",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "test",
+    "target_doc_id": "SR_055332",
+    "target_family_ids": [
+      "SR_055332"
+    ],
+    "target_family_key": "SR_055332:[\"bawang merah\",\"cabai rawit\",\"ikan\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "kunyit",
+      "serai",
+      "wortel"
+    ],
+    "family_id": "[\"kunyit\",\"serai\",\"wortel\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "kunyit",
+      "serai",
+      "wortel"
+    ],
+    "query_id": "KI040",
+    "query_text": "kunyit, serai, wortel",
+    "reference_query_text": "kunyit, serai, wortel",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "test",
+    "target_doc_id": "SR_001973",
+    "target_family_ids": [
+      "SR_001973"
+    ],
+    "target_family_key": "SR_001973:[\"kunyit\",\"serai\",\"wortel\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "kecap asin",
+      "kecap manis",
+      "margarin"
+    ],
+    "family_id": "[\"kecap asin\",\"kecap manis\",\"margarin\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "kecap asin",
+      "kecap manis",
+      "margarin"
+    ],
+    "query_id": "KI041",
+    "query_text": "kecap asin, kecap manis, margarin",
+    "reference_query_text": "kecap asin, kecap manis, margarin",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "dev",
+    "target_doc_id": "SR_012931",
+    "target_family_ids": [
+      "SR_012931"
+    ],
+    "target_family_key": "SR_012931:[\"kecap asin\",\"kecap manis\",\"margarin\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "daun bawang",
+      "tepung terigu"
+    ],
+    "family_id": "[\"daun bawang\",\"tepung terigu\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "daun bawang",
+      "tepung terigu"
+    ],
+    "query_id": "KI042",
+    "query_text": "daun bawang, tepung terigu",
+    "reference_query_text": "daun bawang, tepung terigu",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "dev",
+    "target_doc_id": "SR_027909",
+    "target_family_ids": [
+      "SR_027909"
+    ],
+    "target_family_key": "SR_027909:[\"daun bawang\",\"tepung terigu\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "tahu",
+      "telur"
+    ],
+    "family_id": "[\"tahu\",\"telur\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "tahu",
+      "telur"
+    ],
+    "query_id": "KI043",
+    "query_text": "tahu, telur",
+    "reference_query_text": "tahu, telur",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "dev",
+    "target_doc_id": "SR_037648",
+    "target_family_ids": [
+      "SR_037648"
+    ],
+    "target_family_key": "SR_037648:[\"tahu\",\"telur\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang merah",
+      "bawang putih",
+      "kemiri"
+    ],
+    "family_id": "[\"bawang merah\",\"bawang putih\",\"kemiri\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang merah",
+      "bawang putih",
+      "kemiri"
+    ],
+    "query_id": "KI044",
+    "query_text": "bawang merah, bawang putih, kemiri",
+    "reference_query_text": "bawang merah, bawang putih, kemiri",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "dev",
+    "target_doc_id": "SR_016766",
+    "target_family_ids": [
+      "SR_016766"
+    ],
+    "target_family_key": "SR_016766:[\"bawang merah\",\"bawang putih\",\"kemiri\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang merah",
+      "kecap manis",
+      "kemiri"
+    ],
+    "family_id": "[\"bawang merah\",\"kecap manis\",\"kemiri\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang merah",
+      "kecap manis",
+      "kemiri"
+    ],
+    "query_id": "KI045",
+    "query_text": "bawang merah, kecap manis, kemiri",
+    "reference_query_text": "bawang merah, kecap manis, kemiri",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "test",
+    "target_doc_id": "SR_061760",
+    "target_family_ids": [
+      "SR_061760"
+    ],
+    "target_family_key": "SR_061760:[\"bawang merah\",\"kecap manis\",\"kemiri\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang merah",
+      "bawang putih",
+      "jintan"
+    ],
+    "family_id": "[\"bawang merah\",\"bawang putih\",\"jintan\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang merah",
+      "bawang putih",
+      "jintan"
+    ],
+    "query_id": "KI046",
+    "query_text": "bawang merah, bawang putih, jintan",
+    "reference_query_text": "bawang merah, bawang putih, jintan",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "test",
+    "target_doc_id": "SR_031174",
+    "target_family_ids": [
+      "SR_031174"
+    ],
+    "target_family_key": "SR_031174:[\"bawang merah\",\"bawang putih\",\"jintan\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "ayam",
+      "bawang goreng",
+      "telur"
+    ],
+    "family_id": "[\"ayam\",\"bawang goreng\",\"telur\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "ayam",
+      "bawang goreng",
+      "telur"
+    ],
+    "query_id": "KI047",
+    "query_text": "ayam, bawang goreng, telur",
+    "reference_query_text": "ayam, bawang goreng, telur",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "dev",
+    "target_doc_id": "SR_017789",
+    "target_family_ids": [
+      "SR_017789"
+    ],
+    "target_family_key": "SR_017789:[\"ayam\",\"bawang goreng\",\"telur\"]"
+  },
+  {
+    "expected_core_ingredients": [
+      "bawang merah",
+      "bawang putih",
+      "tomat"
+    ],
+    "family_id": "[\"bawang merah\",\"bawang putih\",\"tomat\"]",
+    "normalization_exact_match": true,
+    "observed_core_ingredients": [
+      "bawang merah",
+      "bawang putih",
+      "tomat"
+    ],
+    "query_id": "KI048",
+    "query_text": "bawang merah, bawang putih, tomat",
+    "reference_query_text": "bawang merah, bawang putih, tomat",
+    "scenario": "known_item",
+    "source": "corpus_target",
+    "split": "dev",
+    "target_doc_id": "SR_000649",
+    "target_family_ids": [
+      "SR_000649"
+    ],
+    "target_family_key": "SR_000649:[\"bawang merah\",\"bawang putih\",\"tomat\"]"
+  }
+]
