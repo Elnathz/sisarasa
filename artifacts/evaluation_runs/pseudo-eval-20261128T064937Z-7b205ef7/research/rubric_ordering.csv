@@ -1,0 +1,9 @@
+rubric_variant,split,model_order_nDCG@10,same_order_as_reference,SisaRasa Hybrid_minus_Set-Overlap
+loose_minus_0.10,dev,SisaRasa Hybrid > Set-Overlap > BM25 > TF-IDF Cosine,False,0.0026
+loose_minus_0.10,test,Set-Overlap > SisaRasa Hybrid > TF-IDF Cosine > BM25,True,-0.0172
+proxy_v3,dev,Set-Overlap > SisaRasa Hybrid > TF-IDF Cosine > BM25,True,-0.0121
+proxy_v3,test,Set-Overlap > SisaRasa Hybrid > TF-IDF Cosine > BM25,True,-0.0343
+strict_plus_0.10,dev,Set-Overlap > SisaRasa Hybrid > TF-IDF Cosine > BM25,True,-0.0395
+strict_plus_0.10,test,Set-Overlap > SisaRasa Hybrid > TF-IDF Cosine > BM25,True,-0.0862
+without_protein_rule,dev,Set-Overlap > SisaRasa Hybrid > TF-IDF Cosine > BM25,True,-0.0374
+without_protein_rule,test,Set-Overlap > SisaRasa Hybrid > TF-IDF Cosine > BM25,True,-0.0393
