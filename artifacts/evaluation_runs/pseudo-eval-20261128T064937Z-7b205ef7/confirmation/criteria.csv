@@ -1,0 +1,8 @@
+rq,comparison,metric,value,wins,ties,losses,ci_low,ci_high,rule,passed
+RQ1,SisaRasa Hybrid vs Set-Overlap,nDCG@10,-0.022382005664626392,6.0,22.0,20.0,-0.041924117860470164,-0.003279795528063883,mean_delta >= 0.02 and wins > losses,False
+RQ1,SisaRasa Hybrid vs TF-IDF Cosine,nDCG@10,0.29653150461743877,45.0,2.0,1.0,0.23086644306058254,0.36794715781816834,mean_delta >= 0.02 and wins > losses,True
+RQ1,SisaRasa Hybrid vs BM25,nDCG@10,0.3582090663231674,46.0,2.0,0.0,0.304735747269953,0.412104814807272,mean_delta >= 0.02 and wins > losses,True
+RQ2,full vs without_protein,nDCG@10,0.00781563253493515,6.0,42.0,0.0,0.0019972335845728335,0.015181849812579785,mean_delta > 0.0 and wins > losses,True
+RQ2,full vs without_missing_penalty,nDCG@10,0.03880987616425238,24.0,24.0,0.0,0.019834264381681826,0.06171143639929707,mean_delta > 0.0 and wins > losses,True
+RQ3,candidate_offer_recall,rate,1.0,30.0,,0.0,,,rate >= 0.8,True
+RQ3,false_suggestion_valid,count,0.0,,,,,,count <= 0 of 10,True

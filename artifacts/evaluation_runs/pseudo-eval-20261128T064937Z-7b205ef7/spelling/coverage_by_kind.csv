@@ -1,0 +1,9 @@
+kind,case_count,unique_inputs,unique_targets
+ambiguous,2,1,2
+curated_alias,2,2,2
+deletion,14,14,14
+short,2,2,2
+substitution,4,4,4
+transposition,2,2,2
+unknown,2,2,0
+valid,8,8,8
