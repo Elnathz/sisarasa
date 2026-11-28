@@ -1,0 +1,98 @@
+{
+  "BM25": {
+    "dev": {
+      "known_item": {
+        "Hit@10": 0.1351,
+        "Hit@5": 0.0541,
+        "Latency (ms)": 4.0526,
+        "MRR@10": 0.048,
+        "query_count": 37,
+        "zero_idcg_queries": null,
+        "zero_relevant_queries": 0
+      }
+    },
+    "test": {
+      "known_item": {
+        "Hit@10": 0.1818,
+        "Hit@5": 0.0909,
+        "Latency (ms)": 4.0714,
+        "MRR@10": 0.0584,
+        "query_count": 11,
+        "zero_idcg_queries": null,
+        "zero_relevant_queries": 0
+      }
+    }
+  },
+  "Set-Overlap": {
+    "dev": {
+      "known_item": {
+        "Hit@10": 0.0541,
+        "Hit@5": 0.0,
+        "Latency (ms)": 4.2337,
+        "MRR@10": 0.0057,
+        "query_count": 37,
+        "zero_idcg_queries": null,
+        "zero_relevant_queries": 0
+      }
+    },
+    "test": {
+      "known_item": {
+        "Hit@10": 0.0909,
+        "Hit@5": 0.0909,
+        "Latency (ms)": 4.2389,
+        "MRR@10": 0.0455,
+        "query_count": 11,
+        "zero_idcg_queries": null,
+        "zero_relevant_queries": 0
+      }
+    }
+  },
+  "SisaRasa Hybrid": {
+    "dev": {
+      "known_item": {
+        "Hit@10": 0.0541,
+        "Hit@5": 0.027,
+        "Latency (ms)": 28.5859,
+        "MRR@10": 0.0081,
+        "query_count": 37,
+        "zero_idcg_queries": null,
+        "zero_relevant_queries": 0
+      }
+    },
+    "test": {
+      "known_item": {
+        "Hit@10": 0.0909,
+        "Hit@5": 0.0909,
+        "Latency (ms)": 28.1922,
+        "MRR@10": 0.0455,
+        "query_count": 11,
+        "zero_idcg_queries": null,
+        "zero_relevant_queries": 0
+      }
+    }
+  },
+  "TF-IDF Cosine": {
+    "dev": {
+      "known_item": {
+        "Hit@10": 0.0,
+        "Hit@5": 0.0,
+        "Latency (ms)": 18.117,
+        "MRR@10": 0.0,
+        "query_count": 37,
+        "zero_idcg_queries": null,
+        "zero_relevant_queries": 0
+      }
+    },
+    "test": {
+      "known_item": {
+        "Hit@10": 0.0909,
+        "Hit@5": 0.0909,
+        "Latency (ms)": 18.0032,
+        "MRR@10": 0.0227,
+        "query_count": 11,
+        "zero_idcg_queries": null,
+        "zero_relevant_queries": 0
+      }
+    }
+  }
+}
